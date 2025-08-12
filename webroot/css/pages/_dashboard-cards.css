@@ -1,0 +1,42 @@
+/* Jenbury Financial Dashboard Styles - Card Base Overrides */
+/* These might override styles in components/_cards.css */
+
+.card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--light-gray-border);
+    overflow: hidden; /* Needed for border-radius and potential image overflow */
+    margin-bottom: var(--spacing-lg); /* Consistent spacing */
+}
+
+.card:last-child {
+    margin-bottom: 0; /* Remove margin from last card in a stack */
+}
+
+.card-header {
+    padding: var(--spacing-md); /* 16px */
+    border-bottom: 1px solid var(--light-gray-border);
+    background-color: var(--white); /* Keep header white unless specified otherwise */
+}
+
+.card-header h2,
+.card-header h3 {
+    margin: 0;
+    font-size: var(--text-2xl); /* Was 2.4rem, Match courses.css h2 size */
+    font-weight: 600;
+    color: var(--royal-purple);
+}
+
+.card-content {
+    padding: var(--spacing-md); /* 16px */
+}
+
+/* Dashboard Specific Course Card Overrides */
+.dashboard-grid .course-card .progress-container {
+    margin-bottom: var(--spacing-sm, 8px); /* Reduce space below progress bar */
+}
+
+.dashboard-grid .course-card .course-actions {
+    margin-top: var(--spacing-md, 16px); /* Add space above the action button */
+}

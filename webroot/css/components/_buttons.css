@@ -1,0 +1,325 @@
+/* ==========================================================================
+   Buttons Component - Unified System
+   ========================================================================== */
+
+/* Define Button Variables
+   Using existing theme variables where possible, with fallbacks.
+   These could potentially be overridden in specific contexts (like admin). */
+:root {
+    --button-padding-y: 0.8rem;
+    --button-padding-x: 1.6rem;
+    --button-font-size: 1.4rem; /* Base size */
+    --button-font-weight: 600;
+    --button-line-height: 1.5;
+    --button-border-radius: 4px;
+    --button-border-width: 1px;
+    --button-transition: all 0.2s ease-in-out;
+    --button-focus-shadow: 0 0 0 0.2rem rgba(30, 144, 255, 0.5); /* Example focus ring */
+    --button-disabled-opacity: 0.65;
+
+    /* Primary (Default Jenbury Blue/Teal) */
+    --button-primary-bg: var(--jenbury-primary, #148296);
+    --button-primary-text: var(--color-primary-bg, #ffffff);
+    --button-primary-border: var(--button-primary-bg);
+    --button-primary-bg-hover: var(--jenbury-secondary, #106878);
+    --button-primary-border-hover: var(--button-primary-bg-hover);
+    --button-primary-text-hover: var(--button-primary-text);
+
+    /* Secondary (Gold Accent) */
+    --button-secondary-bg: var(--jf-gold-accent, #DAA520);
+    --button-secondary-text: var(--jf-white, #ffffff);
+    --button-secondary-border: var(--button-secondary-bg);
+    --button-secondary-bg-hover: hsl(43, 74%, 50%); /* Darker gold */
+    --button-secondary-border-hover: var(--button-secondary-bg-hover);
+    --button-secondary-text-hover: var(--button-secondary-text);
+
+    /* Accent (Purple - for specific actions like Start Module) */
+    --button-accent-bg: var(--jf-purple-primary, #6f42c1);
+    --button-accent-text: var(--jf-white, #ffffff);
+    --button-accent-border: var(--button-accent-bg);
+    --button-accent-bg-hover: hsl(262, 52%, 50%); /* Darker purple */
+    --button-accent-border-hover: var(--button-accent-bg-hover);
+    --button-accent-text-hover: var(--button-accent-text);
+
+    /* Success (Green - for Purchase/Confirm actions) */
+    --button-success-bg: var(--color-success, #28a745);
+    --button-success-text: var(--jf-white, #ffffff);
+    --button-success-border: var(--button-success-bg);
+    --button-success-bg-hover: hsl(134, 61%, 35%); /* Darker green */
+    --button-success-border-hover: var(--button-success-bg-hover);
+    --button-success-text-hover: var(--button-success-text);
+
+    /* Outline (Based on Primary) */
+    --button-outline-text: var(--button-primary-bg);
+    --button-outline-border: var(--button-primary-bg);
+    --button-outline-bg: transparent;
+    --button-outline-text-hover: var(--button-primary-text);
+    --button-outline-border-hover: var(--button-primary-bg-hover);
+    --button-outline-bg-hover: var(--button-primary-bg-hover);
+
+    /* Completed (Greyed out, non-interactive look) */
+    --button-completed-bg: var(--jf-grey-light, #f0f0f0);
+    --button-completed-text: var(--jf-grey-text, #666666);
+    --button-completed-border: var(--jf-grey-border, #cccccc);
+
+    /* Sizes */
+    --button-padding-y-sm: 0.5rem;
+    --button-padding-x-sm: 1rem;
+    --button-font-size-sm: 1.2rem;
+
+    --button-padding-y-lg: 1.2rem;
+    --button-padding-x-lg: 2.4rem;
+    --button-font-size-lg: 1.6rem;
+}
+
+/* Base Button Style */
+.button, button, input[type="submit"], input[type="button"], input[type="reset"] {
+    /* Structure & Box Model */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border: var(--button-border-width) solid transparent; /* Default border */
+    border-radius: var(--button-border-radius);
+
+    /* Typography */
+    font-family: inherit; /* Inherit from body/layout */
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    line-height: var(--button-line-height);
+    color: var(--button-primary-text); /* Default to primary text color */
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle; /* Align with adjacent text/elements */
+
+    /* Appearance & Interaction */
+    background-color: var(--button-primary-bg); /* Default to primary background */
+    border-color: var(--button-primary-border); /* Default to primary border */
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+    transition: var(--button-transition);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+
+    /* Reset browser defaults where needed */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    margin: 0; /* Remove default margins */
+}
+
+/* Default Hover State (Applies if no variant hover is defined) */
+.button:hover:not(:disabled):not(.disabled),
+button:hover:not(:disabled):not(.disabled),
+input[type="submit"]:hover:not(:disabled):not(.disabled),
+input[type="button"]:hover:not(:disabled):not(.disabled),
+input[type="reset"]:hover:not(:disabled):not(.disabled) {
+    background-color: var(--button-primary-bg-hover);
+    border-color: var(--button-primary-border-hover);
+    color: var(--button-primary-text-hover);
+    transform: translateY(-1px); /* Subtle lift */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus State - IMPORTANT for Accessibility */
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: var(--button-focus-shadow); /* Custom focus indicator */
+}
+/* Add fallback for forced colors mode */
+@media (forced-colors: active) {
+    .button:focus, button:focus, input[type="submit"]:focus, input[type="button"]:focus, input[type="reset"]:focus {
+        outline: Highlight solid 2px; /* Standard high contrast focus */
+    }
+}
+
+/* Active State */
+.button:active:not(:disabled):not(.disabled),
+button:active:not(:disabled):not(.disabled),
+input[type="submit"]:active:not(:disabled):not(.disabled),
+input[type="button"]:active:not(:disabled):not(.disabled),
+input[type="reset"]:active:not(:disabled):not(.disabled) {
+    transform: translateY(0); /* Press down */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Inner shadow */
+    filter: brightness(95%); /* Slightly darken */
+}
+
+/* Disabled State */
+.button:disabled, .button.disabled,
+button:disabled, button.disabled,
+input[type="submit"]:disabled, input[type="submit"].disabled,
+input[type="button"]:disabled, input[type="button"].disabled,
+input[type="reset"]:disabled, input[type="reset"].disabled {
+    opacity: var(--button-disabled-opacity);
+    cursor: not-allowed;
+    pointer-events: none; /* Prevent clicks */
+    box-shadow: none; /* Remove shadow */
+    transform: none; /* Remove transforms */
+}
+
+/* --- Button Variants --- */
+
+/* Primary Button (Default style already applied, class for specificity/overrides) */
+.button-primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border-color: var(--button-primary-border);
+}
+.button-primary:hover:not(:disabled):not(.disabled) {
+    background-color: var(--button-primary-bg-hover);
+    border-color: var(--button-primary-border-hover);
+    color: var(--button-primary-text-hover);
+}
+
+/* Secondary Button (Gold) */
+.button-secondary {
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
+    border-color: var(--button-secondary-border);
+}
+.button-secondary:hover:not(:disabled):not(.disabled) {
+    background-color: var(--button-secondary-bg-hover);
+    border-color: var(--button-secondary-border-hover);
+    color: var(--button-secondary-text-hover);
+}
+
+/* Accent Button (Purple) */
+.button-accent {
+    background-color: var(--button-accent-bg);
+    color: var(--button-accent-text);
+    border-color: var(--button-accent-border);
+}
+.button-accent:hover:not(:disabled):not(.disabled) {
+    background-color: var(--button-accent-bg-hover);
+    border-color: var(--button-accent-border-hover);
+    color: var(--button-accent-text-hover);
+}
+
+/* Success Button (Green) */
+.button-success {
+    background-color: var(--button-success-bg);
+    color: var(--button-success-text);
+    border-color: var(--button-success-border);
+}
+.button-success:hover:not(:disabled):not(.disabled) {
+    background-color: var(--button-success-bg-hover);
+    border-color: var(--button-success-border-hover);
+    color: var(--button-success-text-hover);
+}
+
+/* Outline Button */
+.button-outline {
+    color: var(--button-outline-text);
+    background-color: var(--button-outline-bg);
+    border-color: var(--button-outline-border);
+}
+.button-outline:hover:not(:disabled):not(.disabled) {
+    color: var(--button-outline-text-hover);
+    background-color: var(--button-outline-bg-hover);
+    border-color: var(--button-outline-border-hover);
+}
+/* Ensure focus ring is visible on outline */
+.button-outline:focus {
+    box-shadow: 0 0 0 0.2rem var(--button-outline-border, var(--button-primary-bg)) alpha(0.5);
+}
+
+/* Gold Button (Explicitly Gold) */
+.button-gold {
+    background-color: var(--button-secondary-bg); /* Use the gold variable */
+    color: var(--button-secondary-text);
+    border-color: var(--button-secondary-border);
+}
+.button-gold:hover:not(:disabled):not(.disabled) {
+    background-color: var(--button-secondary-bg-hover);
+    border-color: var(--button-secondary-border-hover);
+    color: var(--button-secondary-text-hover);
+}
+
+/* Completed Button (Visual state, might still be clickable to view details) */
+/* Note: If it should be truly non-interactive, add .disabled class as well */
+.button-completed {
+    background-color: var(--button-completed-bg);
+    color: var(--button-completed-text);
+    border-color: var(--button-completed-border);
+    box-shadow: none;
+    cursor: default; /* Indicate different state */
+}
+/* Override hover/active effects for completed look */
+.button-completed:hover:not(:disabled):not(.disabled),
+.button-completed:active:not(:disabled):not(.disabled) {
+    background-color: var(--button-completed-bg);
+    color: var(--button-completed-text);
+    border-color: var(--button-completed-border);
+    transform: none;
+    box-shadow: none;
+    filter: none;
+}
+/* Ensure icons inside also adopt the color */
+.button-completed i,
+.button-completed .fa, /* Common FontAwesome classes */
+.button-completed .fas,
+.button-completed .far {
+    color: var(--button-completed-text) !important; /* Force color */
+    opacity: 0.8;
+}
+
+/* --- Button Sizes --- */
+
+/* Small Button */
+.button-sm {
+    padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
+    font-size: var(--button-font-size-sm);
+    border-radius: calc(var(--button-border-radius) * 0.8); /* Slightly smaller radius */
+}
+
+/* Large Button */
+.button-lg {
+    padding: var(--button-padding-y-lg) var(--button-padding-x-lg);
+    font-size: var(--button-font-size-lg);
+    border-radius: calc(var(--button-border-radius) * 1.2); /* Slightly larger radius */
+}
+
+/* Button with extra horizontal padding */
+.button-extra-padding-x {
+    padding-left: 3.2rem; /* Example: double the default --button-padding-x */
+    padding-right: 3.2rem;/* Example: double the default --button-padding-x */
+}
+
+/* --- Button Groups (Optional Basic Styling) --- */
+.button-group {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.button-group > .button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.button-group > .button:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.button-group > .button:last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: calc(var(--button-border-width) * -1); /* Overlap borders */
+}
+
+/* Ensure focus styles work correctly in groups */
+.button-group > .button:focus {
+    z-index: 1; /* Bring focused button to the front */
+}
+
+/* --- Full Width Button --- */
+/* Apply this class directly or to a container */
+.button-full-width,
+.container-full-width .button { /* Example container usage */
+    display: flex; /* Ensure flex properties work */
+    width: 100%;
+    justify-content: center;
+}

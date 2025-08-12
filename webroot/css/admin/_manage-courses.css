@@ -1,0 +1,189 @@
+:root {
+    /* Jenbury Admin Palette */
+    --admin-primary-purple: #6a0dad;
+    --admin-primary-purple-darker: #580B94;
+    --admin-light-purple-bg: #e6e0f5;
+    --admin-lighter-purple-bg: #f0e6f7;
+    --admin-purple-border: #d1c4e9;
+
+    --jenbury-primary-blue: #148296;
+    --jenbury-secondary-blue: #106878;
+
+    --white: #ffffff;
+    --black: #333333;
+    --grey-text: #555;
+    --grey-text-secondary: #6c757d;
+    --light-gray-border: #ddd;
+    --background-alt: #f9f9f9; /* Page background */
+    --table-header-bg: #f2f2f2;
+
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --border-radius: 4px;
+}
+
+/* Styles specific to Admin/Manage Courses page */
+.manage-courses-page { /* Assuming this is the main page wrapper */
+    background: var(--background-alt);
+    padding: var(--spacing-sm);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--grey-text);
+    line-height: 1.6;
+    /* Centering for the whole page content if needed, or apply to a specific inner container */
+    /* max-width: 1200px;
+    margin: var(--spacing-md) auto; */
+}
+
+
+.manage-courses-page .header-actions { /* This acts as .admin-page-header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--light-gray-border);
+}
+/* Ensure h2 in header-actions is styled like h1 from discount-codes */
+.manage-courses-page .header-actions h2 {
+    color: var(--admin-primary-purple);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.manage-courses-page .courses-list { /* This is the .admin-content-card */
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-sm) var(--spacing-sm) 0 var(--spacing-sm); /* Apply padding, but 0 for bottom */
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Table Styles to match _discount-codes.css */
+.manage-courses-page .courses-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0; /* Table is directly in card, or var(--spacing-xs) if inside card-body */
+}
+.manage-courses-page .courses-list th,
+.manage-courses-page .courses-list td {
+    padding: 10px; /* Matches discount-codes */
+    text-align: left;
+    border: 1px solid var(--light-gray-border); /* Matches discount-codes */
+    vertical-align: middle; /* Matches discount-codes */
+}
+.manage-courses-page .courses-list th {
+    background-color: var(--table-header-bg); /* Matches discount-codes */
+    font-weight: bold; /* Matches discount-codes */
+    color: var(--black); /* Matches discount-codes */
+    white-space: nowrap;
+    font-size: 1.4rem; /* User requested size */
+    text-transform: none; /* Matches discount-codes */
+}
+.manage-courses-page .courses-list tr:nth-child(odd) td {
+    background-color: var(--background-alt); /* Matches discount-codes */
+}
+.manage-courses-page .courses-list tr:hover td {
+    background-color: #f1f1f1; /* Matches discount-codes hover */
+}
+
+
+/* Button Styles */
+/* Header Button (Add New Course) */
+.manage-courses-page .header-actions .button.button-primary {
+    background: var(--admin-primary-purple);
+    color: var(--white);
+    border: 1px solid var(--admin-primary-purple);
+    padding: 8px 15px; /* Matches discount-codes */
+    border-radius: var(--border-radius); /* Matches discount-codes */
+    font-size: 1rem;
+    font-weight: 500; /* Matches discount-codes */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    text-transform: none; /* Matches discount-codes */
+}
+.manage-courses-page .header-actions .button.button-primary:hover {
+    background: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+/* Action buttons in table - to match _discount-codes.css button styling */
+.manage-courses-page td.actions {
+    white-space: nowrap; /* From discount-codes */
+    /* display: flex; and gap removed to allow natural flow or individual button margins */
+}
+.manage-courses-page td.actions .button { /* General for table action buttons */
+    display: inline-block; /* From discount-codes */
+    color: var(--white);
+    border: 1px solid transparent; /* Base border */
+    border-radius: 3px; /* From discount-codes */
+    padding: 4px 8px; /* From discount-codes */
+    line-height: 1.5; /* From discount-codes */
+    font-size: 0.9em; /* From discount-codes */
+    font-weight: bold; /* From discount-codes */
+    text-decoration: none;
+    text-transform: none; /* From discount-codes */
+    box-sizing: border-box; /* From discount-codes */
+    vertical-align: middle; /* From discount-codes */
+    margin-right: 5px; /* From discount-codes */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.manage-courses-page td.actions .button:last-child {
+    margin-right: 0;
+}
+
+.manage-courses-page td.actions .button:not(.button-danger) { /* Edit, Manage Modules */
+    background-color: var(--jenbury-primary-blue); /* From discount-codes */
+    border-color: var(--jenbury-primary-blue); /* From discount-codes */
+}
+.manage-courses-page td.actions .button:not(.button-danger):hover {
+    background-color: var(--jenbury-secondary-blue); /* From discount-codes */
+    border-color: var(--jenbury-secondary-blue); /* From discount-codes */
+}
+.manage-courses-page td.actions .button.button-danger { /* Delete */
+    background-color: var(--color-danger);
+    border-color: var(--color-danger); /* Ensure border matches */
+}
+.manage-courses-page td.actions .button.button-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130; /* Ensure border matches hover */
+}
+
+
+.manage-courses-page .status-active {
+    color: var(--color-success);
+    font-weight: bold;
+}
+
+.manage-courses-page .status-inactive {
+    color: var(--color-danger);
+    font-weight: bold;
+}
+
+.manage-courses-page .back-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+.manage-courses-page .back-link .button {
+    background: var(--white);
+    color: var(--admin-primary-purple);
+    border: 1px solid var(--admin-primary-purple);
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+.manage-courses-page .back-link .button:hover {
+    background: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+}

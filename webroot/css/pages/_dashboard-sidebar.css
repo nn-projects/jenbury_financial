@@ -1,0 +1,112 @@
+/* Sidebar Components */
+
+/* Quick Links */
+.quick-links .card-content {
+    padding: 0; /* Remove padding to allow list items full width */
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    border-bottom: 1px solid var(--light-gray-border);
+}
+
+.nav-list li:last-child {
+    border-bottom: none;
+}
+
+/* Increased specificity */
+.quick-links .nav-list a {
+    display: block;
+    padding: var(--spacing-md); /* 16px padding */
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: background-color var(--transition-speed) ease;
+    font-size: var(--text-base); /* Was 1.6rem, Substantially increased size */
+}
+
+.nav-list a:hover {
+    background-color: var(--royal-purple-05); /* Light purple tint */
+}
+
+/* Recent Activity */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* 16px */
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start; /* Align icon top */
+    gap: var(--spacing-md); /* 16px */
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Perfect circle */
+    background-color: var(--gold-bronze);
+    color: var(--white); /* Icon color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: var(--text-base); /* Was 1rem, Adjust icon size */
+}
+
+/* Placeholder for actual icons - replace with your icon font/SVG classes */
+.icon-book::before { content: "📖"; } /* Example */
+.icon-cart::before { content: "🛒"; } /* Example */
+.icon-login::before { content: "➡️"; } /* Example */
+
+
+/* Increased specificity */
+.recent-activity .activity-details p {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: var(--text-base); /* Was 1.5rem, Substantially increased size */
+    color: var(--dark-text); /* Use dark text for main activity */
+    line-height: 1.4;
+}
+
+/* Increased specificity */
+.recent-activity .activity-details small {
+    color: var(--muted-text);
+    font-size: var(--text-base); /* Was 1.2rem, Substantially increased size */
+}
+
+/* Recommended Courses */
+.recommended-course {
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--light-gray-border);
+}
+
+.recommended-course:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+/* Increased specificity */
+.recommended-courses .recommended-course h4 {
+    font-size: var(--text-lg); /* Was 1.8rem, Match courses.css --text-lg */
+    font-weight: 600;
+    color: var(--dark-text);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+/* Increased specificity */
+.recommended-courses .recommended-course p {
+    font-size: var(--text-base); /* Was 1rem, Increased size */
+    color: var(--muted-text);
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.recommended-course .button {
+    /* Already styled as small-button outline-button via HTML */
+}

@@ -1,0 +1,141 @@
+/* Forms */
+form {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid var(--color-border); /* Enhanced border */
+    border-radius: var(--border-radius);
+    background-color: var(--color-primary-bg); /* Ensure consistent background */
+    transition: border-color var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out; /* Smooth transition */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--jenbury-primary); /* Use brand primary for focus */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(20, 130, 150, 0.25); /* Add focus ring using brand primary */
+}
+
+/* =================================== */
+/* Inline Form Validation Errors       */
+/* =================================== */
+
+/* Style for the error message text itself (typically in a div.error-message) */
+.error-message {
+    color: var(--color-danger); /* Use the danger color variable (#dc3545) */
+    font-size: 1.4rem;          /* Slightly smaller than base text */
+    display: block;             /* Ensure it takes its own line */
+    margin-top: var(--spacing-xs); /* Add a small space above the message (0.25rem) */
+    font-weight: 500;           /* Make it slightly bolder */
+}
+
+/* Style the input field's container when there's an error */
+/* CakePHP FormHelper usually adds 'form-error' to the wrapping div.input */
+.form-error label {
+    color: var(--color-danger); /* Make the label text red */
+}
+
+.form-error input[type="text"],
+.form-error input[type="email"],
+.form-error input[type="password"],
+.form-error input[type="number"],
+.form-error textarea,
+.form-error select {
+    border-color: var(--color-danger); /* Make the input border red */
+    /* Optional: Add a subtle background or shadow */
+    /* background-color: #fdd; */
+}
+
+/* Ensure focus styles still work on error fields, but keep the red border */
+.form-error input[type="text"]:focus,
+.form-error input[type="email"]:focus,
+.form-error input[type="password"]:focus,
+.form-error input[type="number"]:focus,
+.form-error textarea:focus,
+.form-error select:focus {
+    border-color: var(--color-danger); /* Keep red border */
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); /* Add a red focus ring */
+    outline: none;
+}
+
+/* =================================== */
+/* Real-time Validation States (JS)  */
+/* =================================== */
+
+/* Hide error message by default */
+/* This applies to both server-generated and JS-generated .error-message divs */
+.input .error-message {
+    display: none;
+}
+
+/* Input field invalid state */
+input.is-invalid,
+textarea.is-invalid,
+select.is-invalid {
+    border-color: var(--color-danger);
+    /* padding-right: calc(1.5em + 0.75rem); */ /* Optional: Make space for potential icon */
+    /* Optional: Add background icon for invalid state */
+}
+input.is-invalid:focus,
+textarea.is-invalid:focus,
+select.is-invalid:focus {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); /* Keep red focus ring */
+}
+
+/* Input field valid state */
+input.is-valid,
+textarea.is-valid,
+select.is-valid {
+    border-color: var(--color-success);
+    /* padding-right: calc(1.5em + 0.75rem); */ /* Optional: Make space for potential icon */
+    /* Optional: Add background icon for valid state */
+}
+input.is-valid:focus,
+textarea.is-valid:focus,
+select.is-valid:focus {
+    border-color: var(--color-success);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); /* Green focus ring */
+}
+
+/* Style the message when invalid */
+/* Show the .error-message when its container (.input) has the .is-invalid class */
+/* Increased specificity slightly */
+form .input.is-invalid .error-message
+{
+    color: var(--color-danger);
+    display: block !important; /* Use !important to ensure override */
+}
+
+/* Style the message when valid (optional) */
+/* By default, it's hidden via `.input .error-message`. */
+/* If you want to show success messages, uncomment below */
+/*
+.input.is-valid .error-message
+{
+    color: var(--color-success);
+    display: block;
+}
+*/

@@ -1,0 +1,25 @@
+/* Utility Classes */
+
+/* Utility for strikethrough */
+.strikethrough {
+    text-decoration: line-through;
+}
+
+/* Placeholder for lesson icon */
+.icon-lesson::before {
+    content: "📄"; /* Basic emoji placeholder */
+    margin-right: var(--space-2); /* Assumes --space-2 is defined */
+    /* Replace with actual icon */
+}
+
+/* No courses message */
+.no-courses {
+    text-align: center;
+    padding: var(--space-12) 0; /* Assumes --space-12 is defined */
+    color: var(--jf-grey-text); /* Assumes --jf-grey-text is defined */
+}
+
+/* Text Alignment */
+.text-center {
+    text-align: center;
+}

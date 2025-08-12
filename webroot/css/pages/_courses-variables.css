@@ -1,0 +1,39 @@
+/* Jenbury Financial - Custom Course Styles Variables */
+/* Consider merging these with base/_variables.css if appropriate */
+:root {
+    --jf-purple-primary: hsl(270, 50%, 40%); /* Primary Purple */
+    --jf-gold-accent: hsl(43, 41%, 45%);    /* Accent Gold/Bronze */
+    --jf-blue-secondary: hsl(195, 53%, 79%); /* Secondary Light Blue */
+    --jf-grey-text: hsl(215, 20%, 35%);     /* Neutral Gray for text */
+    --jf-dark-grey-text: hsl(215, 16%, 25%); /* Darker grey for titles */
+    --jf-light-purple-bg: hsla(270, 50%, 40%, 0.1); /* Light purple background (10% opacity) */
+    --jf-very-light-purple-bg: hsla(270, 50%, 40%, 0.05); /* Very light purple background (5% opacity) */
+    --jf-light-blue-bg: hsla(195, 53%, 79%, 0.1); /* Light blue background (10% opacity) */
+    --jf-white: #ffffff;
+    --jf-black: #333333; /* Near-black */
+
+    /* Typography - Increased base sizes while keeping 62.5% root (1rem = 10px) */
+    --font-sans: 'Raleway', sans-serif;
+
+    /* Spacing */
+    --space-12: 3rem; /* 48px */
+    --space-8: 2rem; /* 32px */
+    --space-6: 1.5rem; /* 24px */
+    --space-4: 1rem; /* 16px */
+    --space-2: 0.5rem; /* 8px */
+    --space-1: 0.25rem; /* 4px */ /* Added for finer control */
+
+
+    /* Borders */
+    --rounded-lg: 0.5rem; /* 8px */
+    --rounded-md: 0.375rem; /* 6px */
+
+    /* Shadows */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Reference variables from jenbury.css if needed */
+    /* --color-border: #e9ecef; */ /* From jenbury.css */
+    /* --color-secondary-bg: #f8f9fa; */ /* From jenbury.css */
+    /* --color-success: #28a745; */ /* From jenbury.css */
+}

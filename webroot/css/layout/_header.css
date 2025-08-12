@@ -1,0 +1,319 @@
+/* Header */
+.site-header {
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-medium-gray); /* Note: --color-medium-gray might not be defined yet */
+    margin-bottom: var(--spacing-lg);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2.4rem; /* Increased font size */
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    margin: 0 var(--spacing-md);
+}
+
+.user-nav {
+    display: flex;
+    align-items: center;
+}
+
+.user-nav .button {
+    margin-left: var(--spacing-sm);
+}
+
+/* Change logo and Courses link color on hover */
+.logo a:hover h1, /* Target h1 inside hovered link */
+.main-nav ul li a[href*="/courses"]:hover { /* Target hovered Courses link */
+    color: var(--jenbury-primary); /* Use primary Jenbury color */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.main-nav ul li a[href*="/forum-categories"]:hover { /* Target hovered Courses link */
+    color: var(--jenbury-primary); /* Use primary Jenbury color */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+/* Ensure logo link itself has no underline on hover */
+.logo a:hover {
+    text-decoration: none;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    font-size: 1.8rem; /* Increased font size for user name */
+    color: var(--color-text); /* Ensure text is visible by default */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    background-color: var(--color-background); /* Note: --color-background might not be defined yet */
+    box-shadow: var(--box-shadow); /* Note: --box-shadow might not be defined yet */
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm) 0;
+    z-index: 1000;
+    list-style: none;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-light-gray); /* Note: --color-light-gray might not be defined yet */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.divider {
+    height: 1px;
+    margin: var(--spacing-sm) 0;
+    background-color: var(--color-medium-gray); /* Note: --color-medium-gray might not be defined yet */
+}
+
+/* Customizations based on feedback */
+
+/* Increase 'Courses' nav link size */
+.main-nav ul li a[href*="/courses"] { /* Target the courses link specifically */
+    font-size: 2.0rem; /* Increase font size (adjust value as needed) */
+    font-weight: bold; /* Make it bold as well */
+}
+
+/* Increase 'Forum Categories' nav link size */
+.main-nav ul li a[href*="/forum-categories"] { /* Target the courses link specifically */
+    font-size: 2.0rem; /* Increase font size (adjust value as needed) */
+    font-weight: bold; /* Make it bold as well */
+}
+
+/* Remove hover background on user dropdown toggle, keep text color */
+.user-nav .dropdown .dropdown-toggle:hover {
+    background-color: transparent !important; /* Override any hover background */
+    color: var(--jf-gold-accent) !important; /* Ensure the gold color persists on hover */ /* Note: --jf-gold-accent might not be defined */
+}
+
+/* Style user dropdown menu */
+.user-nav .dropdown-menu {
+    background-color: var(--jf-gold-accent); /* Note: --jf-gold-accent might not be defined */
+    border-color: var(--jf-gold-accent); /* Match border to background */ /* Note: --jf-gold-accent might not be defined */
+    border-radius: 0; /* Remove border radius for sharp corners */
+}
+
+/* Style user dropdown menu links */
+.user-nav .dropdown-menu a {
+    color: white;
+}
+
+/* Style user dropdown menu link hover */
+.user-nav .dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle white highlight on hover */
+    color: white; /* Keep text white on hover */
+}
+
+/* Ensure dropdown divider is visible on gold background */
+.user-nav .dropdown-menu .divider {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighter divider */
+}
+
+/* Styles for Header Auth Buttons (from home.php) */
+.login-button, .signup-button {
+    padding: 1rem 2rem; /* Further increased padding */
+    border-radius: 2rem; /* More rounded */
+    font-weight: 600;
+    font-size: 1.2rem; /* Further increased font size */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    /* Override base button styles if needed */
+    border: 1px solid transparent; /* Reset base border */
+    box-shadow: none; /* Reset base shadow */
+    line-height: normal; /* Reset line-height if needed */
+    display: inline-block; /* Ensure display */
+    text-align: center; /* Ensure text alignment */
+    cursor: pointer; /* Ensure cursor */
+    white-space: nowrap; /* Ensure no wrapping */
+}
+
+.login-button {
+    background-color: transparent;
+    color: var(--jenbury-primary); /* Use primary color for text */
+    border: 1px solid var(--jenbury-primary); /* Use primary color for border */
+}
+
+.login-button:hover {
+    background-color: rgba(20, 130, 150, 0.1); /* Light primary background */
+    color: var(--jenbury-secondary); /* Darker primary on hover */
+    border-color: var(--jenbury-secondary); /* Darker border on hover */
+    transform: translateY(-2px);
+}
+
+.signup-button {
+    background-color: var(--jenbury-accent); /* Use accent color (purple) */
+    color: white;
+    border: none; /* Explicitly remove border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.signup-button:hover {
+    background-color: rgb(75, 40, 130); /* Slightly darker purple */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+/* Styles for the right-side DESKTOP navigation group (cart + user nav) */
+.user-nav-desktop { /* Renamed from nav-right-group */
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased Spacing between cart icon and user nav */
+}
+/* General Cart Icon Styling */
+.nav-cart-icon {
+    font-size: 1.8rem; /* Adjust size as needed */
+    color: var(--color-text); /* Default color */
+    text-decoration: none;
+    padding: 0.5rem; /* Add some padding for easier clicking */
+}
+
+.nav-cart-icon:hover {
+    color: var(--jenbury-primary); /* Hover color */
+}
+
+.nav-cart-icon i {
+    vertical-align: middle;
+}
+
+
+/* Mobile Header Actions - Hidden by default, shown in responsive.css */
+.mobile-header-actions {
+    display: none; /* Hidden by default, enabled in responsive styles */
+    align-items: center;
+    gap: 0.5rem; /* Spacing between mobile cart and hamburger */
+}
+
+/* Specific cart icon for mobile if needed, for now uses general .nav-cart-icon */
+.nav-cart-icon-mobile {
+    /* Add any mobile-specific cart icon styles here if different from desktop */
+}
+
+
+/* Full-Screen Overlay Menu (#navbarNav) */
+.collapse.navbar-collapse { /* This is #navbarNav */
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98); /* Slightly transparent white */
+    z-index: 1050; /* Ensure it's above other content, Bootstrap's modal z-index is 1050 */
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 2rem;
+    overflow-y: auto; /* Allow scrolling if content exceeds viewport */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.collapse.navbar-collapse.show {
+    display: flex; /* Use flex for centering */
+    opacity: 1;
+    visibility: visible;
+}
+
+.collapse.navbar-collapse ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center text of list items */
+}
+
+.collapse.navbar-collapse li {
+    padding: 1rem 0; /* Generous padding for tap targets */
+    width: 100%;
+}
+
+.collapse.navbar-collapse li .divider {
+    margin: 1rem auto; /* Center divider */
+    width: 50%;
+    background-color: var(--color-medium-gray);
+}
+
+.collapse.navbar-collapse a {
+    display: block;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.8rem; /* Larger font size for mobile menu */
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+}
+
+.collapse.navbar-collapse a:hover,
+.collapse.navbar-collapse a:focus {
+    color: var(--jenbury-primary);
+}
+
+/* Close button for the overlay menu */
+.close-menu-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem; /* Larger close icon */
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.close-menu-btn:hover {
+    color: var(--jenbury-primary);
+}
+
+/* Cart Item Count Badge Styling */
+/* This comment was present in both, kept once */
+
+@media (max-width: 768px) {
+    .nav-right-group { /* This class might need to be .user-nav-desktop if it was renamed globally */
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .nav-cart-icon { /* This style will apply to the general cart icon on mobile */
+        margin-right: 1rem;
+    }
+}

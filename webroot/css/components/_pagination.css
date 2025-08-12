@@ -1,0 +1,58 @@
+/* Pagination Styles */
+.pagination-container {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+}
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md) 0;
+    display: inline-flex; /* Use flexbox for alignment */
+    gap: var(--spacing-xs); /* Small gap between items */
+}
+
+.pagination li {
+    margin: 0; /* Remove default margin if any */
+}
+
+.pagination li a,
+.pagination li span { /* Style links and spans (like current page or disabled) */
+    display: block;
+    padding: 0.6rem 1rem; /* Adjust padding */
+    min-width: 40px; /* Ensure minimum width */
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem; /* Match button radius */
+    color: var(--jenbury-primary);
+    background-color: var(--color-primary-bg);
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.pagination li a:hover {
+    background-color: var(--color-secondary-bg);
+    border-color: var(--jenbury-secondary);
+    color: var(--jenbury-secondary);
+}
+
+.pagination li.active span { /* Style for the current page */
+    background-color: var(--jenbury-primary);
+    border-color: var(--jenbury-primary);
+    color: var(--color-primary-bg);
+    font-weight: 600;
+    cursor: default;
+}
+
+.pagination li.disabled span { /* Style for disabled prev/next */
+    color: var(--color-text-muted);
+    background-color: var(--color-secondary-bg);
+    border-color: var(--color-border);
+    cursor: default;
+}
+
+.pagination-container p { /* Style for the counter text */
+    color: var(--text-muted); /* Note: --text-muted might not be defined yet */
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+}

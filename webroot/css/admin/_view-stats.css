@@ -1,0 +1,97 @@
+/*
+ * Styles specific to the Admin Manage Users page
+ * (/admin/view-stats)
+ */
+
+.section-separator {
+    margin-bottom: 60px; /* Adjust this value as needed */
+}
+.section-header {
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+.view-stats-container {
+    max-width: 1400px;
+    padding: 1.5rem 1.5rem;
+    box-sizing: border-box;
+    margin: 0 auto; 
+}
+
+
+@media (max-width: 768px) {
+    .view-stats-container {
+        padding: 2rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+    }
+
+    .page-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .page-header-actions {
+        align-self: stretch;
+        text-align: left;
+    }
+
+    .data-table table,
+    .data-table thead,
+    .data-table tbody,
+    .data-table th,
+    .data-table td,
+    .data-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .data-table thead {
+        display: none; 
+    }
+
+    .data-table tr {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+        padding: 0.75rem 0;
+    }
+
+    .data-table td {
+        padding: 0.5rem 0;
+        position: relative;
+        text-align: left;
+    }
+
+    .data-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--jf-dark-grey-text);
+    }
+
+    .course-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .course-card {
+        width: 100%;
+    }
+
+    .progress-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .progress-info {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}

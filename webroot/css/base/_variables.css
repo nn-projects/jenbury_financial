@@ -1,0 +1,46 @@
+/* Variables */
+:root {
+    /* Jenbury Colors */
+    --jenbury-primary: rgb(20, 130, 150);
+    --jenbury-secondary: rgb(15, 110, 130);
+    --jenbury-accent: rgb(90, 50, 150);
+
+    /* Base Colors (Inspired by CoursesView) */
+    --color-primary-bg: #ffffff;
+    --color-secondary-bg: #f8f9fa;
+    --color-text: #333333;
+    --color-text-muted: #6c757d;
+    --color-border: #e9ecef;
+
+    /* Functional Colors (Keep existing or adapt) */
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+
+    /* Fonts (Keep existing or adapt) */
+    --font-primary: system-ui, -apple-system, sans-serif; /* From CoursesView */
+    --font-heading: 'Raleway', sans-serif; /* Keep existing heading font */
+
+    /* Font Sizes */
+    --text-4xl: 3.6rem; /* 36px */
+    --text-3xl: 3.0rem; /* 30px */
+    --text-2xl: 2.4rem; /* 24px */
+    --text-xl: 2.0rem; /* 20px */
+    --text-lg: 1.8rem; /* 18px */
+    --text-base: 1.6rem; /* 16px */
+
+    /* Spacing (Keep existing or adapt) */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem; /* Adjusted based on CoursesView usage */
+    --spacing-xl: 2rem;   /* Adjusted based on CoursesView usage */
+    --spacing-xxl: 3rem;  /* Adjusted based on CoursesView usage */
+
+    /* UI Elements (Inspired by CoursesView) */
+    --border-radius: 12px; /* From CoursesView card */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* From CoursesView */
+    --card-shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1); /* From CoursesView */
+    --transition-speed: 0.3s;
+}

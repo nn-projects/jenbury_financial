@@ -1,0 +1,45 @@
+.profile-form-body {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+}
+
+.profile-form-body .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    
+}
+
+@media (min-width: 768px) {
+
+    .profile-form-body .column {
+        flex: 0 0 48%;
+        
+    }
+
+   
+}
+
+.profile-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border, #ccc);
+    border-radius: 8px;
+    font-size: var(--text-base);
+    background-color: #fff;
+}
+
+.profile-form-body .submit {
+    text-align: right;
+    margin-top: 1.5rem;
+}

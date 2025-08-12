@@ -1,0 +1,19 @@
+/* Status Indicators (from CakePHP home page) */
+.bullet:before {
+    font-family: 'cakefont', sans-serif; /* Assumes cakefont is defined */
+    font-size: 18px;
+    display: inline-block;
+    margin-left: -1.3em;
+    width: 1.2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: -1px;
+}
+.success:before {
+    color: #88c671;
+    content: "\0056";
+}
+.problem:before {
+    color: #d33d44;
+    content: "\0057";
+}

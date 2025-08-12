@@ -1,0 +1,251 @@
+/*
+ * Styles specific to the Admin Manage Users page
+ * (/admin/manage-users)
+ * Most common styles (table, card, buttons) are now inherited from _discount-codes.css
+ */
+/* Overrides for admin page header if _discount-codes.css is not winning */
+.admin-page-header.page-header-flex {
+    background-color: transparent !important;
+}
+
+.admin-page-header.page-header-flex h1 {
+    color: var(--admin-primary-purple) !important;
+}
+
+/* --- Search/Filter --- */
+/* .manage-users-controls and .user-search-container are now styled by generic card body context */
+
+/* Specific styling for the search input icon if needed, base style from _discount-codes.css */
+#user-search {
+    /* Base styles from .admin-form-container input[type="text"] in _discount-codes.css */
+    /* This adds the icon */
+    padding-right: 2.5rem !important; /* Ensure space for icon */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-sm) center;
+    background-size: 16px 16px;
+}
+
+
+/* Sorting Styles for table headers - these are unique to manage_users */
+/* .user-table th button.sort-button and .user-table th .sort-icon styles are now in _discount-codes.css */
+/* If specific overrides are needed for manage_users page, they can go here, but prefer consistency. */
+
+
+/* Role Badge Overrides if they differ from _discount-codes.css */
+/* .user-table .role-badge, .user-table .badge.badge-primary etc. are now in _discount-codes.css */
+/* If specific overrides are needed for manage_users page, they can go here. */
+
+
+/* --- Responsive View (Mobile) for user table --- */
+/* These styles are specific to how the user table transforms on mobile */
+@media (max-width: 768px) {
+    .manage-users-page .user-table thead { /* More specific selector */
+        display: none;
+    }
+
+    .manage-users-page .user-table,
+    .manage-users-page .user-table tbody,
+    .manage-users-page .user-table tr,
+    .manage-users-page .user-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .manage-users-page .user-table tr {
+        margin-bottom: var(--spacing-md); /* Use theme variable */
+        border: 1px solid var(--light-gray-border); /* Use theme variable */
+        border-radius: 4px; /* Use theme variable or specific value */
+        padding: var(--spacing-sm);
+        background-color: var(--white);
+        /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Use theme shadow or remove if card has it */
+    }
+
+    .manage-users-page .user-table td {
+        text-align: right;
+        padding-left: 45%; /* Space for the label */
+        position: relative;
+        border-bottom: 1px dashed var(--lighter-gray-border); /* Lighter separator within the "card" */
+        padding-top: var(--spacing-xs);
+        padding-bottom: var(--spacing-xs);
+        /* font-size: 1rem; /* Adjust if needed */
+    }
+     .manage-users-page .user-table tr td:last-child {
+         border-bottom: none; /* No border for the last cell in a mobile row card */
+     }
+
+
+    .manage-users-page .user-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: var(--spacing-sm);
+        width: 40%;
+        padding-right: var(--spacing-xs);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--admin-primary-purple); /* Theme color for labels */
+        /* font-size: 0.9rem; /* Adjust if needed */
+    }
+
+    .manage-users-page .user-table td.actions {
+        text-align: left; /* Align action buttons to the left on mobile */
+        padding-left: var(--spacing-sm); /* Reset padding for actions cell */
+        padding-top: var(--spacing-md); /* Space above action buttons */
+    }
+    .manage-users-page .user-table td.actions::before {
+        /* content: 'Actions:'; /* Optional: if you want "Actions:" label */
+        /* display: block; */
+        /* margin-bottom: var(--spacing-xs); */
+        /* text-align: left; */
+        /* position: static; */
+        /* width: auto; */
+    }
+
+    .manage-users-page .user-table td.actions .button,
+    .manage-users-page .user-table td.actions .postlink-button-wrapper {
+        display: block; /* Stack buttons vertically */
+        width: 100%;
+        margin-bottom: var(--spacing-xs);
+        margin-right: 0;
+        text-align: center;
+    }
+     .manage-users-page .user-table td.actions .postlink-button-wrapper:last-of-type {
+        margin-bottom: 0;
+    }
+}
+/* Explicit table cell and header background overrides for manage-users context */
+.manage-users-page .user-table th {
+    background-color: var(--table-header-bg, #f2f2f2) !important; /* Default from _discount-codes.css */
+    color: var(--black, #333) !important;
+}
+
+.manage-users-page .user-table td {
+    background-color: var(--white, #ffffff) !important; /* Default for all cells */
+}
+
+.manage-users-page .user-table tbody tr:nth-child(odd) td {
+    background-color: var(--background-alt, #f9f9f9) !important; /* Zebra striping */
+}
+
+/* Ensure hover doesn't bring back blue */
+.manage-users-page .user-table tbody tr:hover td {
+    background-color: #f1f1f1 !important; /* Hover effect from _discount-codes.css */
+}
+/* Override for sort buttons within table headers on manage-users context pages */
+.manage-users-page .user-table th button.sort-button {
+    background-color: transparent !important;
+    color: inherit !important; /* Inherit color from th */
+    border: none !important;
+    padding: 0 !important; /* Reset padding */
+    margin: 0 !important; /* Reset margin */
+    font-weight: inherit !important; /* Inherit font weight */
+    text-align: left !important; /* Align with th text */
+    box-shadow: none !important; /* Remove any box shadow */
+    text-decoration: none !important; /* Remove underline if any */
+}
+
+.manage-users-page .user-table th button.sort-button:hover,
+.manage-users-page .user-table th button.sort-button:focus {
+    background-color: transparent !important; /* Ensure no background on hover/focus */
+    text-decoration: underline !important; /* Optional: add underline on hover for affordance */
+}
+/* === START BUTTON OVERRIDES FOR MANAGE PAGES === */
+
+/* Edit Button */
+.manage-users-page .actions a.button.button-edit,
+.manage-users-page .actions a.button.button-edit:link,
+.manage-users-page .actions a.button.button-edit:visited {
+    background-color: var(--admin-primary-purple, #6a0dad) !important;
+    color: var(--white, #ffffff) !important;
+    border-color: var(--admin-primary-purple, #6a0dad) !important;
+}
+.manage-users-page .actions a.button.button-edit:hover,
+.manage-users-page .actions a.button.button-edit:active {
+    background-color: var(--admin-primary-purple-darker, #580B94) !important;
+    color: var(--white, #ffffff) !important;
+    border-color: var(--admin-primary-purple-darker, #580B94) !important;
+}
+
+/* Delete Button (wrapper) */
+.manage-users-page .actions .postlink-button-wrapper.wrapper-danger {
+    display: inline-block !important;
+    position: relative !important;
+    padding: 4px 8px !important;
+    border-radius: 3px !important;
+    font-size: 0.9em !important;
+    font-weight: bold !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    margin-right: 5px !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    pointer-events: none !important; /* Wrapper itself doesn't receive clicks */
+    background-color: var(--color-danger, #dc3545) !important;
+    border: 1px solid var(--color-danger, #dc3545) !important;
+    color: var(--white, #ffffff) !important;
+}
+.manage-users-page .actions .postlink-button-wrapper.wrapper-danger:hover {
+    background-color: #c82333 !important; /* Darker danger */
+    border-color: #bd2130 !important;
+}
+/* Ensure text inside delete button wrapper is white */
+.manage-users-page .actions .postlink-button-wrapper.wrapper-danger a .button-text,
+.manage-users-page .actions .postlink-button-wrapper.wrapper-danger a i,
+.manage-users-page .actions .postlink-button-wrapper.wrapper-danger form input[type="submit"] { /* For direct submit postlinks */
+    color: var(--white, #ffffff) !important;
+}
+
+
+/* Generic Admin Action Buttons (Lock, Sticky, Approve - wrapper) */
+.manage-users-page .actions .postlink-button-wrapper.wrapper-admin-action {
+    display: inline-block !important;
+    position: relative !important;
+    padding: 4px 8px !important;
+    border-radius: 3px !important;
+    font-size: 0.9em !important;
+    font-weight: bold !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    margin-right: 5px !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    pointer-events: none !important; /* Wrapper itself doesn't receive clicks */
+    background-color: var(--admin-primary-purple, #6a0dad) !important;
+    border: 1px solid var(--admin-primary-purple, #6a0dad) !important;
+    color: var(--white, #ffffff) !important;
+}
+.manage-users-page .actions .postlink-button-wrapper.wrapper-admin-action:hover {
+    background-color: var(--admin-primary-purple-darker, #580B94) !important;
+    border-color: var(--admin-primary-purple-darker, #580B94) !important;
+}
+/* Ensure text inside admin-action button wrapper is white */
+.manage-users-page .actions .postlink-button-wrapper.wrapper-admin-action a .button-text,
+.manage-users-page .actions .postlink-button-wrapper.wrapper-admin-action a i,
+.manage-users-page .actions .postlink-button-wrapper.wrapper-admin-action form input[type="submit"] { /* For direct submit postlinks */
+    color: var(--white, #ffffff) !important;
+}
+
+
+/* Fallback for any other .button.button-small in actions if not specifically wrapped/classed */
+.manage-users-page .actions .button.button-small:not(.button-edit):not(.button-danger) {
+    background-color: var(--admin-primary-purple, #6a0dad) !important;
+    color: var(--white, #ffffff) !important;
+    border-color: var(--admin-primary-purple, #6a0dad) !important;
+}
+.manage-users-page .actions .button.button-small:not(.button-edit):not(.button-danger):hover {
+    background-color: var(--admin-primary-purple-darker, #580B94) !important;
+    border-color: var(--admin-primary-purple-darker, #580B94) !important;
+}
+
+/* === END BUTTON OVERRIDES FOR MANAGE PAGES === */

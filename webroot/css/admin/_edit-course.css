@@ -1,0 +1,302 @@
+/* -------------------- Edit Course Styling -------------------- */
+:root {
+    /* Jenbury Admin Palette (derived from users/account & discount-codes) */
+    --admin-primary-purple: #6a0dad;
+    --admin-primary-purple-darker: #580B94;
+    --admin-light-purple-bg: #e6e0f5;
+    --admin-lighter-purple-bg: #f0e6f7;
+    --admin-purple-border: #d1c4e9;
+
+    /* Jenbury Core Palette (from other files, for secondary actions if needed) */
+    --jenbury-primary-blue: #148296;
+    --jenbury-secondary-blue: #106878;
+    --jenbury-gold-accent: #DAA520;
+
+    /* Neutral Palette (consistent with users/account where possible) */
+    --white: #ffffff;
+    --black: #333333; /* Standard dark text */
+    --grey-text: #555; /* General text, slightly darker than #666 */
+    --grey-text-secondary: #6c757d; /* Muted text */
+    --light-gray-border: #ddd; /* Standard border color from users/account table */
+    --lighter-gray-border: #eee;
+    --lightest-gray-border: #f1f1f1;
+    --background-alt: #f9f9f9; /* Zebra stripe or general light bg */
+    --table-header-bg: #f2f2f2; /* From users/account table header */
+
+    /* Functional Colors */
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --border-radius: 4px; /* Standardized border radius */
+}
+  
+.edit-course-page { /* This is the .admin-edit-page */
+    background: var(--background-alt); /* Lighter page background */
+    padding: var(--spacing-sm) var(--spacing-sm); /* Consistent padding */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* Consistent font */
+    color: var(--grey-text);
+    line-height: 1.6;
+}
+
+/* Page Header - Copied from _discount-codes.css */
+.admin-page-header {
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--light-gray-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-page-header h1 {
+    color: var(--admin-primary-purple);
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.admin-back-link .button {
+    background-color: var(--admin-primary-purple);
+    color: var(--white);
+    border: 1px solid var(--admin-primary-purple);
+    padding: 8px 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.admin-back-link .button:hover {
+    background-color: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+}
+  
+/* Standardized form container from discount codes */
+.admin-form-container.admin-content-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0; /* Remove padding, admin-card-body will have it */
+}
+.admin-card-body {
+    padding: var(--spacing-sm);
+}
+
+.admin-form-container fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-form-container legend {
+    font-size: 1.8rem; /* Slightly smaller than h1 */
+    font-weight: 600;
+    color: var(--admin-primary-purple);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--admin-purple-border);
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.edit-course-page .input, /* Keep targeting .input for existing structure */
+.admin-form-container .input { /* For consistency if template changes */
+    margin-bottom: 1.8rem;
+}
+  
+.edit-course-page label,
+.admin-form-container label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: var(--grey-text);
+    font-size: 1.3rem;
+}
+  
+.edit-course-page .form-input, /* Keep targeting .form-input */
+.admin-form-container input[type="text"],
+.admin-form-container input[type="number"],
+.admin-form-container input[type="email"],
+.admin-form-container input[type="password"],
+.admin-form-container textarea,
+.admin-form-container select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    background: var(--white);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+  
+.edit-course-page .form-input:focus, /* Keep targeting .form-input:focus */
+.admin-form-container input[type="text"]:focus,
+.admin-form-container input[type="number"]:focus,
+.admin-form-container input[type="email"]:focus,
+.admin-form-container input[type="password"]:focus,
+.admin-form-container textarea:focus,
+.admin-form-container select:focus {
+    border-color: var(--admin-primary-purple);
+    box-shadow: 0 0 0 3px hsla(270, 70%, 50%, 0.2);
+    outline: none;
+    background: var(--white);
+}
+  
+.edit-course-page .form-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.8rem; /* Consistent spacing */
+}
+  
+.edit-course-page .toggle-checkbox { /* Assuming this is an input type checkbox */
+    /* Modern toggle switch styling can be adopted from _add-course.css if preferred */
+    accent-color: var(--admin-primary-purple);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+  
+.edit-course-page .form-toggle label {
+    font-weight: normal;
+    color: var(--grey-text);
+    font-size: 1.3rem; /* Match other labels */
+    margin-bottom: 0; /* Align with checkbox */
+}
+  
+.edit-course-page .current-image {
+    margin-bottom: 1.8rem;
+}
+.edit-course-page .current-image label {
+    font-weight: 500; /* Consistent with other labels */
+    color: var(--grey-text);
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+  
+/* Buttons */
+.edit-course-page .form-actions,
+.admin-form-container .form-actions { /* Target new class as well */
+    display: flex;
+    gap: 1rem;
+    margin-top: var(--spacing-md); /* Consistent spacing */
+    justify-content: flex-start; /* Default, can be overridden by .step-actions */
+}
+.edit-course-page .form-actions.step-actions { /* For consistent layout with add_course */
+    justify-content: space-between;
+}
+
+.edit-course-page .button,
+.admin-form-container .button {
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    text-align: center;
+    text-transform: none;
+    border: 1px solid transparent; /* Base for secondary */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.edit-course-page .button.button-primary,
+.admin-form-container .button.button-primary {
+    background: var(--admin-primary-purple);
+    color: var(--white);
+    border-color: var(--admin-primary-purple);
+}
+.edit-course-page .button.button-primary:hover,
+.admin-form-container .button.button-primary:hover {
+    background: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+    color: var(--white);
+}
+
+.edit-course-page .button.button-secondary, /* Added for cancel button */
+.admin-form-container .button.button-secondary {
+    background: var(--white);
+    color: var(--admin-primary-purple);
+    border-color: var(--admin-primary-purple);
+}
+.edit-course-page .button.button-secondary:hover,
+.admin-form-container .button.button-secondary:hover {
+    background: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+    color: var(--admin-primary-purple-darker);
+}
+  
+/* Responsive Design (can be consolidated later if styles are very similar) */
+@media (max-width: 768px) {
+    .edit-course-page { /* Matches .admin-edit-page */
+      padding: var(--spacing-sm) var(--spacing-xs);
+    }
+  
+    .admin-form-container.admin-content-card {
+      padding: var(--spacing-sm);
+    }
+  
+    .admin-page-header h1 {
+      font-size: 1.8rem;
+    }
+    .admin-form-container legend {
+        font-size: 1.5rem;
+    }
+  
+    .edit-course-page .input,
+    .admin-form-container .input {
+      margin-bottom: var(--spacing-sm);
+    }
+  
+    .edit-course-page .form-actions,
+    .admin-form-container .form-actions {
+      gap: 0.75rem;
+      margin-top: var(--spacing-sm);
+      flex-direction: column; /* Stack buttons on small screens */
+    }
+    .edit-course-page .form-actions.step-actions {
+        flex-direction: column-reverse; /* Match add_course */
+    }
+  
+    .edit-course-page .button,
+    .admin-form-container .button {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem; /* Slightly adjusted */
+      width: 100%; /* Full width buttons on mobile */
+    }
+  
+    .edit-course-page .form-toggle {
+      gap: 0.5rem;
+    }
+  
+    .edit-course-page .toggle-checkbox {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .edit-course-page .form-toggle label {
+      font-size: 1.1rem; /* Match other labels */
+    }
+}
+  
+/* -------------------- Accessibility Notes -------------------- */
+/* Ensure sufficient color contrast between text and background colors for readability. */
+/* Make sure form labels are correctly associated with their input fields using the 'for' attribute in HTML and the 'id' attribute on the input. */

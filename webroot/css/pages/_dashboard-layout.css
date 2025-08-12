@@ -1,0 +1,52 @@
+/* Jenbury Financial Dashboard Styles - Layout Overrides */
+
+body { /* Consider if this should override base body styles */
+    font-family: var(--font-sans);
+    color: var(--dark-text);
+    background-color: var(--white); /* Or a very light gray if preferred */
+    line-height: 1.6;
+    font-size: var(--text-base); /* Was 16px, Base font size */
+}
+
+.container { /* This likely needs higher specificity if overriding Milligram/jenbury.css */
+    /* Override default max-width for dashboard container */
+    max-width: none;
+    margin: 0 auto; /* Keep auto margin for centering if needed, or adjust */
+    padding: var(--spacing-lg) var(--spacing-md); /* 32px top/bottom, 16px left/right */
+}
+
+.page-header {
+    margin-bottom: var(--spacing-lg); /* 32px */
+}
+
+.page-header h1 {
+    font-size: var(--text-4xl); /* Was 3.6rem, Match courses.css h1 size */
+    font-weight: 700;
+    color: var(--royal-purple);
+    margin: 0;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first */
+    gap: var(--spacing-lg); /* 32px */
+    /* Padding handled by inner .container now */
+}
+
+/* Note: Responsive layout moved to _responsive.css */
+
+/* Course & Module Grids */
+.course-grid,
+.module-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first */
+    gap: var(--spacing-md); /* 16px */
+}
+
+/* Note: Responsive grid columns moved to _responsive.css */
+
+/* View All Links */
+.view-all {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}

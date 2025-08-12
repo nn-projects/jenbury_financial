@@ -1,0 +1,596 @@
+/* Styles for Admin Discount Codes Page */
+
+:root {
+    /* Jenbury Admin Palette (derived from users/account) */
+    --admin-primary-purple: #6a0dad; /* Primary purple from users/account tabs */
+    --admin-primary-purple-darker: #580B94; /* Darker shade for hovers etc. */
+    --admin-light-purple-bg: #e6e0f5; /* Light purple bg from users/account tabs */
+    --admin-lighter-purple-bg: #f0e6f7; /* Even lighter purple for subtle backgrounds */
+    --admin-purple-border: #d1c4e9; /* Lighter purple border, can adjust */
+
+    /* Jenbury Core Palette (from other files, for secondary actions if needed) */
+    --jenbury-primary-blue: #148296;
+    --jenbury-secondary-blue: #106878;
+    --jenbury-gold-accent: #DAA520;
+
+    /* Neutral Palette (consistent with users/account where possible) */
+    --white: #ffffff;
+    --black: #333333; /* Standard dark text */
+    --grey-text: #555; /* General text, slightly darker than #666 */
+    --grey-text-secondary: #6c757d; /* Muted text */
+    --light-gray-border: #ddd; /* Standard border color from users/account table */
+    --lighter-gray-border: #eee;
+    --lightest-gray-border: #f1f1f1;
+    --background-alt: #f9f9f9; /* Zebra stripe or general light bg */
+    --table-header-bg: #f2f2f2; /* From users/account table header */
+
+    /* Functional Colors */
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+/* General page structure, similar to users/account */
+.discountCodes.index.content {
+    padding: var(--spacing-sm); /* Consistent padding */
+    background-color: var(--white); /* Or a very light grey if preferred */
+}
+
+/* Page Header - Mimicking .page-header from users/account */
+.admin-page-header.page-header-flex { /* Increased specificity */
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--light-gray-border);
+    display: flex; /* Enable flexbox */
+    justify-content: space-between; /* Push title to left, button to right */
+    align-items: center; /* Vertically align items */
+    background-color: transparent !important; /* Ensure transparent background */
+}
+
+.admin-page-header.page-header-flex h1, .admin-page-header.page-header-flex h2 { /* Increased specificity */
+    color: var(--admin-primary-purple) !important; /* Purple title, ensure override */
+    margin: 0;
+    font-size: 2.2rem; /* Match users/account h1 */
+    font-weight: 600;
+}
+
+/* Card structure for main content area */
+.admin-content-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-border);
+    border-radius: 4px; /* Subtle rounding */
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.admin-card-header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--admin-lighter-purple-bg); /* Very light purple */
+    border-bottom: 1px solid var(--admin-purple-border);
+    border-top-left-radius: 3px; /* Match card rounding */
+    border-top-right-radius: 3px;
+}
+
+.admin-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--admin-primary-purple);
+}
+
+.admin-card-body {
+    padding: var(--spacing-sm);
+}
+
+/* Actions section (e.g., New Discount Code button) */
+.actions-section {
+    margin-bottom: var(--spacing-sm); /* Space before table/card */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button.button-admin-primary,
+.actions-section .button { /* General button styling */
+    background-color: var(--admin-primary-purple);
+    color: var(--white);
+    padding: 8px 15px; /* Slightly larger padding */
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-transform: none; /* Ensure no all caps */
+}
+
+.button.button-admin-primary:hover,
+.actions-section .button:hover {
+    background-color: var(--admin-primary-purple-darker);
+}
+
+/* Table styling to match users/account purchase history */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-xs); /* Small space above table if inside a card body */
+}
+
+table th,
+table td {
+    border: 1px solid var(--light-gray-border); /* users/account uses #ddd */
+    padding: 10px; /* users/account uses 10px */
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Add left padding to ID column cells */
+table td:first-child, table th:first-child {
+    padding-left: 20px; /* Increased left padding for the first column (ID) */
+}
+
+
+/* Set a specific width for the Percentage column */
+table th.column-percentage,
+table td.column-percentage {
+    width: 120px; /* Or a percentage like 10% - adjust as needed */
+}
+
+
+table th {
+    background-color: var(--table-header-bg); /* users/account uses #f2f2f2 */
+    font-weight: bold;
+    color: var(--black); /* users/account uses #333 */
+    white-space: nowrap;
+    text-transform: none; /* Ensure no all caps */
+}
+
+table th a {
+    color: inherit;
+    text-decoration: none;
+}
+table th a:hover {
+    text-decoration: underline;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--background-alt); /* users/account uses #f9f9f9 */
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1; /* users/account hover */
+}
+
+/* Styling for action buttons within the table - WRAPPER STRATEGY */
+table td.actions {
+    white-space: nowrap;
+}
+
+/* Edit button (<a> tag) - This styling is mostly fine */
+table td.actions a.button.button-edit {
+    display: inline-block;
+    background-color: var(--color-warning);
+    color: var(--black); /* Text color for warning buttons */
+    border: 1px solid var(--color-warning);
+    border-radius: 3px;
+    padding: 4px 8px;
+    line-height: 1.5;
+    font-size: 0.9em;
+    font-weight: bold; /* Make text bold */
+    text-decoration: none;
+    text-transform: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+    height: auto;
+    margin-right: 5px;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+table td.actions a.button.button-edit:hover {
+    background-color: #e6ac00; /* Darker warning */
+    border-color: #d39e00; /* Darker warning border */
+    color: var(--black);
+}
+
+/* Wrapper for postLink buttons */
+.postlink-button-wrapper {
+    display: inline-block;
+    position: relative; /* For positioning the form inside */
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-weight: bold; /* Make text bold */
+    line-height: 1.5;
+    text-align: center;
+    /* cursor: pointer; */ /* Removed from wrapper */
+    vertical-align: middle;
+    margin-right: 5px;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    -webkit-user-select: none; /* Prevent text selection on the wrapper */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none; /* CRITICAL: Span does not interact with mouse */
+}
+.postlink-button-wrapper:last-of-type {
+    margin-right: 0;
+}
+
+/* Form inside the wrapper - make it cover the wrapper */
+.postlink-button-wrapper form.post-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent; /* Form itself is transparent */
+    pointer-events: auto; /* Form can receive events if input doesn't */
+    z-index: 5; /* Form is above span, below input */
+}
+
+/* Input inside the form - make it invisible but THE clickable target */
+.postlink-button-wrapper form.post-link input[type="submit"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Make it invisible */
+    cursor: pointer; /* This is what the user should see */
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    font-size: 0; /* Hide text if any */
+    color: transparent; /* Hide text if any */
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: auto !important; /* CRITICAL: Input MUST receive pointer events */
+    z-index: 10; /* CRITICAL: Input on top of everything else in the wrapper */
+}
+
+/* Make the <a> tag (generated by postLink) behave like the submit input was intended to */
+.postlink-button-wrapper > a.post-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Make it invisible, it's just a clickable area */
+    cursor: pointer; /* This is what the user should see as the cursor */
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    font-size: 0; /* Hide any accidental text/content within the <a> */
+    color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: auto; /* CRITICAL: Link MUST receive pointer events */
+    z-index: 10; /* CRITICAL: Link on top of everything else in the wrapper */
+}
+
+/* Styling for different types of wrapper buttons */
+.postlink-button-wrapper.wrapper-danger {
+    background-color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    color: var(--white);
+}
+.postlink-button-wrapper.wrapper-danger:hover {
+    background-color: #c82333; /* Darker danger */
+    border-color: #bd2130;
+}
+
+.postlink-button-wrapper.wrapper-warning {
+    background-color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+    color: var(--black);
+}
+.postlink-button-wrapper.wrapper-warning:hover {
+    background-color: #e6ac00; /* Darker warning */
+    border-color: #d39e00;
+}
+
+.postlink-button-wrapper.wrapper-success {
+    background-color: var(--color-success);
+    border: 1px solid var(--color-success);
+    color: var(--white);
+}
+.postlink-button-wrapper.wrapper-success:hover {
+    background-color: #1e7e34; /* Darker success */
+    border-color: #1c7430;
+}
+/* Wrapper for generic admin action postLink buttons */
+.postlink-button-wrapper.wrapper-admin-action {
+    background-color: var(--admin-primary-purple);
+    border: 1px solid var(--admin-primary-purple);
+    color: var(--white);
+}
+.postlink-button-wrapper.wrapper-admin-action:hover {
+    background-color: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+.postlink-button-wrapper.wrapper-info {
+    background-color: var(--color-info);
+    border: 1px solid var(--color-info);
+    color: var(--white);
+}
+.postlink-button-wrapper.wrapper-info:hover {
+    background-color: #138496; /* Darker info */
+    border-color: #117a8b;
+}
+
+/* Status indicators */
+.status-active {
+    color: var(--color-success);
+    font-weight: bold;
+}
+.status-inactive {
+    color: var(--color-danger); /* Or a more muted grey like users/account if preferred */
+    font-weight: bold;
+}
+
+/* Paginator styling to match users/account */
+.paginator {
+    margin-top: var(--spacing-md);
+    text-align: right; /* Align pagination controls to the right */
+}
+
+.paginator ul.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-xs) 0; /* Space below links, before counter */
+    display: inline-flex;
+}
+
+.paginator ul.pagination li {
+    margin-right: 5px;
+}
+
+.paginator ul.pagination li a,
+.paginator ul.pagination li span {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--admin-primary-purple); /* Purple links */
+    border: 1px solid var(--admin-purple-border);
+    border-radius: 3px;
+    background-color: var(--white);
+    display: block;
+}
+.paginator ul.pagination li.active span {
+    background-color: var(--admin-primary-purple);
+    color: var(--white);
+    border-color: var(--admin-primary-purple);
+    font-weight: bold;
+}
+.paginator ul.pagination li a:hover {
+    background-color: var(--admin-light-purple-bg);
+    border-color: var(--admin-primary-purple);
+}
+.paginator ul.pagination li.disabled span,
+.paginator ul.pagination li.disabled a { /* If using 'a' for disabled */
+    color: var(--grey-text-secondary);
+    border-color: var(--light-gray-border);
+    background-color: var(--background-alt);
+    cursor: not-allowed;
+}
+
+.paginator p { /* Counter text */
+    margin: 0;
+    color: var(--grey-text);
+    font-size: 0.9em;
+}
+
+/* === Form Styling for Add/Edit Pages === */
+.admin-add-page, .admin-edit-page { /* General wrapper for add/edit type pages */
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-lg); /* More space at the bottom */
+}
+
+.admin-form-container { /* This will be the .admin-content-card on add/edit pages */
+    /* Uses .admin-content-card styles: background, border, radius, shadow */
+    max-width: 760px; /* Constrain form width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-form-container fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-form-container legend {
+    font-size: 2.2rem; /* Increased font size significantly */
+    font-weight: 600;
+    color: var(--admin-primary-purple);
+    margin-bottom: 2rem; /* Increased margin */
+    padding-bottom: 1rem; /* Increased padding */
+    border-bottom: 1px solid var(--admin-purple-border);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-form-container .input { /* CakePHP's default div wrapper for form controls */
+    margin-bottom: 1.8rem; /* Slightly increased */
+}
+
+.admin-form-container label {
+    display: block;
+    margin-bottom: 0.75rem; /* Increased margin */
+    font-weight: 500;
+    color: var(--grey-text);
+    font-size: 1.3rem; /* Increased font size */
+}
+
+.admin-form-container input[type="text"],
+.admin-form-container input[type="number"],
+.admin-form-container input[type="email"],
+.admin-form-container input[type="password"],
+.admin-form-container textarea,
+.admin-form-container select {
+    width: 100%;
+    padding: 12px 15px; /* Increased padding */
+    border: 1px solid var(--light-gray-border); /* #ddd */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.4rem; /* Increased font size for text inside input */
+    line-height: 1.5;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.admin-form-container input[type="text"]:focus,
+.admin-form-container input[type="number"]:focus,
+.admin-form-container input[type="email"]:focus,
+.admin-form-container input[type="password"]:focus,
+.admin-form-container textarea:focus,
+.admin-form-container select:focus {
+    border-color: var(--admin-primary-purple);
+    box-shadow: 0 0 0 3px hsla(270, 70%, 50%, 0.2); /* Adjusted alpha for purple */
+    outline: none;
+}
+
+.admin-form-container .button.button-admin-primary, /* For the main submit button */
+.admin-form-container input[type="submit"].button-admin-primary { /* If using a raw submit input with this class */
+    /* Uses .button.button-admin-primary styles defined earlier. */
+    margin-top: 1rem; /* Increased space above the submit button */
+    /* To align button to the right if desired:
+    display: block;
+    margin-left: auto;
+    width: fit-content;
+    */
+}
+
+/* Back link styling for add/edit pages */
+.admin-back-link {
+    display: inline-block; /* Keeps it on its own line if before a block h1 */
+    margin-bottom: var(--spacing-sm); /* Adjusted margin */
+    color: var(--admin-primary-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+.admin-back-link:hover {
+    text-decoration: underline;
+}
+.admin-back-link .button { /* If styling the link as a button */
+    background-color: var(--admin-primary-purple); /* Solid purple background */
+    color: var(--white); /* White text */
+    border: 1px solid var(--admin-primary-purple); /* Border same as background */
+    padding: 8px 15px; /* Match other primary buttons */
+    font-weight: 500;
+    text-decoration: none; /* Ensure no underline from <a> tag */
+    border-radius: 4px; /* Match other primary buttons */
+}
+.admin-back-link .button:hover {
+    background-color: var(--admin-primary-purple-darker); /* Darker purple on hover */
+    border-color: var(--admin-primary-purple-darker);
+}
+
+/* Informational text styling */
+.form-info-text {
+    font-size: 1.1rem; /* Increased size */
+    color: var(--grey-text-secondary);
+    margin-top: -1rem; /* Pull it up closer to the input above */
+    margin-bottom: 1.5rem; /* Ensure space before next element */
+    padding-left: 2px; /* Slight indent if needed */
+    line-height: 1.4;
+}
+
+/* === Manage Users Page Specific Styles (can be moved to _manage-users.css later) === */
+
+/* Search input on Manage Users */
+.manage-users-controls { /* Container for search, can add other controls here later */
+    margin-bottom: var(--spacing-sm);
+}
+.user-search-container input[type="search"].form-control {
+    /* Inherits from .admin-form-container input[type="text"] but we can override if needed */
+    /* For example, if we want it slightly less tall than other form inputs: */
+    padding: 8px 10px;
+    font-size: 1.2rem; /* Slightly smaller than main form inputs if desired */
+    max-width: 400px; /* Don't let search be overly wide */
+}
+
+/* Table header sort buttons on Manage Users */
+table th button.sort-button {
+    background-color: transparent !important; /* Ensure no button background */
+    border: none !important; /* Ensure no button border */
+    padding: 0;
+    margin: 0;
+    font-weight: bold; /* Match th font-weight */
+    color: inherit !important; /* Inherit color from th, ensure it's not blue */
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    font-size: inherit; /* Match th font-size */
+}
+table th button.sort-button .sort-icon {
+    margin-left: 5px;
+    color: var(--grey-text); /* Subtler color for sort icon */
+}
+table th button.sort-button:hover .sort-icon {
+    color: var(--admin-primary-purple); /* Highlight on hover */
+}
+
+/* Info button style (e.g., for "View Stats") */
+table td.actions a.button.button-info {
+    display: inline-block;
+    background-color: var(--color-info);
+    color: var(--white);
+    border: 1px solid var(--color-info);
+    border-radius: 3px;
+    padding: 4px 8px;
+    line-height: 1.5;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+    height: auto;
+    margin-right: 5px;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+table td.actions a.button.button-info:hover {
+    background-color: #138496; /* Darker info */
+    border-color: #117a8b;
+}
+
+/* Badge styling (ensure it's visible and consistent) */
+.role-badge {
+    padding: 0.3em 0.6em;
+    font-size: 0.85em;
+    font-weight: 600;
+    border-radius: 3px;
+    color: var(--white);
+    text-transform: capitalize;
+}
+.badge.badge-primary.role-badge { /* Admin */
+    background-color: var(--admin-primary-purple);
+}
+.badge.role-badge { /* Member - default, could be a grey or secondary color */
+    background-color: var(--grey-text-secondary);
+}
+.badge.badge-success.role-badge { /* Student */
+    background-color: var(--color-success);
+}
+
+.badge.role-badge.role-member { /* Member - specific style */
+    background-color: var(--color-warning);
+    color: var(--black); /* Dark text for yellow background */
+}

@@ -1,0 +1,427 @@
+/* -------------------- Edit Module Styling -------------------- */
+:root {
+    /* Jenbury Admin Palette (copied from _discount-codes.css) */
+    --admin-primary-purple: #6a0dad;
+    --admin-primary-purple-darker: #580B94;
+    --admin-light-purple-bg: #e6e0f5;
+    --admin-lighter-purple-bg: #f0e6f7;
+    --admin-purple-border: #d1c4e9;
+
+    --jenbury-primary-blue: #148296;
+    --jenbury-secondary-blue: #106878;
+    --jenbury-gold-accent: #DAA520;
+
+    --white: #ffffff;
+    --black: #333333;
+    --grey-text: #555;
+    --grey-text-secondary: #6c757d;
+    --light-gray-border: #ddd;
+    --lighter-gray-border: #eee;
+    --lightest-gray-border: #f1f1f1;
+    --background-alt: #f9f9f9; /* Page background */
+    --table-header-bg: #f2f2f2;
+
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --border-radius: 4px; /* Standardized border radius */
+}
+  
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.edit-module-page.admin-edit-page { /* Target the wrapper with new class */
+    background: var(--background-alt);
+    padding: var(--spacing-sm);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--grey-text);
+    line-height: 1.6;
+}
+
+/* Page Header */
+.admin-page-header {
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--light-gray-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-page-header h1 {
+    color: var(--admin-primary-purple);
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.admin-back-link .button {
+    background-color: var(--white); /* Secondary button style for back link */
+    color: var(--admin-primary-purple);
+    border: 1px solid var(--admin-primary-purple);
+    padding: 8px 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.admin-back-link .button:hover {
+    background-color: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+}
+  
+/* Standardized form container */
+.admin-form-container.admin-content-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-md) auto; /* Centered */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 760px;
+    padding: 0;
+}
+.admin-card-body {
+    padding: var(--spacing-md);
+}
+
+.admin-form-container fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-form-container legend {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--admin-primary-purple);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--admin-purple-border);
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.edit-module-page .input,
+.admin-form-container .input {
+    margin-bottom: 1.8rem;
+}
+  
+.edit-module-page label,
+.admin-form-container label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: var(--grey-text);
+    font-size: 1.3rem;
+}
+  
+.edit-module-page .form-input,
+.edit-module-page textarea,
+.admin-form-container input[type="text"],
+.admin-form-container input[type="number"],
+.admin-form-container input[type="email"],
+.admin-form-container input[type="password"],
+.admin-form-container textarea,
+.admin-form-container select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    background: var(--white);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+  
+.edit-module-page textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+  
+.edit-module-page .form-input:focus,
+.edit-module-page textarea:focus,
+.admin-form-container input:not([type="checkbox"]):not([type="radio"]):focus,
+.admin-form-container textarea:focus,
+.admin-form-container select:focus {
+    border-color: var(--admin-primary-purple);
+    box-shadow: 0 0 0 3px hsla(270, 70%, 50%, 0.2);
+    outline: none;
+    background: var(--white);
+}
+  
+/* Validation Errors */
+.edit-module-page .form-error {
+    color: var(--color-danger);
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+    padding-left: 0.25rem;
+    animation: fadeIn 0.3s ease-in-out;
+}
+  
+.edit-module-page .input-error .form-input,
+.edit-module-page .input-error textarea {
+    border-color: var(--color-danger) !important;
+    background-color: #fff5f5;
+}
+  
+/* Buttons */
+.edit-module-page .form-actions,
+.admin-form-container .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: var(--spacing-md);
+}
+.edit-module-page .form-actions.step-actions {
+    justify-content: space-between;
+}
+
+.edit-module-page .button,
+.admin-form-container .button {
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    text-align: center;
+    text-transform: none;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.edit-module-page .button.button-primary,
+.admin-form-container .button.button-primary {
+    background: var(--admin-primary-purple);
+    color: var(--white);
+    border-color: var(--admin-primary-purple);
+}
+.edit-module-page .button.button-primary:hover,
+.admin-form-container .button.button-primary:hover {
+    background: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+.edit-module-page .button.button-secondary,
+.admin-form-container .button.button-secondary {
+    background: var(--white);
+    color: var(--admin-primary-purple);
+    border-color: var(--admin-primary-purple);
+}
+.edit-module-page .button.button-secondary:hover,
+.admin-form-container .button.button-secondary:hover {
+    background: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+}
+  
+/* Checkbox + Toggle */
+.edit-module-page .input.form-toggle, /* Target the .input wrapper if it's used for toggle */
+.admin-form-container .form-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1.8rem;
+}
+  
+.edit-module-page .toggle-checkbox,
+.admin-form-container .toggle-checkbox {
+    accent-color: var(--admin-primary-purple);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+  
+.edit-module-page .input.form-toggle label, /* Target label inside .input.form-toggle */
+.admin-form-container .form-toggle label {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--grey-text);
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+/* Module Contents Table Styling */
+.module-contents.admin-content-card {
+    margin-top: var(--spacing-lg); /* Add space above this card */
+}
+.module-contents .admin-card-header h3 {
+    color: var(--admin-primary-purple);
+    font-size: 1.5rem; /* Slightly smaller than page/form legend */
+    font-weight: 600;
+}
+.module-contents table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-sm);
+}
+.module-contents th,
+.module-contents td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid var(--light-gray-border);
+    vertical-align: middle;
+}
+.module-contents th {
+    background-color: var(--table-header-bg);
+    font-weight: bold;
+    color: var(--black);
+}
+.module-contents tr:nth-child(odd) td {
+    background-color: var(--background-alt);
+}
+.module-contents tr:hover td {
+    background-color: var(--admin-lighter-purple-bg);
+}
+.module-contents td.actions {
+    white-space: nowrap;
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+}
+.module-contents td.actions .button { /* General style for action buttons in this table */
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px; /* Smaller padding for these buttons */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+.module-contents td.actions .button:not(.button-danger) {
+    background-color: var(--jenbury-primary-blue);
+}
+.module-contents td.actions .button:not(.button-danger):hover {
+    background-color: var(--jenbury-secondary-blue);
+}
+.module-contents td.actions .button-danger {
+    background-color: var(--color-danger);
+}
+.module-contents td.actions .button-danger:hover {
+    background-color: #c82333;
+}
+  
+/* Responsive Design */
+@media (max-width: 768px) {
+    .edit-module-page.admin-edit-page {
+      padding: var(--spacing-sm) var(--spacing-xs);
+    }
+  
+    .admin-form-container.admin-content-card,
+    .module-contents.admin-content-card { /* Apply to both cards */
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .admin-card-body {
+        padding: var(--spacing-sm);
+    }
+  
+    .admin-page-header h1 {
+      font-size: 1.8rem;
+    }
+    .admin-form-container legend {
+        font-size: 1.5rem;
+    }
+  
+    .edit-module-page .input,
+    .admin-form-container .input {
+      margin-bottom: var(--spacing-sm);
+    }
+  
+    .edit-module-page .form-actions,
+    .admin-form-container .form-actions {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+     .edit-module-page .form-actions.step-actions {
+        flex-direction: column-reverse;
+    }
+  
+    .edit-module-page .button,
+    .admin-form-container .button {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
+      width: 100%;
+    }
+  
+    .edit-module-page label,
+    .admin-form-container label {
+      font-size: 1.1rem;
+    }
+  
+    .edit-module-page .input.form-toggle label,
+    .admin-form-container .form-toggle label {
+      font-size: 1.1rem;
+    }
+
+    /* Responsive for module contents table */
+    .module-contents table,
+    .module-contents tbody,
+    .module-contents tr,
+    .module-contents td {
+        display: block;
+        width: 100%;
+        border: none;
+    }
+    .module-contents thead {
+        display: none;
+    }
+    .module-contents tr {
+        margin-bottom: var(--spacing-sm);
+        border: 1px solid var(--light-gray-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-sm);
+        background-color: var(--white);
+    }
+    .module-contents td {
+        text-align: right;
+        padding-left: 45%;
+        position: relative;
+        border-bottom: 1px dashed var(--lighter-gray-border);
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        font-size: 1rem;
+    }
+    .module-contents tr td:last-of-type {
+         border-bottom: 0;
+    }
+    .module-contents td::before {
+        content: attr(data-label); /* Assuming data-label is added to template */
+        position: absolute;
+        left: var(--spacing-sm);
+        width: 40%;
+        padding-right: var(--spacing-xs);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--admin-primary-purple);
+        font-size: 1rem;
+    }
+    .module-contents td.actions {
+        text-align: left;
+        padding-left: var(--spacing-sm);
+        padding-top: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    .module-contents td.actions .button {
+        width: 100%;
+    }
+}

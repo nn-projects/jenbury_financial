@@ -1,0 +1,467 @@
+:root {
+    /* Jenbury Admin Palette (derived from users/account & discount-codes) */
+    --admin-primary-purple: #6a0dad; /* Primary purple from users/account tabs */
+    --admin-primary-purple-darker: #580B94; /* Darker shade for hovers etc. */
+    --admin-light-purple-bg: #e6e0f5; /* Light purple bg from users/account tabs */
+    --admin-lighter-purple-bg: #f0e6f7; /* Even lighter purple for subtle backgrounds */
+    --admin-purple-border: #d1c4e9; /* Lighter purple border, can adjust */
+
+    /* Jenbury Core Palette (from other files, for secondary actions if needed) */
+    --jenbury-primary-blue: #148296;
+    --jenbury-secondary-blue: #106878;
+    --jenbury-gold-accent: #DAA520;
+
+    /* Neutral Palette (consistent with users/account where possible) */
+    --white: #ffffff;
+    --black: #333333; /* Standard dark text */
+    --grey-text: #555; /* General text, slightly darker than #666 */
+    --grey-text-secondary: #6c757d; /* Muted text */
+    --light-gray-border: #ddd; /* Standard border color from users/account table */
+    --lighter-gray-border: #eee;
+    --lightest-gray-border: #f1f1f1;
+    --background-alt: #f9f9f9; /* Zebra stripe or general light bg */
+    --table-header-bg: #f2f2f2; /* From users/account table header */
+
+    /* Functional Colors */
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+/* Page Header - Copied from _discount-codes.css */
+.admin-page-header {
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--light-gray-border);
+    display: flex; /* Enable flexbox */
+    justify-content: space-between; /* Push title to left, button to right */
+    align-items: center; /* Vertically align items */
+}
+
+.admin-page-header h1 {
+    color: var(--admin-primary-purple); /* Purple title */
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.admin-back-link .button { /* Styling the link as a button */
+    background-color: var(--admin-primary-purple); /* Solid purple background */
+    color: var(--white); /* White text */
+    border: 1px solid var(--admin-primary-purple); /* Border same as background */
+    padding: 8px 15px; /* Match other primary buttons */
+    font-weight: 500;
+    text-decoration: none; /* Ensure no underline from <a> tag */
+    border-radius: 4px; /* Match other primary buttons */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.admin-back-link .button:hover {
+    background-color: var(--admin-primary-purple-darker); /* Darker purple on hover */
+    border-color: var(--admin-primary-purple-darker);
+}
+
+
+/* Multi-Step Course Form - Enhanced */
+.add-course-page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--grey-text); /* Updated */
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+.add-course-page .multi-step-form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--white); /* Updated */
+    padding: 2rem;
+    border-radius: 12px; /* Keep existing radius or adjust to 4px like discount-codes */
+    border: 1px solid var(--light-gray-border); /* Added border like discount-codes card */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow like discount-codes card */
+}
+
+/* Form Steps */
+.add-course-page .form-step {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+.add-course-page .form-step.active {
+    display: block;
+}
+
+/* Progress Indicator - Using new purple variables */
+.add-course-page .progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+.add-course-page .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+.add-course-page .step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--admin-light-purple-bg); /* Updated */
+    color: var(--admin-primary-purple); /* Updated */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    border: 3px solid var(--white); /* Updated */
+}
+.add-course-page .progress-step.active .step-number {
+    background: var(--admin-primary-purple); /* Updated */
+    color: var(--white); /* Updated */
+}
+.add-course-page .progress-step.completed .step-number {
+    background: var(--admin-primary-purple-darker); /* Updated */
+    color: var(--white); /* Updated */
+}
+.add-course-page .step-label {
+    font-size: 0.9rem;
+    color: var(--admin-primary-purple); /* Updated to a lighter purple or grey-text-secondary */
+    font-weight: 500;
+    text-align: center;
+}
+.add-course-page .progress-step.active .step-label,
+.add-course-page .progress-step.completed .step-label {
+    color: var(--admin-primary-purple-darker); /* Updated */
+}
+.add-course-page .progress-bar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--admin-light-purple-bg); /* Updated */
+    z-index: 1;
+}
+.add-course-page .progress-bar-fill {
+    height: 100%;
+    background: var(--admin-primary-purple); /* Updated */
+    transition: width 0.4s ease;
+}
+
+/* Headings - Using new purple variables */
+.add-course-page .step-heading {
+    font-size: 2.2rem; /* Match discount-codes legend/h1 */
+    color: var(--admin-primary-purple); /* Updated */
+    margin-bottom: 1rem; /* Match discount-codes legend */
+    padding-bottom: 1rem; /* Match discount-codes legend */
+    border-bottom: 1px solid var(--admin-purple-border); /* Match discount-codes legend */
+    font-weight: 600; /* Match discount-codes legend */
+}
+.add-course-page .step-subheading {
+    color: var(--grey-text-secondary); /* Updated */
+    margin-bottom: 2rem;
+    font-size: 1.1rem; /* Match discount-codes form-info-text */
+}
+
+/* Form Fields - Using new variables and styles from discount-codes */
+.add-course-page .form-group { /* Corresponds to .input in discount-codes */
+    margin-bottom: 1.8rem; /* Match discount-codes */
+}
+.add-course-page .form-label { /* Corresponds to label in discount-codes */
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: var(--grey-text); /* Updated */
+    font-size: 1.3rem; /* Match discount-codes */
+}
+.add-course-page .form-input,
+.add-course-page textarea,
+.add-course-page .form-select {
+    width: 100%;
+    padding: 12px 15px; /* Match discount-codes */
+    border: 1px solid var(--light-gray-border); /* Match discount-codes */
+    border-radius: 4px; /* Match discount-codes */
+    font-size: 1.4rem; /* Match discount-codes */
+    background: var(--white); /* Updated */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Match discount-codes */
+    line-height: 1.5; /* Match discount-codes */
+}
+.add-course-page textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.add-course-page .form-input:focus,
+.add-course-page textarea:focus,
+.add-course-page .form-select:focus {
+    border-color: var(--admin-primary-purple); /* Updated */
+    outline: none;
+    background: var(--white); /* Updated */
+    box-shadow: 0 0 0 3px hsla(270, 70%, 50%, 0.2); /* Updated to match discount-codes focus */
+}
+
+/* File Upload - Using new purple variables */
+.add-course-page .file-upload-container {
+    margin-bottom: 2rem;
+}
+.add-course-page .file-upload {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+.add-course-page .file-upload-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.add-course-page .file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--admin-lighter-purple-bg); /* Updated */
+    border: 2px dashed var(--admin-primary-purple); /* Updated */
+    border-radius: 8px; /* Keep existing or change to 4px */
+    color: var(--admin-primary-purple); /* Updated */
+    font-weight: 500;
+    transition: all 0.3s;
+    text-align: center;
+}
+.add-course-page .file-upload-label:hover {
+    background: var(--admin-light-purple-bg); /* Updated */
+}
+.add-course-page .file-upload-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.add-course-page .file-preview {
+    margin-top: 1rem;
+    max-width: 100%;
+    border-radius: 8px; /* Keep existing or change to 4px */
+}
+
+/* Toggle Switch - Using new purple variables */
+.add-course-page .form-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.add-course-page .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+.add-course-page .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.add-course-page .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--admin-light-purple-bg); /* Updated */
+    transition: .4s;
+    border-radius: 34px;
+}
+.add-course-page .toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--white); /* Updated */
+    transition: .4s;
+    border-radius: 50%;
+}
+.add-course-page input:checked + .toggle-slider {
+    background-color: var(--admin-primary-purple); /* Updated */
+}
+.add-course-page input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+.add-course-page .toggle-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--grey-text); /* Updated */
+    cursor: pointer;
+}
+
+/* Validation */
+.add-course-page .form-error {
+    color: var(--color-danger); /* Updated */
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.add-course-page .form-error i {
+    font-size: 1rem;
+}
+.add-course-page .input-error {
+    border-color: var(--color-danger) !important; /* Updated */
+    background-color: #fff5f5; /* Keep or use a variable if defined */
+}
+.add-course-page .form-success {
+    color: var(--color-success); /* Updated */
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Buttons - Using new purple variables and styles from discount-codes */
+.add-course-page .step-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.add-course-page .button { /* General button styling, can be base for .button-primary */
+    padding: 8px 15px; /* Match discount-codes */
+    border-radius: 4px; /* Match discount-codes */
+    font-size: 1rem; /* Match discount-codes button text, or adjust */
+    font-weight: 500; /* Match discount-codes */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Match discount-codes */
+    text-align: center;
+    text-transform: none; /* Match discount-codes */
+    border: none; /* Match discount-codes */
+    flex: 1;
+    min-width: 150px;
+}
+.add-course-page .button.button-primary { /* This is the main action button */
+    background: var(--admin-primary-purple); /* Updated */
+    color: var(--white); /* Updated */
+    /* Other properties inherited from .button or defined in discount-codes .button.button-admin-primary */
+}
+.add-course-page .button.button-primary:hover {
+    background: var(--admin-primary-purple-darker); /* Updated */
+}
+.add-course-page .button-secondary { /* For "Back" buttons etc. */
+    background: var(--white); /* Updated */
+    color: var(--admin-primary-purple); /* Updated */
+    border: 1px solid var(--admin-primary-purple); /* Updated */
+}
+.add-course-page .button-secondary:hover {
+    background: var(--admin-lighter-purple-bg); /* Updated */
+    border-color: var(--admin-primary-purple-darker);
+}
+.add-course-page .button-loading {
+    position: relative;
+    color: transparent !important; /* Ensure text is hidden */
+    pointer-events: none;
+}
+.add-course-page .button-loading:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid transparent;
+    border-top-color: var(--white); /* For primary button */
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+.add-course-page .button-secondary.button-loading:after {
+    border-top-color: var(--admin-primary-purple); /* For secondary button */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes button-loading-spinner {
+    from { transform: rotate(0turn); }
+    to { transform: rotate(1turn); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add-course-page .multi-step-form-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+    
+    .add-course-page .progress-indicator {
+        margin-bottom: 1.5rem;
+    }
+    
+    .add-course-page .step-heading {
+        font-size: 1.8rem; /* Adjusted for responsiveness */
+    }
+    
+    .add-course-page .step-subheading {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .add-course-page .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .add-course-page .step-actions {
+        flex-direction: column-reverse;
+        gap: 0.75rem;
+    }
+    
+    .add-course-page .button {
+        width: 100%;
+        font-size: 1rem; /* Ensure button text is readable */
+        padding: 0.8rem 1.5rem; /* Adjust padding for smaller screens */
+    }
+    
+    .add-course-page .file-upload-label {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .add-course-page .progress-step .step-label {
+        font-size: 0.8rem;
+    }
+    
+    .add-course-page .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .add-course-page .progress-bar {
+        top: 16px;
+    }
+    
+    .add-course-page .form-input,
+    .add-course-page textarea,
+    .add-course-page .form-select {
+        padding: 0.9rem 1rem;
+        font-size: 1.2rem; /* Adjusted for smaller screens */
+    }
+    .add-course-page .step-heading {
+        font-size: 1.6rem; /* Further adjust for very small screens */
+    }
+}

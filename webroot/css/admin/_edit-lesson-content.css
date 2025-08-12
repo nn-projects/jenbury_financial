@@ -1,0 +1,266 @@
+:root {
+    /* Jenbury Admin Palette */
+    --admin-primary-purple: #6a0dad;
+    --admin-primary-purple-darker: #580B94;
+    --admin-light-purple-bg: #e6e0f5;
+    --admin-lighter-purple-bg: #f0e6f7;
+    --admin-purple-border: #d1c4e9;
+
+    --jenbury-primary-blue: #148296;
+    --jenbury-secondary-blue: #106878;
+
+    --white: #ffffff;
+    --black: #333333;
+    --grey-text: #555;
+    --grey-text-secondary: #6c757d;
+    --light-gray-border: #ddd;
+    --background-alt: #f9f9f9; /* Page background */
+
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --border-radius: 4px;
+}
+
+/* --- Page Structure --- */
+.edit-lesson-content-page.admin-edit-page {
+    background: var(--background-alt);
+    padding: var(--spacing-sm);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--grey-text);
+    line-height: 1.6;
+}
+
+/* Page Header */
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--light-gray-border);
+}
+
+.admin-page-header h1 {
+    color: var(--admin-primary-purple);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.admin-back-link .button {
+    background-color: var(--white);
+    color: var(--admin-primary-purple);
+    border: 1px solid var(--admin-primary-purple);
+    padding: 8px 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.admin-back-link .button:hover {
+    background-color: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+/* Form Container */
+.admin-form-container.admin-content-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-md) auto; /* Centered */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 800px; /* Adjust as needed, especially for TinyMCE */
+    padding: 0;
+}
+.admin-card-body {
+    padding: var(--spacing-md);
+}
+
+.admin-form-container fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-form-container legend {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--admin-primary-purple);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--admin-purple-border);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Form Inputs */
+.admin-form-container .input { /* CakePHP's default div wrapper for form controls */
+    margin-bottom: 1.8rem;
+}
+
+.admin-form-container label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: var(--grey-text);
+    font-size: 1.3rem;
+}
+
+.admin-form-container input[type="text"].form-input, /* Target .form-input specifically if used */
+.admin-form-container input[type="number"].form-input,
+.admin-form-container input[type="email"].form-input,
+.admin-form-container input[type="password"].form-input,
+.admin-form-container textarea:not(.ckeditor-editor), /* Exclude TinyMCE target */
+.admin-form-container select.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    background: var(--white);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.admin-form-container input[type="text"].form-input:focus,
+.admin-form-container input[type="number"].form-input:focus,
+.admin-form-container input[type="email"].form-input:focus,
+.admin-form-container input[type="password"].form-input:focus,
+.admin-form-container textarea:not(.ckeditor-editor):focus,
+.admin-form-container select.form-input:focus {
+    border-color: var(--admin-primary-purple);
+    box-shadow: 0 0 0 3px hsla(270, 70%, 50%, 0.2);
+    outline: none;
+}
+
+/* TinyMCE specific styling */
+.admin-form-container .tox-tinymce {
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+}
+.admin-form-container .tox-tinymce:focus-within { /* When TinyMCE itself or its content has focus */
+    border-color: var(--admin-primary-purple);
+    box-shadow: 0 0 0 3px hsla(270, 70%, 50%, 0.2);
+}
+
+
+/* Checkbox */
+.admin-form-container .input.checkbox label, 
+.admin-form-container .form-check-label { 
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--grey-text);
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-left: var(--spacing-xs); 
+}
+.admin-form-container input[type="checkbox"].toggle-checkbox, /* If using this class */
+.admin-form-container input[type="checkbox"].form-check-input { /* Or this */
+    accent-color: var(--admin-primary-purple);
+    width: 18px; 
+    height: 18px;
+    cursor: pointer;
+    vertical-align: middle; 
+}
+
+
+/* Buttons */
+.admin-form-container .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: var(--spacing-md);
+}
+.admin-form-container .form-actions.step-actions {
+    justify-content: space-between;
+}
+
+.admin-form-container .button {
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    text-align: center;
+    text-transform: none;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.admin-form-container .button.button-primary {
+    background: var(--admin-primary-purple);
+    color: var(--white);
+    border-color: var(--admin-primary-purple);
+}
+.admin-form-container .button.button-primary:hover {
+    background: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+.admin-form-container .button.button-secondary {
+    background: var(--white);
+    color: var(--admin-primary-purple);
+    border-color: var(--admin-primary-purple);
+}
+.admin-form-container .button.button-secondary:hover {
+    background: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-lesson-content-page.admin-edit-page {
+      padding: var(--spacing-sm) var(--spacing-xs);
+    }
+    .admin-form-container.admin-content-card {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .admin-card-body {
+        padding: var(--spacing-sm);
+    }
+    .admin-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    .admin-page-header .header-page-actions { /* If you add this class */
+        width: 100%;
+        justify-content: space-between;
+    }
+    .admin-page-header h1 {
+      font-size: 1.8rem;
+    }
+    .admin-form-container legend {
+        font-size: 1.5rem;
+    }
+    .admin-form-container .input {
+      margin-bottom: var(--spacing-sm);
+    }
+    .admin-form-container .form-actions {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .admin-form-container .form-actions.step-actions {
+        flex-direction: column-reverse;
+    }
+    .admin-form-container .button {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
+      width: 100%;
+    }
+    .admin-form-container label,
+    .admin-form-container .input.checkbox label,
+    .admin-form-container .form-check-label {
+      font-size: 1.1rem;
+    }
+}

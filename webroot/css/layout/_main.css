@@ -1,0 +1,17 @@
+/* Layout Container Overrides */
+/* Override Milligram container constraints for main layout blocks */
+header.site-header > div.container,
+main.main > div.container,
+footer.site-footer > div.container {
+    max-width: none; /* Explicitly remove max-width */
+    margin-left: 0;  /* Remove auto margin */
+    margin-right: 0; /* Remove auto margin */
+    padding: 0 6rem; /* Doubled padding again */
+    width: auto; /* Let it fill naturally, respecting padding */
+}
+
+/* Main Content Area */
+.main {
+    min-height: 70vh;
+    padding-bottom: var(--spacing-xl);
+}

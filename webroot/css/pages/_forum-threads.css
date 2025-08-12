@@ -1,0 +1,406 @@
+/*
+ * Styles specific to the Forum Threads page
+ * (/forum-categories/view/)
+ */
+
+/* --- Page Header --- */
+.page-header-flex {
+    display: flex;
+    justify-content: space-between; /* Push items to ends */
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: var(--spacing-md); /* Add gap if items wrap */
+    margin-bottom: var(--spacing-lg); /* Keep space below header */
+    padding: 1rem 2rem !important;
+}
+
+.page-header-text h1 {
+    margin-bottom: 0.25em; /* Reduce space below h1 */
+}
+.page-header-text p {
+    margin-bottom: 0; /* Remove space below paragraph */
+    color: var(--jf-text-color-secondary);
+}
+
+.page-header-actions {
+    /* Button styles are handled by .button */
+    margin-left: auto; /* Push button to the right on larger screens */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 540px) { /* Adjust breakpoint if needed */
+    .page-header-flex {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+    .page-header-actions {
+        margin-left: 0; /* Reset margin */
+        width: 100%; /* Make button container full width */
+        margin-top: var(--spacing-md); /* Add space above button */
+    }
+    .page-header-actions .button {
+        width: 100%; /* Make button full width */
+        text-align: center;
+    }
+}
+
+
+/* --- Search/Filter --- */
+.manage-users-controls {
+    margin-bottom: var(--spacing-lg); /* Add space below controls */
+    display: flex; /* Allow side-by-side elements if needed later */
+    flex-wrap: wrap; /* Wrap on smaller screens */
+    gap: var(--spacing-md);
+    padding: 1rem 2rem !important;
+}
+
+.user-search-container {
+    flex-grow: 1; /* Allow search to take available space */
+    min-width: 250px; /* Prevent search becoming too small */
+}
+
+#user-search {
+    /* Inherits base input styles from _forms.css */
+    /* Add specific adjustments if needed */
+    padding-right: 2.5rem; /* Space for a potential search icon */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E"); /* Simple search icon */
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-sm) center;
+    background-size: 16px 16px;
+}
+
+/* --- User Table (Desktop) --- */
+.user-list-container {
+    overflow-x: auto; /* Add horizontal scroll only if table overflows */
+    padding: 1.25rem 2rem !important;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-lg);
+}
+
+.user-table th,
+.user-table td {
+    padding: var(--spacing-md); /* Consistent padding */
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.user-table th {
+    font-weight: 600;
+    background-color: var(--jf-grey-light, #f8f9fa); /* Light background for header */
+    white-space: nowrap;
+}
+
+/* Sorting Styles */
+.user-table th button.sort-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-weight: 600; /* Match th */
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.user-table th button.sort-button:hover {
+    color: #fcfcfc; /* Highlight on hover */
+}
+
+.user-table th .sort-icon {
+    font-size: 0.9em;
+    color: var(--jf-grey-text); /* Subtle color */
+    opacity: 0.6;
+    min-width: 1em; /* Reserve space */
+}
+.user-table th[aria-sort="ascending"] .sort-icon::before,
+.user-table th[aria-sort="descending"] .sort-icon::before {
+    opacity: 1;
+    color: var(--jenbury-primary);
+}
+/* Add Font Awesome classes via JS, e.g., .sort-icon.fas.fa-sort-up */
+
+
+/* Role Badge Override */
+.user-table .role-badge {
+    font-size: 1.3rem; /* Further increased font size */
+    padding: 0.4em 0.8em; /* Adjust padding slightly */
+    /* Ensure specific badge colors are defined if not inherited */
+}
+.user-table .badge.badge-primary { /* Assuming this class is used for Admin */
+    background-color: var(--jenbury-primary);
+    color: white;
+}
+.user-table .badge { /* Default for User */
+    background-color: var(--jf-grey-border);
+    color: var(--jf-grey-text-dark);
+}
+
+
+/* Action Buttons */
+.user-table td.actions {
+    white-space: nowrap; /* Prevent buttons wrapping */
+}
+
+.user-table td.actions .button {
+    margin-right: var(--spacing-sm); /* Space between buttons */
+    vertical-align: middle; /* Align icons and text nicely */
+    min-width: 90px; /* Increased button width */
+    text-align: center; /* Center text/icon within button */
+    /* Default button style might not have explicit text color */
+}
+/* Make Edit button text white (assuming it doesn't have .btn-primary) */
+.user-table td.actions .button:not(.button-danger) {
+    color: var(--color-primary-bg, white); /* Use variable or fallback white */
+    /* Ensure background provides contrast - check _buttons.css if needed */
+    background-color: var(--jenbury-primary); /* Match primary button background */
+    border-color: var(--jenbury-primary);
+}
+.user-table td.actions .button:not(.button-danger):hover {
+    background-color: var(--jenbury-secondary); /* Match primary button hover */
+    border-color: var(--jenbury-secondary);
+    color: var(--color-primary-bg, white); /* Keep text white on hover */
+}
+
+.user-table td.actions .button:last-child {
+    margin-right: 0;
+}
+
+/* Define Danger Button Style */
+.button.button-danger {
+    background-color: var(--color-danger, #dc3545); /* Use variable or fallback */
+    border-color: var(--color-danger, #dc3545);
+    color: white;
+}
+
+.button.button-danger:hover {
+    background-color: #c82333; /* Darker danger */
+    border-color: #bd2130;
+    color: white;
+    /* Inherit transform/shadow from base button hover */
+}
+
+
+/* --- Responsive View (Mobile) --- */
+@media (max-width: 768px) {
+    .user-table thead {
+        display: none; /* Hide table header */
+    }
+
+    .user-table,
+    .user-table tbody,
+    .user-table tr,
+    .user-table td {
+        display: block; /* Make table elements block level */
+        width: 100%;
+    }
+
+    .user-table tr {
+        margin-bottom: var(--spacing-lg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-sm);
+        background-color: var(--color-primary-bg); /* Ensure background */
+    }
+
+    .user-table td {
+        text-align: right; /* Align content to the right */
+        padding-left: 45%; /* Make space for the label */
+        position: relative;
+        border-bottom: none; /* Remove bottom border within the 'card' */
+        padding-top: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+    }
+
+    .user-table td:last-child {
+         border-bottom: 0;
+    }
+
+    .user-table td::before {
+        content: attr(data-label); /* Use data-label for the pseudo-header */
+        position: absolute;
+        left: var(--spacing-sm);
+        width: 40%; /* Adjust width as needed */
+        padding-right: var(--spacing-sm);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--jf-text-color);
+    }
+
+    /* Adjust actions cell for mobile */
+    .user-table td.actions {
+        text-align: left; /* Align buttons left */
+        padding-left: var(--spacing-sm); /* Reset padding */
+        padding-top: var(--spacing-md); /* Add space above buttons */
+    }
+    .user-table td.actions .button {
+         margin-right: var(--spacing-sm);
+         margin-bottom: var(--spacing-sm); /* Add space below if they wrap */
+    }
+
+    /* Ensure role badge is aligned correctly */
+     .user-table td[data-label="Role"] {
+        /* Role badge is inline-block, should align right by default */
+     }
+}
+
+/* --- Info Section Grid --- */
+.info-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: var(--spacing-lg); /* Gap between blocks */
+    margin-top: var(--spacing-xl); /* Space above this section */
+    margin-bottom: var(--spacing-lg); /* Space below this section */
+    padding-left: var(--spacing-lg); /* Added horizontal padding */
+    padding-right: var(--spacing-lg); /* Added horizontal padding */
+}
+
+.info-block {
+    background-color: var(--color-primary-bg); /* White background */
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow, 0 1px 3px rgba(0,0,0,0.1)); /* Use card shadow or default */
+    display: flex;
+    flex-direction: column;
+}
+
+.info-block-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    font-size: 2rem; /* Slightly larger header */
+    font-weight: 600;
+    margin: 0;
+    background-color: var(--jf-grey-light, #f8f9fa); /* Light header background */
+}
+
+.info-block-body {
+    padding: var(--spacing-lg) var(--spacing-xl); /* Increased L/R padding */
+    flex-grow: 0.5; /* Allow body to take available space */
+    font-size: 1.6rem; /* Further increased font size as requested */
+}
+
+/* Statistics List Styling */
+.statistics-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between; /* Align label and value */
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px dashed var(--color-border-light, #eee); /* Subtle separator */
+}
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-item dt { /* Label */
+    font-weight: normal; /* Adjusted weight */
+    color: var(--jf-text-color-secondary, #555);
+    margin-right: var(--spacing-md);
+    font-size: inherit; /* Inherit from info-block-body */
+}
+
+.stat-item dd { /* Value */
+    font-weight: 600;
+    margin: 0;
+    font-size: inherit; /* Inherit from info-block-body */
+}
+
+/* Management Tasks List Styling */
+.management-tasks-list {
+    margin: 0;
+    padding-left: var(--spacing-lg); /* Standard list indentation */
+    line-height: 1.7; /* Slightly increased line height */
+    font-size: inherit; /* Inherit from info-block-body */
+}
+
+.management-tasks-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+    .user-table td.actions {
+        text-align: left;
+        padding-left: var(--spacing-sm);
+        padding-top: var(--spacing-lg);
+        position: relative;
+    }
+
+    .user-table td.actions::before {
+        content: 'Actions';
+        position: absolute;
+        top: var(--spacing-sm);
+        left: var(--spacing-sm);
+        font-weight: bold;
+        color: var(--jf-text-color);
+    }
+
+    .user-table td.actions .button {
+        display: block;
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+        padding: 1rem 10rem;
+    }
+
+    .user-table tr {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Softer card shadow */
+        padding: 2rem;
+        margin-bottom: 2rem;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .user-table tr:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Slight lift on hover */
+      }
+    
+      .user-table td {
+        font-size: 1.25rem;
+        border-bottom: 1px dashed #ddd;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+      }
+    
+      .user-table td::before {
+        content: attr(data-label); 
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        font-weight: bold;
+        color: #666;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    
+      .user-table tr:nth-child(even) {
+        background-color: #f9f9f9; /* Optional alternating rows */
+      }
+}
+
+
+/* Back Button Styling */
+
+.back-button {
+    padding: 0.5rem 2rem !important;
+}
+
+h3 {
+    text-align: center;
+    padding-bottom: 2em;
+    padding-top: 2em;
+}

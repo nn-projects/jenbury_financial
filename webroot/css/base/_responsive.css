@@ -1,0 +1,421 @@
+/* Responsive */
+@media (max-width: 1024px) { /* Added from courses.css */
+    /* Adjust breakpoint if needed */
+    .course-navigation .row .column { /* Removed related-courses */
+        width: calc(50% - var(--space-4) / 2) !important; /* 2 columns */
+    }
+    /* Removed rules for .module-navigation and .related-modules */
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        /* flex-direction: column; */ /* Keep as row for mobile header */
+        /* align-items: flex-start; */ /* Keep items centered vertically */
+        justify-content: space-between; /* Ensure logo is left, actions are right */
+        align-items: center;
+    }
+
+    /* Hide desktop navigation elements */
+    .main-nav,
+    .user-nav-desktop {
+        display: none;
+    }
+
+    /* Show mobile-specific action buttons */
+    .mobile-header-actions {
+        display: flex; /* Show the container for mobile cart & hamburger */
+        align-items: center;
+    }
+    
+    /* Ensure hamburger is visible - it's already styled in jenbury.php but good to have here */
+    .navbar-toggler {
+        display: block; /* Or flex, depending on its parent */
+        margin-left: 0; /* Reset margin if any from general styles */
+    }
+
+    /* Remove or comment out old mobile menu styles as #navbarNav is now a full-screen overlay */
+    /*
+    .main-nav {
+        margin: var(--spacing-md) 0;
+        width: 100%;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav li {
+        margin: var(--spacing-xs) 0;
+        padding: var(--spacing-xs) 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+    */
+
+    /* .user-nav was part of .user-nav-desktop, which is now hidden.
+       If .user-nav is used elsewhere standalone on mobile, these might be needed.
+       For now, assuming it's covered by hiding .user-nav-desktop.
+    */
+    /*
+    .user-nav {
+        align-self: flex-start;
+        width: 100%;
+        margin-top: var(--spacing-md);
+    }
+    */
+
+    .dashboard-stats {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    /* Adjust general row/column for smaller screens if needed, but prioritize grid overrides */
+    /* .row {
+        flex-direction: column;
+    } */
+    /* .column {
+        width: 100% !important;
+        margin-bottom: var(--spacing-md);
+    } */
+
+    /* Responsive adjustments for Courses Grid */
+    .courses-grid .row { /* Note: This might target the wrong element if .row is display: contents */
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: var(--spacing-md); /* Reduce gap */
+    }
+    /* Consider targeting .courses-grid directly if .row is display: contents */
+    .courses-grid {
+         /* grid-template-columns: 1fr; */ /* Uncomment if .row override doesn't work */
+    }
+
+
+    /* Responsive adjustments for Course Card Footer (Inspired by CoursesView) */
+    .course-footer {
+        flex-direction: column;
+        gap: var(--spacing-sm); /* Add gap between price and button */
+        align-items: flex-start; /* Align items to the start */
+    }
+    .course-actions {
+        width: 100%; /* Make actions take full width */
+    }
+    .course-actions .button { /* Make button take full width */
+        width: 100%;
+        text-align: center;
+    }
+
+    .card {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .module-navigation .column {
+        width: 100%;
+    }
+
+    .purchase-option {
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Responsive Pagination */
+    .pagination li a,
+    .pagination li span {
+        padding: 0.5rem 0.8rem; /* Slightly smaller padding */
+        min-width: 35px;
+    }
+
+    /* Login Form Responsive */
+    /* The .column-50.column-offset-25 should stack automatically via Milligram/base styles */
+    /* Ensure button remains full-width if not already */
+    .login-form-container .submit .button.btn-primary {
+        width: 100%;
+    }
+
+    /* Adjust padding for smaller screens */
+     .login-form-container .card-body {
+        padding: var(--spacing-md);
+    }
+     .login-form-container .card-footer {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    /* Register Form Responsive */
+    .register-form-container .submit .button.btn-primary {
+        width: 100%;
+    }
+    .register-form-container .card-body {
+        padding: var(--spacing-md);
+    }
+    .register-form-container .card-footer {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    /* Change Password Form Responsive */
+    .change-password-form-container .submit .button.btn-primary {
+        width: 100%;
+    }
+    .change-password-form-container .card-body {
+        padding: var(--spacing-md);
+    }
+    .change-password-form-container .card-footer {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    .password-tips {
+        padding: var(--spacing-md);
+    }
+
+    /* Responsive Padding for Main Containers */
+    header.site-header > div.container,
+    main.main > div.container,
+    footer.site-footer > div.container {
+        padding: 0 1.5rem; /* Reduced padding for smaller screens */
+    }
+
+    /* --- Responsive from courses.css --- */
+    .course-view-container.row {
+        flex-direction: column; /* Stack main and sidebar */
+        gap: 0; /* Remove gap when stacked */
+    }
+    .course-view-main,
+    .course-view-sidebar {
+        width: 100% !important; /* Override Milligram columns */
+        margin-bottom: var(--space-8);
+    }
+    .course-header .row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+    .course-header .column-30 {
+        align-items: flex-start;
+        width: 100%; /* Allow button/price to take width */
+    }
+     .course-header .purchase-button {
+        width: 100%; /* Make purchase button full width */
+    }
+
+    /* Styles for module items within course view */
+    .module-item .row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+     .module-item .column-30 { /* Action column */
+        align-items: flex-start;
+        width: 100%; /* Allow button/price to take width */
+    }
+    .module-item .button-small {
+        width: 100%; /* Make module buttons full width on mobile */
+    }
+
+    /* Styles for navigation items (used by both course and module views now) */
+    .course-navigation .row .column {
+        width: 100% !important; /* 1 column */
+        margin-bottom: var(--space-4); /* Add space when stacked */
+    }
+    .course-navigation .row {
+        gap: 0; /* Remove gap when stacked */
+    }
+
+    /* --- Responsive from admindashboard.css --- */
+    .admin-dashboard .stats-grid { /* Added specificity */
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-dashboard .action-grid { /* Added specificity */
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard .data-table table { /* Added specificity */
+        width: max-content;
+        min-width: 600px;
+        overflow-x: auto;
+    }
+
+    /* Removed rules for old module view classes: */
+    /* .module-view-container, .module-view-main, .module-view-sidebar */
+    /* .module-header */
+    /* .content-item */
+    /* .module-navigation, .related-modules */
+}
+
+@media (max-width: 480px) {
+    /* General button adjustments */
+    /* .button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: var(--spacing-sm);
+    } */ /* Covered by .course-actions adjustments */
+
+    /* Adjust card content padding */
+    .course-card-content {
+        padding: var(--spacing-md); /* Reduce padding */
+    }
+
+    /* Remove generic card padding overrides */
+    /* .card-header, .card-body, .card-footer {
+        padding: var(--spacing-sm);
+    } */
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust course title size */
+    .course-card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    /* Further reduce pagination size */
+    .pagination li a,
+    .pagination li span {
+        padding: 0.4rem 0.6rem;
+        min-width: 30px;
+        font-size: 0.8rem;
+    }
+    .pagination-container p {
+        font-size: 0.8rem;
+    }
+
+    /* Login Form Responsive */
+    .login-form-container .submit .button.btn-primary {
+        padding: var(--spacing-sm) var(--spacing-lg); /* Slightly reduce padding on very small screens */
+        font-size: 1.4rem;
+    }
+     /* Adjust alignment row for very small screens if needed */
+     .login-form-container .row {
+         flex-direction: column; /* Stack checkbox and forgot password */
+         align-items: flex-start; /* Align items to the start */
+         gap: var(--spacing-sm); /* Add gap between stacked items */
+     }
+     .login-form-container .row .column.text-right {
+         text-align: left; /* Align forgot password left when stacked */
+     }
+
+    /* Register Form Responsive */
+    .register-form-container .submit .button.btn-primary {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 1.4rem;
+    }
+    /* Stack first/last name */
+    .register-form-container > .card-body > form > .row {
+        flex-direction: column;
+    }
+    .register-form-container > .card-body > form > .row > .column {
+        width: 100%; /* Ensure columns take full width when stacked */
+    }
+
+    /* Change Password Form Responsive */
+    .change-password-form-container .submit .button.btn-primary {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 1.4rem;
+    }
+    .password-tips h3 {
+        font-size: 1.6rem;
+    }
+    .password-tips ul {
+        font-size: 1.3rem;
+    }
+
+    /* --- Responsive from admindashboard.css --- */
+    .admin-dashboard .dashboard-header { /* Added specificity */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .admin-dashboard .dashboard-header h1 { /* Added specificity */
+        font-size: 1.75rem;
+    }
+
+    .admin-dashboard .header-stats .button.view-site { /* Added specificity */
+        width: 100%;
+        text-align: center;
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .admin-dashboard .stats-grid { /* Added specificity */
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard .stat-card { /* Added specificity */
+        padding: 1.25rem;
+    }
+
+    .admin-dashboard .stat-icon { /* Added specificity */
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .admin-dashboard .stat-content h3 { /* Added specificity */
+        font-size: 0.95rem;
+    }
+
+    .admin-dashboard .stat-number { /* Added specificity */
+        font-size: 1.5rem;
+    }
+
+    .admin-dashboard .section-title { /* Added specificity */
+        font-size: 1.2rem;
+    }
+
+    .admin-dashboard .action-grid { /* Added specificity */
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard .action-card { /* Added specificity */
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .admin-dashboard .data-table table { /* Added specificity */
+        display: block; /* Already present in 768px block, but ensure it's here */
+        overflow-x: auto; /* Already present in 768px block, but ensure it's here */
+        white-space: nowrap;
+    }
+}
+
+/* --- Responsive from courses.css (min-width) --- */
+/* Tablet */
+@media (min-width: 768px) {
+    .modules-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+    .course-header-component {
+        flex-direction: row; /* Switch to two columns */
+    }
+    .course-info-column {
+        flex: 2; /* Takes more space */
+    }
+    .course-bundle-column {
+        flex: 1; /* Takes less space */
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) { /* Added from dashboard.css */
+    .dashboard-grid {
+        /* 75% / 25% split approximation */
+        grid-template-columns: 3fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .modules-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}

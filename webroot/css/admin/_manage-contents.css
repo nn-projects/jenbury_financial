@@ -1,0 +1,273 @@
+:root {
+    /* Jenbury Admin Palette (copied from _discount-codes.css) */
+    --admin-primary-purple: #6a0dad;
+    --admin-primary-purple-darker: #580B94;
+    --admin-light-purple-bg: #e6e0f5;
+    --admin-lighter-purple-bg: #f0e6f7;
+    --admin-purple-border: #d1c4e9;
+
+    --jenbury-primary-blue: #148296; /* For secondary actions like 'Edit' */
+    --jenbury-secondary-blue: #106878;
+
+    --white: #ffffff;
+    --black: #333333;
+    --grey-text: #555;
+    --grey-text-secondary: #6c757d;
+    --light-gray-border: #ddd;
+    --lighter-gray-border: #eee;
+    --lightest-gray-border: #f1f1f1;
+    --background-alt: #f9f9f9; /* Page background */
+    --table-header-bg: #f2f2f2;
+
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --border-radius: 4px;
+}
+
+/* --- Page Structure --- */
+.manage-contents-page.admin-manage-page {
+    background: var(--background-alt);
+    padding: var(--spacing-sm);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--grey-text);
+    line-height: 1.6;
+    max-width: 1200px; /* Max width for the page content */
+    margin: var(--spacing-md) auto; /* Center page content */
+}
+
+/* Page Header */
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--light-gray-border);
+}
+
+.admin-page-header h1 {
+    color: var(--admin-primary-purple);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.admin-page-header .header-page-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.admin-page-header .header-page-actions .button {
+    border: 1px solid var(--admin-primary-purple);
+    padding: 8px 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.admin-page-header .header-page-actions .button.button-primary {
+    background-color: var(--admin-primary-purple);
+    color: var(--white);
+}
+.admin-page-header .header-page-actions .button.button-primary:hover {
+    background-color: var(--admin-primary-purple-darker);
+    border-color: var(--admin-primary-purple-darker);
+}
+.admin-page-header .header-page-actions .button:not(.button-primary) { /* For Back button */
+    background-color: var(--white);
+    color: var(--admin-primary-purple);
+}
+.admin-page-header .header-page-actions .button:not(.button-primary):hover {
+    background-color: var(--admin-lighter-purple-bg);
+    border-color: var(--admin-primary-purple-darker);
+}
+
+/* Card Styling */
+.admin-content-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-border);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.admin-content-card .admin-card-header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--admin-lighter-purple-bg);
+    border-bottom: 1px solid var(--admin-purple-border);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+.admin-content-card .admin-card-header h3 { /* For card titles like "Module Information" */
+    margin: 0;
+    font-size: 1.5rem; /* Adjusted size */
+    font-weight: 600;
+    color: var(--admin-primary-purple);
+}
+.admin-content-card .admin-card-header { /* Ensure header actions in card are aligned */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-content-card .admin-card-body {
+    padding: var(--spacing-sm);
+}
+.admin-content-card .admin-card-body p {
+    margin-bottom: var(--spacing-xs);
+}
+.admin-content-card .admin-card-body p strong {
+    color: var(--grey-text);
+}
+
+
+/* Table Styling for Lesson Contents */
+.contents.admin-content-card .table-responsive {
+    overflow-x: auto;
+}
+.contents.admin-content-card table.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0; /* Table is directly in card body */
+}
+.contents.admin-content-card table.table th,
+.contents.admin-content-card table.table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid var(--light-gray-border);
+    vertical-align: middle;
+}
+.contents.admin-content-card table.table th {
+    background-color: var(--table-header-bg);
+    font-weight: bold;
+    color: var(--black);
+    white-space: nowrap;
+}
+.contents.admin-content-card table.table tr:nth-child(odd) td {
+    background-color: var(--background-alt);
+}
+.contents.admin-content-card table.table tr:hover td {
+    background-color: var(--admin-lighter-purple-bg);
+}
+
+/* Action Buttons within table */
+.contents.admin-content-card td.actions {
+    white-space: nowrap;
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+}
+.contents.admin-content-card td.actions .button {
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px; /* Smaller padding */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+.contents.admin-content-card td.actions .button:not(.button-delete) { /* Edit button */
+    background-color: var(--jenbury-primary-blue);
+}
+.contents.admin-content-card td.actions .button:not(.button-delete):hover {
+    background-color: var(--jenbury-secondary-blue);
+}
+.contents.admin-content-card td.actions .button.button-delete { /* Delete button */
+    background-color: var(--color-danger);
+}
+.contents.admin-content-card td.actions .button.button-delete:hover {
+    background-color: #c82333; /* Darker danger */
+}
+
+/* Status Badges */
+.status-active {
+    color: var(--color-success);
+    font-weight: bold;
+}
+.status-inactive {
+    color: var(--color-danger);
+    font-weight: bold;
+}
+
+.no-content {
+    color: var(--grey-text-secondary);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    .admin-page-header .header-page-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .contents.admin-content-card .admin-card-body {
+        padding: 0;
+    }
+    .contents.admin-content-card table.table,
+    .contents.admin-content-card table.table tbody,
+    .contents.admin-content-card table.table tr,
+    .contents.admin-content-card table.table td {
+        display: block;
+        width: 100%;
+        border: none;
+    }
+    .contents.admin-content-card table.table thead {
+        display: none;
+    }
+    .contents.admin-content-card table.table tr {
+        margin-bottom: var(--spacing-sm);
+        border: 1px solid var(--light-gray-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-sm);
+        background-color: var(--white);
+    }
+    .contents.admin-content-card table.table td {
+        text-align: right;
+        padding-left: 45%; 
+        position: relative;
+        border-bottom: 1px dashed var(--lighter-gray-border);
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+    .contents.admin-content-card table.table tr td:last-of-type {
+         border-bottom: 0;
+    }
+    .contents.admin-content-card table.table td::before {
+        content: attr(data-label); /* Ensure data-label attributes are in the template for mobile */
+        position: absolute;
+        left: var(--spacing-sm);
+        width: 40%;
+        padding-right: var(--spacing-xs);
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--admin-primary-purple);
+    }
+    .contents.admin-content-card td.actions {
+        text-align: left;
+        padding-left: var(--spacing-sm);
+        padding-top: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    .contents.admin-content-card td.actions .button {
+        width: 100%;
+    }
+}

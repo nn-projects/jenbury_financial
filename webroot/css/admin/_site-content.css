@@ -1,0 +1,158 @@
+/* ============================
+   Manage Site Content Styling
+   ============================ */
+.site-content-management {
+    padding: 3rem 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.site-content-management h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #7B2FF7; /* Changed to purple */
+    font-weight: 700;
+}
+
+/* Header layout for title and actions */
+.page-header-actions,
+.content-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-header-actions h1,
+.content-group-header h2 {
+    margin-bottom: 0;
+    color: #7B2FF7; /* Purple for section titles */
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(74, 0, 224, 0.1);
+}
+
+/* Content Groups */
+.content-group {
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    background: #f9f9ff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Remove old .content-group h2 styling, now handled by .content-group-header h2 */
+
+/* Table Styling */
+.site-content-management .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.site-content-management .table th,
+.site-content-management .table td {
+    padding: 1rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+}
+
+.site-content-management .table th {
+    font-weight: 600;
+    color: #4A00E0;
+    background-color: #f5f2ff;
+}
+
+.site-content-management .table tr:hover td {
+    background-color: #faf8ff;
+}
+
+/* Button Styling (Scoped) */
+.site-content-management .button {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.site-content-management .button-small {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+}
+
+.site-content-management .button-outline {
+    background: transparent;
+    border: 2px solid #7B2FF7;
+    color: #7B2FF7;
+}
+
+.site-content-management .button-outline:hover {
+    background: #7B2FF7;
+    color: #fff;
+}
+
+.site-content-management .button-danger {
+    background: #ff3e3e;
+    color: white;
+}
+
+.site-content-management .button-danger:hover {
+    background: #e00000;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Responsive Adjustments (Scoped) */
+@media (max-width: 768px) {
+    .site-content-management {
+        padding: 2rem 1rem;
+    }
+
+    .content-group {
+        padding: 1.2rem;
+    }
+
+    .site-content-management .table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Special Elements */
+.restore-all-container {
+    background: rgba(255, 62, 62, 0.08);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px dashed rgba(255, 62, 62, 0.3);
+}
+
+/* Utility: For aligning restore-all button and title */
+.content-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}

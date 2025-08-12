@@ -1,0 +1,142 @@
+/* =================================== */
+/* Register Page Specific Styles       */
+/* =================================== */
+
+.register-form-container .card-body {
+    padding: var(--spacing-lg); /* Add padding back */
+}
+
+.register-form-container .card-footer {
+    padding: var(--spacing-md) var(--spacing-lg); /* Add padding back */
+    border-top: 1px solid var(--color-border); /* Add border back */
+    background-color: var(--color-secondary-bg); /* Light background */
+    text-align: center;
+    font-size: var(--text-base);
+}
+
+/* Spacing & Alignment */
+.register-form-container .input {
+    margin-bottom: var(--spacing-lg); /* Consistent spacing */
+}
+
+.register-form-container .input small {
+    font-size: var(--text-base); /* Slightly smaller helper text */
+    color: var(--color-text-muted);
+    display: block; /* Ensure it takes its own line */
+    margin-top: var(--spacing-xs);
+}
+
+.register-form-container .submit {
+    margin-top: var(--spacing-lg); /* Add space above the button */
+}
+
+/* Input Contrast */
+.register-form-container input[type="text"],
+.register-form-container input[type="email"],
+.register-form-container input[type="password"] {
+     border: 1px solid #ced4da; /* Slightly darker, more standard border color */
+     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075); /* Subtle inset shadow */
+}
+
+ .register-form-container input[type="text"]:focus,
+ .register-form-container input[type="email"]:focus,
+ .register-form-container input[type="password"]:focus {
+     border-color: var(--jenbury-primary); /* Keep primary color border on focus */
+     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 0 0.2rem rgba(20, 130, 150, 0.25); /* Add focus ring like Bootstrap */
+ }
+
+/* Terms Checkbox Styling */
+.register-form-container .input.checkbox label[for="terms"] {
+    display: inline-flex; /* Use flex to align checkbox and text */
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal; /* Standard font weight for checkbox label */
+}
+
+.register-form-container .input.checkbox input[name="terms"] {
+    width: 1.8rem;  /* Increase size */
+    height: 1.8rem; /* Increase size */
+    margin-right: var(--spacing-sm); /* Add space between checkbox and label text */
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+/* Button Styling */
+.register-form-container .submit .button.btn-primary {
+    padding: var(--spacing-sm) var(--spacing-xl); /* Make button wider */
+    font-size: var(--text-base); /* Increase font size */
+    border-radius: var(--border-radius); /* Ensure consistent rounded corners (12px) */
+    width: 100%; /* Make button full width */
+}
+
+/* reCAPTCHA container */
+.register-form-container .recaptcha-container {
+    margin-bottom: var(--spacing-lg); /* Space below reCAPTCHA */
+    display: flex;
+    justify-content: center; /* Center the reCAPTCHA widget */
+}
+
+/* Error Message Styling (General - applies to terms error too) */
+.error-message {
+    color: var(--color-danger);
+    font-size: var(--text-base);
+    margin-top: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+    .column-offset-20 {
+        margin-left: 0 !important;
+    }
+
+    .register-form-container {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .register-form-container .card-header h2 {
+        font-size: var(--text-xl);
+    }
+
+    .register-form-container .card-body {
+        padding: var(--spacing-md);
+    }
+
+    .register-form-container .row {
+        flex-direction: column; /* Stack columns */
+    }
+
+    .register-form-container .column {
+        width: 100% !important;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .register-form-container .submit .button.btn-primary {
+        font-size: var(--text-base);
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+
+    .register-form-container .recaptcha-container {
+        justify-content: flex-start; /* Allow more natural alignment */
+    }
+
+    .register-form-container .input input,
+    .register-form-container .input select,
+    .register-form-container .input textarea {
+        width: 100%;
+    }
+
+    .register-form-container .input.checkbox {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .register-form-container .input.checkbox label {
+        margin-top: var(--spacing-xs);
+        font-size: var(--text-base);
+    }
+
+    .register-form-container .card-footer {
+        font-size: var(--text-base);
+    }
+}
+

@@ -1,0 +1,209 @@
+/* Jenbury Financial Main CSS - Import Partials */
+
+/* 1. Variables (Consider merging course/dashboard variables if desired) */
+@import url('base/_variables.css');
+@import url('pages/_courses-variables.css'); /* Scoped variables for courses */
+@import url('pages/_dashboard-variables.css'); /* Scoped variables for dashboard */
+/* @import url('admin/_dashboard-variables.css'); /* If admin dashboard has unique vars */
+
+/* 2. Base Styles */
+@import url('base/_base.css');
+@import url('pages/_courses-base.css'); /* Overrides for course pages */
+@import url('pages/_dashboard-layout.css'); /* Includes body override for dashboard */
+
+/* 3. Layout */
+@import url('layout/_header.css');
+@import url('layout/_main.css');
+@import url('layout/_footer.css');
+
+/* 4. Components */
+@import url('components/_buttons.css');
+@import url('components/_cards.css');
+@import url('components/_forms.css');
+@import url('components/_flash-messages.css');
+@import url('components/_badges.css');
+@import url('components/_pagination.css');
+@import url('components/_status-indicators.css');
+@import url('components/_password-toggle.css'); /* Added import */
+/* Add other components as needed */
+
+/* 5. Page Specific Styles */
+/* Public Pages */
+@import url('pages/_home.css');
+@import url('pages/_login.css');
+@import url('pages/_register.css');
+@import url('pages/_change-password.css');
+@import url('pages/_forgot-password.css');
+@import url('pages/_reset-password.css'); /* Added import */
+@import url('pages/_courses-index.css');
+@import url('pages/_course-view.css');
+@import url('pages/_module-view.css');
+@import url('pages/_module-content.css'); /* Added import */
+@import url('pages/_error.css');
+@import url('pages/_profile.css');
+/* Dashboard Pages (User) */
+@import url('pages/_dashboard-cards.css'); /* Base card overrides for dashboard */
+@import url('pages/_dashboard-welcome.css');
+@import url('pages/_courses-buttons.css'); /* Corrected import */
+@import url('pages/_dashboard-buttons.css'); /* Keep dashboard buttons if needed elsewhere */
+@import url('pages/_dashboard-empty.css');
+@import url('pages/_dashboard-sidebar.css');
+/* Add other page styles */
+
+/* Admin Pages */
+@import url('admin/_dashboard.css'); /* Admin dashboard */
+@import url('admin/_add-course.css');
+@import url('admin/_edit-course.css');
+@import url('admin/_add-module.css');
+@import url('admin/_edit-module.css');
+@import url('admin/_site-content.css');
+@import url('admin/_manage-courses.css'); /* Added import */
+@import url('admin/_manage-users.css');
+@import url('admin/_view-stats.css'); /* Added import for user management page */
+/* Add other admin styles */
+
+/* 6. Utilities */
+@import url('utils/_helpers.css');
+
+/* 7. Responsive Styles (Load last) */
+@import url('base/_responsive.css');
+
+/* IMPORTANT: Vendor files (normalize, milligram, cake) are NOT imported here. */
+/* They should be linked directly in the HTML layout BEFORE this main.css file. */
+/* Alternatively, copy their contents into partials and import them first. */
+/* Responsive table styling for Content Blocks page */
+@media screen and (max-width: 768px) {
+    .content-blocks.index .table thead {
+        display: none; /* Hide table headers on mobile */
+    }
+
+    .content-blocks.index .table tbody,
+    .content-blocks.index .table tr,
+    .content-blocks.index .table td {
+        display: block; /* Make table elements stack */
+        width: 100%;
+    }
+
+    .content-blocks.index .table tr {
+        margin-bottom: 15px; /* Add space between "cards" */
+        border: 1px solid #ddd; /* Optional: add border to cards */
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .content-blocks.index .table td {
+        text-align: right; /* Align text to the right */
+        padding-left: 50%; /* Create space for the label */
+        position: relative;
+        border-bottom: 1px solid #eee; /* Separator for cells */
+        overflow-wrap: break-word; /* Allow content to wrap */
+    }
+
+    .content-blocks.index .table td::before {
+        content: attr(data-label); /* Use data-label for the "header" */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px); /* Adjust width as needed */
+        padding-right: 10px;
+        white-space: normal; /* Allow labels to wrap */
+        overflow-wrap: break-word; /* Allow long words in labels to wrap */
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .content-blocks.index .table td:last-child {
+        border-bottom: none; /* No border for the last cell in a card */
+    }
+
+    /* Adjust action buttons for stacked layout */
+    .content-blocks.index .table td[data-label="Actions"] .button {
+        display: inline-block; /* Or block if you want them full width */
+        margin: 5px 5px 5px 0; /* Adjust spacing */
+    }
+}
+/* Responsive table styling for Manage Courses page */
+@media screen and (max-width: 768px) {
+    .manage-courses-page .table {
+        display: block;
+        width: 100%;
+        box-sizing: border-box; /* Ensure padding/border don't add to width */
+    }
+    .manage-courses-page .table thead {
+        display: none; /* Hide table headers on mobile */
+    }
+
+    .manage-courses-page .table tbody,
+    .manage-courses-page .table tr,
+    .manage-courses-page .table td {
+        display: block; /* Make table elements stack */
+        width: 100%;
+    }
+
+    .manage-courses-page .table tr {
+        margin-bottom: 15px; /* Add space between "cards" */
+        border: 1px solid #ddd; /* Optional: add border to cards */
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .manage-courses-page .table td {
+        text-align: right; /* Align text to the right */
+        padding-left: 50%; /* Create space for the label */
+        position: relative;
+        border-bottom: 1px solid #eee; /* Separator for cells */
+        overflow-wrap: break-word; /* Allow content to wrap */
+        box-sizing: border-box; /* Ensure padding doesn't add to width */
+    }
+
+    .manage-courses-page .table td.actions { /* Specific styling for the actions cell */
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; /* Make children take full width */
+        padding-left: 10px; /* Override the 50% padding */
+        padding-right: 10px; /* Add some right padding */
+        text-align: left; /* Align label and buttons to the left */
+    }
+
+    .manage-courses-page .table td::before {
+        content: attr(data-label); /* Use data-label for the "header" */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px); /* Adjust width as needed, default for other cells */
+        padding-right: 10px; /* Default for other cells */
+        white-space: normal; /* Allow labels to wrap */
+        overflow-wrap: break-word; /* Allow long words in labels to wrap */
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .manage-courses-page .table td:last-child {
+        border-bottom: none; /* No border for the last cell in a card */
+    }
+
+    /* Adjust action buttons for stacked layout */
+    .manage-courses-page .table td.actions::before { /* Specific for actions label */
+        width: 100%; /* Take full width as a flex item */
+        /* position: relative; NO LONGER NEEDED */
+        /* display: block; NO LONGER NEEDED, flex item */
+        margin-bottom: 8px; /* Space between label and first button */
+        /* left: 0; NO LONGER NEEDED */
+        padding-right: 0; /* Reset padding, already handled by cell */
+        font-weight: bold; /* Ensure label is bold */
+        text-align: left; /* Ensure label text is left aligned */
+        box-sizing: border-box; /* Consistent box model */
+    }
+
+    .manage-courses-page .table td.actions .button { /* More specific selector for actions cell */
+        display: block; /* Explicitly set to block, helps with flex item behavior */
+        width: 100%; /* Make buttons take full width of cell */
+        margin: 5px 0; /* Adjust margin for stacked layout (top/bottom only) */
+        box-sizing: border-box; /* Ensure padding/border don't add to width */
+    }
+}
+
+/* Override Bootstrap's container-fluid for main content area */
+main.main > div.container-fluid {
+    max-width: 1450px !important;
+    margin: 0 auto !important;
+    padding: var(--spacing-md) !important; /* Apply consistent padding */
+}

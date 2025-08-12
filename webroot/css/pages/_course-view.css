@@ -1,0 +1,376 @@
+/* =================================== */
+/* Course View Page Specific Styles    */
+/* =================================== */
+
+/* --- Layout & Spacing --- */
+.course-view-container.row { /* Target the row with the class */
+    gap: var(--space-8); /* Add gap between main content and sidebar */
+}
+
+.course-view-main > .card > .card-body,
+.course-view-sidebar .card .card-body {
+    padding: var(--space-6); /* Consistent padding */
+}
+
+.course-view-main .course-image {
+    margin-bottom: var(--space-6);
+    border-radius: var(--rounded-md); /* Add rounding to image */
+    overflow: hidden; /* Ensure image respects border-radius */
+}
+.course-view-main .course-description {
+    margin-bottom: var(--space-8);
+}
+.course-view-main .course-modules {
+    margin-top: var(--space-8);
+}
+
+/* --- Course Header --- */
+.course-header {
+    padding: var(--space-6) 0;
+    margin-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+}
+.course-header .row {
+    align-items: center; /* Vertically align title and actions */
+}
+.course-header h1 {
+    margin-top: 0;
+    margin-bottom: 0; /* Remove default heading margin */
+    font-size: var(--text-3xl); /* Slightly smaller than page title, but prominent */
+    font-weight: 700;
+    color: var(--jf-purple-primary); /* Ensure correct color */
+}
+.course-header .column-30 { /* Action column */
+    display: flex;
+    /* flex-direction: column; /* Removed - button is now the main content */
+    /* align-items: flex-end; /* Removed - rely on parent row's align-items: center */
+    justify-content: flex-end; /* Push button to the right */
+    /* gap: var(--space-2); /* Removed - likely only one element now */
+}
+.course-header .course-price {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--jf-purple-primary);
+}
+.course-header .badge-success {
+    /* Ensure badge styles from jenbury.css are sufficient */
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-base);
+    background-color: var(--color-success); /* Explicitly set from jenbury.css */
+    color: var(--jf-white);
+    border-radius: var(--rounded-md);
+}
+.course-header .purchase-button {
+    /* Ensure button styles from jenbury.css are sufficient */
+    width: auto; /* Don't make it full width here */
+    /* btn-primary and purchase-button classes handle styling */
+}
+
+
+/* --- Modules List --- */
+.module-list {
+    margin-top: var(--space-4);
+}
+.module-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--rounded-md);
+    margin-bottom: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    transition: box-shadow 0.2s ease;
+    background-color: var(--jf-white); /* Ensure background */
+}
+.module-item:hover {
+    box-shadow: var(--shadow-md);
+}
+.module-item .row {
+    align-items: center;
+}
+.module-item h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    font-size: var(--text-lg); /* Smaller than section titles */
+    color: var(--jf-dark-grey-text); /* Use darker grey */
+    display: flex; /* Keep title text and icon inline */
+    align-items: baseline; /* Align icon baseline with text baseline */
+    flex-wrap: nowrap; /* Prevent wrapping of icon relative to text */
+}
+.module-item h3 i { /* Target the icon specifically */
+    /* vertical-align: middle; /* Removed - use align-items on parent flex container */
+    margin-left: 0.3em; /* Add a small space between text and icon */
+    font-size: var(--text-base); /* Was 0.9em (parent 18px -> 16.2px) */
+    position: relative; /* Allow fine-tuning of position */
+    top: 0.1em; /* Nudge icon down slightly for better visual baseline alignment */
+}
+
+.module-item .column-70 h3,
+.module-item .column-70 p {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* for older browser compatibility */
+    word-break: break-word;
+}
+/* Paragraph style already defined globally for .module-item p */
+
+.module-item .column-70 {
+    padding-left: 2.5rem;
+}
+
+.module-item .column-30 { /* Action column */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-2);
+    padding-right: 2rem; /* Pushes button/price away from the card's right edge */
+}
+.module-item .module-price {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--jf-dark-grey-text);
+}
+.module-item .button-small {
+    /* Ensure button styles from jenbury.css are sufficient */
+    width: auto; /* Don't make full width */
+    /* button-outline class handles styling */
+}
+
+/* --- Sidebar --- */
+.course-view-sidebar .card {
+    margin-bottom: var(--space-6); /* Consistent spacing between sidebar cards */
+}
+.course-view-sidebar .card-header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: var(--text-lg); /* Consistent sidebar card title size */
+    color: var(--jf-dark-grey-text); /* Use darker grey */
+}
+
+.course-view-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.course-view-sidebar li {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-base);
+    color: var(--jf-grey-text);
+    line-height: 1.5; /* Improve readability */
+}
+.course-view-sidebar li:last-child {
+    margin-bottom: 0;
+}
+.course-view-sidebar li strong {
+    color: var(--jf-dark-grey-text);
+    font-weight: 600;
+}
+.course-view-sidebar .learning-outcomes li::before,
+.course-view-sidebar .course-includes li::before {
+    content: '✓'; /* Simple checkmark */
+    color: var(--jf-gold-accent);
+    font-weight: bold;
+    margin-right: var(--space-2);
+    display: inline-block;
+    width: 1.2em; /* Align checkmarks */
+    text-align: center;
+}
+.course-view-sidebar .course-includes li i { /* Basic icon styling if using <i> tags */
+    margin-right: var(--space-2);
+    color: var(--jf-gold-accent);
+    width: 1.2em; /* Align icons */
+    display: inline-block;
+    text-align: center;
+    font-style: normal; /* Prevent italics if using <i> */
+}
+
+.course-view-sidebar .purchase-option {
+    border: 1px solid var(--color-border);
+    border-radius: var(--rounded-md);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+    background-color: var(--color-secondary-bg); /* Light background */
+}
+.course-view-sidebar .purchase-option:last-child {
+    margin-bottom: 0;
+}
+.course-view-sidebar .purchase-option h4 {
+    margin-top: 0;
+    margin-bottom: var(--space-1); /* Reduced space */
+    font-size: var(--text-lg);
+    color: var(--jf-dark-grey-text);
+}
+.course-view-sidebar .purchase-option p {
+    font-size: var(--text-base);
+    color: var(--jf-grey-text);
+    margin-bottom: var(--space-2);
+}
+.course-view-sidebar .purchase-option .option-price {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--jf-purple-primary);
+    margin-bottom: var(--space-4);
+}
+.course-view-sidebar .purchase-option .button {
+    width: 100%;
+}
+
+/* --- Course Navigation (Purchased) --- */
+.course-navigation {
+    margin-top: var(--space-8);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+}
+.course-navigation h2 {
+    text-align: center;
+    margin-bottom: var(--space-6);
+    color: var(--jf-purple-primary); /* Ensure color */
+}
+.course-navigation .overall-progress-container h4 {
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--jf-dark-grey-text);
+    margin-bottom: var(--space-2);
+}
+.course-navigation .row {
+    gap: var(--space-4); /* Add gap between columns */
+}
+.nav-module-item {
+    background-color: var(--jf-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--rounded-md);
+    padding: var(--space-4);
+    text-align: center;
+    margin-bottom: var(--space-4); /* Add space below each item */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make cards in a row equal height */
+}
+.nav-module-item h3 {
+    margin-top: 0;
+    font-size: var(--text-base); /* Smaller title */
+    margin-bottom: var(--space-4);
+    color: var(--jf-dark-grey-text);
+    flex-grow: 1; /* Allow title to push button down */
+}
+.progress-container {
+    background-color: transparent; /* Remove background, let bar handle it */
+    border-radius: 0; /* Remove rounding from container */
+    /* height: 1rem; /* REMOVED - Let content determine height */
+    overflow: visible; /* Allow content to be visible */
+    margin-bottom: var(--space-4); /* Keep margin for now */
+}
+.progress-bar {
+    background: linear-gradient(to right, var(--jf-gold-accent), hsl(43, 41%, 55%));
+    height: 1rem; /* ADDED - Define height for the bar itself */
+    border-radius: 50px; /* ADDED - Round the bar itself */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px; /* Match container */
+    transition: width 0.5s ease; /* Animate progress */
+}
+.progress-text {
+    color: var(--jf-white);
+    font-size: var(--text-base); /* Was 0.8rem (8px) */
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 0 var(--space-1);
+}
+.nav-module-item .button-small {
+    width: 100%; /* Make button full width */
+    margin-top: auto; /* Push button to bottom */
+}
+
+@media (max-width: 768px) {
+    .module-item {
+        /* Default padding is: var(--space-4) var(--space-6) */
+        padding-top: var(--space-4);    /* Keep original top padding */
+        padding-right: var(--space-6);   /* Keep original right padding */
+        padding-bottom: var(--space-4); /* Keep original bottom padding */
+        padding-left: var(--space-8);    /* Increase left padding */
+    }
+
+    .module-item .column-70,
+    .module-item .column-30 {
+      width: 100%;
+      padding: 0; /* Columns themselves have no extra padding on mobile */
+      box-sizing: border-box;
+    }
+}
+
+
+
+
+/* --- Related Courses --- */
+/* Section removed from template, styles can be removed if desired */
+/*
+.related-courses {
+    margin-top: var(--space-8);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+}
+.related-courses h2 {
+    text-align: center;
+    margin-bottom: var(--space-6);
+    color: var(--jf-purple-primary);
+}
+.related-courses .row {
+     gap: var(--space-6);
+}
+.related-courses .course-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.related-courses .course-card .card-body {
+    padding: var(--space-4);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.related-courses .course-card h3 {
+    font-size: var(--text-lg);
+    margin-top: 0;
+}
+.related-courses .course-card p {
+    font-size: var(--text-base);
+    flex-grow: 1;
+    margin-bottom: var(--space-4);
+}
+.related-courses .course-card .course-price {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--jf-dark-grey-text);
+}
+.related-courses .course-card .button {
+    width: 100%;
+    margin-top: auto;
+}
+*/
+
+/* Removed rule for hiding badge as button now occupies this space */
+/* .course-header .column-30 .badge-success {
+    display: none;
+} */
+
+/* --- Course Navigation Scrolling --- */
+.course-navigation-modules-scrollable {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds max-height */
+    padding-right: var(--space-2); /* Add some padding to prevent scrollbar overlap with content */
+    margin-right: calc(-1 * var(--space-2)); /* Offset the padding to maintain alignment if needed */
+}
+
+/* Optional: Style the scrollbar (Webkit browsers) */
+.course-navigation-modules-scrollable::-webkit-scrollbar {
+    width: 8px;
+}
+
+.course-navigation-modules-scrollable::-webkit-scrollbar-track {
+    background: var(--color-secondary-bg);
+    border-radius: 4px;
+}
+
+.course-navigation-modules-scrollable::-webkit-scrollbar-thumb {
+    background-color: var(--jf-grey-text);
+    border-radius: 4px;
+    border: 2px solid var(--color-secondary-bg); /* Creates padding around thumb */
+}

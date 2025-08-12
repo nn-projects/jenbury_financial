@@ -1,0 +1,20 @@
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md); /* More padding */
+}
+
+/* Increased specificity */
+.card .empty-state h2 {
+    font-size: var(--text-2xl); /* Was 2.4rem, Match courses.css h2 size */
+    font-weight: 600;
+    color: var(--dark-text);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+/* Increased specificity */
+.card .empty-state p {
+    color: var(--muted-text);
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: var(--text-base); /* Was 1.1rem, Increased size */
+}

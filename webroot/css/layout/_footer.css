@@ -1,0 +1,59 @@
+/* Footer */
+.site-footer {
+    background-color: var(--jenbury-accent); /* Jenbury Purple */
+    color: #ffffff; /* White text */
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+}
+
+/* Ensure all text elements inherit white color */
+.site-footer p,
+.site-footer h3,
+.site-footer h4,
+.site-footer li {
+    color: #ffffff;
+    margin-bottom: var(--spacing-sm); /* Consistent spacing */
+}
+
+/* Style links specifically */
+.site-footer a {
+    color: #ffffff;
+    text-decoration: underline; /* Make links clear */
+}
+
+.site-footer a:hover {
+    color: #dddddd; /* Slightly lighter white on hover */
+    text-decoration: none;
+}
+
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md) 0; /* Add bottom margin to lists */
+}
+
+/* Keep original list item margin */
+.site-footer li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Updated copyright/footer content area */
+.footer-content { /* Using a new class for the main content area */
+    text-align: center;
+    font-size: 1.4rem; /* Slightly smaller font for footer details */
+    line-height: 1.8;
+}
+
+.footer-content .footer-links {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border for dark bg */
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+}
+
+.footer-content .footer-links a {
+    margin: 0 var(--spacing-xs); /* Small spacing between links */
+}

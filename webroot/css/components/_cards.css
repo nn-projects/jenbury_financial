@@ -1,0 +1,39 @@
+/* Cards - Updated with CoursesView inspiration */
+.card {
+    background-color: var(--color-primary-bg); /* Use new variable */
+    border-radius: var(--border-radius); /* Use new variable (12px) */
+    box-shadow: var(--card-shadow); /* Use new variable */
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-border); /* Use new variable */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover); /* Use new variable */
+}
+
+.card-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border); /* Use new variable */
+    background-color: var(--color-secondary-bg); /* Use new variable */
+}
+
+.card-header h3 {
+    margin-bottom: 0;
+    color: var(--jenbury-secondary); /* Use new variable */
+    font-weight: 600;
+}
+
+/* Remove generic .card-body padding, will be handled by specific content divs */
+.card-body {
+    padding: 0;
+}
+
+/* Remove generic .card-footer styles, will be handled by specific content divs */
+.card-footer {
+    padding: 0;
+    border-top: none;
+    background-color: transparent;
+}

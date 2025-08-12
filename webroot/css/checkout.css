@@ -1,0 +1,269 @@
+/* General Page & Typography Improvements */
+.checkout-page-container {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--jenbury-primary); /* Jenbury color */
+    padding-top: 2rem; /* Add some space at the top */
+    padding-bottom: 2rem; /* Add some space at the bottom */
+}
+
+.checkout-page-container h1 {
+    font-size: var(--text-2xl); /* Was 2.25rem (22.5px) */
+    margin-bottom: 2rem;
+    /* text-align: center; */ /* Removed to allow left alignment */
+    color: var(--jenbury-secondary); /* Jenbury color */
+}
+
+.checkout-box h4 { /* General style for h4 in checkout-box (e.g., Payment Details) */
+    font-size: var(--text-base); /* Was 1.5rem (15px) */
+    margin-bottom: 1.5rem;
+    color: var(--jenbury-accent); /* Jenbury Accent Purple */
+}
+
+.checkout-box .cart-header { /* Specific for "Your Cart" header */
+    font-size: var(--text-lg); /* Was 1.75rem (17.5px) */
+    color: var(--jenbury-accent); /* Jenbury Accent Purple */
+}
+
+.checkout-box .cart-header span:first-child { /* Targets "Your cart" text */
+    /* text-muted class in HTML will make it gray, remove if not desired or override here */
+}
+
+.checkout-box .cart-header .badge {
+    font-size: var(--text-base); /* Was 0.9rem (9px) */
+}
+
+
+/* Flexbox Layout */
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 2rem; /* Space between the two boxes */
+    justify-content: center; /* Center boxes if they don't fill the width */
+}
+
+/* Card-style Boxes */
+.checkout-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    flex: 1; /* Allow boxes to grow */
+    min-width: 300px; /* Minimum width before wrapping */
+    margin-bottom: 2rem; /* Space below boxes when stacked */
+}
+
+/* Consistent Spacing & Form Styling */
+.checkout-box .form-group, /* For payment form groups */
+.checkout-box .list-group-item {
+    margin-bottom: 1rem; /* Consistent spacing for form elements and list items */
+}
+
+.checkout-box label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--jenbury-primary); /* Jenbury color */
+}
+
+.checkout-box .form-control,
+.checkout-box #card-element {
+    padding: 0.875rem 1rem; /* Uniform padding */
+    border-radius: 6px; /* Rounded corners for inputs */
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-size: var(--text-base); /* Was 1rem (10px) */
+}
+
+.checkout-box .form-control::placeholder {
+    color: #868e96;
+    opacity: 1;
+}
+
+.checkout-box .form-control:focus,
+.checkout-box #card-element:focus-within { /* Use focus-within for Stripe element container */
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Stripe Card Element specific styling if needed */
+.checkout-box #card-element {
+    padding-top: 0.875rem; /* Adjust to align baseline with other inputs if necessary */
+    padding-bottom: 0.875rem;
+}
+
+
+/* Button Modernization */
+.checkout-box .btn {
+    display: inline-flex; /* Use flex to center content */
+    align-items: center; /* Vertical alignment */
+    justify-content: center; /* Horizontal alignment (though w-100 on Pay button handles this) */
+    padding: 0.875rem 1.5rem;
+    font-size: var(--text-base); /* Was 1rem (10px) */
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.1s ease;
+    line-height: 1.5; /* Ensure line-height doesn't push text down */
+    text-align: center; /* Ensure text itself is centered if button is not full width */
+}
+
+.checkout-box .btn-dark { /* Will become Jenbury primary button style */
+    background-color: var(--jenbury-primary);
+    border-color: var(--jenbury-primary);
+    color: #fff;
+}
+
+.checkout-box .btn-dark:hover {
+    background-color: var(--jenbury-secondary); /* Darken on hover */
+    border-color: var(--jenbury-secondary);
+    transform: translateY(-1px);
+}
+
+.checkout-box .btn-secondary { /* For Apply button - can use Jenbury accent or secondary */
+    background-color: var(--jenbury-accent);
+    border-color: var(--jenbury-accent);
+    color: #fff;
+}
+
+.checkout-box .btn-secondary:hover {
+    background-color: rgb(70, 30, 130); /* Slightly darker accent */
+    border-color: rgb(70, 30, 130);
+    transform: translateY(-1px);
+}
+
+/* Cart Item Redesign */
+.checkout-box .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0; /* Increased padding for cart items */
+    border: none; /* Remove all borders from list-group-item */
+    background-color: transparent; /* Ensure no background color */
+    margin-bottom: 0.5rem; /* Add a little space between items */
+}
+
+/* Add a subtle bottom border only to actual cart items, not summary lines */
+.checkout-box ul.list-group > li:not(#summary-subtotal):not(#summary-discount):not(#summary-total):not(:has(#discount-code-input)) {
+    border-bottom: 1px solid #eee; /* Subtle separator for actual items */
+}
+.checkout-box ul.list-group > li:last-of-type { /* Ensure last item in any context doesn't have bottom border if it's an item */
+   /* border-bottom: none; */ /* This might be too general, handled by specificity above */
+}
+
+
+.checkout-box .list-group-item div > h6 { /* Item name */
+    font-weight: 600; /* Bold item names */
+    margin-bottom: 0.35rem; /* Increased margin */
+    font-size: var(--text-base); /* Was 1.2rem (12px) */
+    color: var(--jenbury-primary); /* Jenbury color */
+}
+
+.checkout-box .list-group-item div > small { /* Quantity label */
+    color: var(--jenbury-secondary); /* Jenbury color - or a lighter gray if preferred */
+    font-size: var(--text-base); /* Was 1rem (10px) */
+}
+
+.checkout-box .list-group-item > .text-muted, /* Price - general selector for price spans */
+.checkout-box .list-group-item > span:not([class*="badge"]) { /* Target price spans more directly */
+    font-weight: 500;
+    font-size: var(--text-base); /* Was 1.15rem (11.5px) */
+    color: var(--jenbury-primary); /* Jenbury color */
+}
+
+
+/* Discount Code Field */
+.checkout-box li:has(#discount-code-input) { /* Target the li containing the discount section */
+    display: flex;
+    flex-direction: column; /* Stack input-group and feedback div */
+    align-items: stretch; /* Make children take full width */
+    background-color: #f8f9fa; /* Keep the bg-light effect if desired, or remove */
+    padding: 1rem; /* Add some padding to this specific li */
+    border-radius: 6px; /* Optional: round corners for this section */
+    margin-bottom: 1rem;
+}
+
+.checkout-box .input-group {
+    margin-bottom: 0.5rem; /* Reduced margin as feedback is now directly below */
+}
+.checkout-box .input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: var(--text-base); /* Was 1rem (10px) */
+}
+.checkout-box .input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: var(--text-base); /* Was 1rem (10px) */
+}
+
+.checkout-box #discount-feedback {
+    display: block; /* Ensure it's a block element */
+    width: 100%;   /* Take full width */
+    min-height: 22px;
+    font-size: var(--text-base); /* Was 1rem (10px) */
+    margin-top: 0.5rem; /* Keep or adjust as needed */
+    text-align: left; /* Default, but ensure it's not centered by other rules */
+}
+.checkout-box #discount-feedback.text-success {
+    color: #28a745 !important;
+}
+.checkout-box #discount-feedback.text-danger {
+    color: #dc3545 !important;
+}
+
+
+/* Totals Section Refinement */
+#summary-subtotal,
+#summary-discount,
+#summary-total {
+    padding-top: 0.85rem; /* Increased padding */
+    padding-bottom: 0.85rem; /* Increased padding */
+    font-size: var(--text-base); /* Was 1.1rem (11px) */
+    border: none; /* Remove borders from summary items */
+    background-color: transparent; /* Ensure no background color */
+}
+
+#summary-subtotal span, #summary-subtotal strong,
+#summary-discount span, #summary-discount strong,
+#summary-total span, #summary-total strong {
+    font-size: var(--text-base); /* Was 1.15rem (11.5px) */
+}
+
+
+#summary-total span,
+#summary-total strong {
+    font-weight: bold;
+    font-size: var(--text-base); /* Was 1.25rem (12.5px) */
+    color: var(--jenbury-secondary); /* Jenbury color for total amount */
+}
+#summary-discount span, #summary-discount strong {
+    color: var(--jenbury-accent); /* Jenbury Accent Purple for Discount text */
+}
+
+
+/* Trust Message */
+.checkout-box .text-muted.small {
+    font-size: var(--text-base); /* Was 0.85rem (8.5px) */
+    margin-top: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column; /* Stack boxes on smaller screens */
+    }
+
+    .checkout-box {
+        width: 100%; /* Make boxes full width when stacked */
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .checkout-page-container h1 {
+        font-size: var(--text-lg); /* Was 1.8rem (18px) */
+    }
+
+    .checkout-box h4 {
+        font-size: var(--text-base); /* Was 1.3rem (13px) */
+    }
+}

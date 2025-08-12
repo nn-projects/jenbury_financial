@@ -1,0 +1,53 @@
+/* Jenbury Financial Dashboard Styles - Buttons */
+/* These might override styles in components/_buttons.css */
+
+/* .button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md); /* 8px 16px */
+/*    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    border: 1px solid transparent;
+    font-size: 1.6rem; /* Match courses.css --text-base */
+/*    line-height: 1.5;
+} */
+
+/* .primary-button {
+    background-color: var(--royal-purple);
+    color: var(--white);
+    border-color: var(--royal-purple);
+    /* Optional subtle shadow for primary buttons */
+    /* box-shadow: 0 1px 2px rgba(0,0,0,0.05); */
+/* } */
+
+/* .primary-button:hover {
+    background-color: hsl(270, 50%, 35%); /* Darker purple */
+/*    border-color: hsl(270, 50%, 35%);
+    color: var(--white);
+} */
+
+/* .outline-button {
+    background-color: var(--white);
+    color: var(--royal-purple);
+    border: 1px solid var(--royal-purple);
+} */
+
+/* .outline-button:hover {
+    background-color: var(--royal-purple); /* Purple background on hover */
+/*    color: var(--white); /* White text on hover */
+/*    border-color: var(--royal-purple); /* Keep border purple */
+/* } */
+
+/* .small-button {
+    padding: calc(var(--spacing-sm) / 2) var(--spacing-sm); /* Smaller padding */
+/*    font-size: 0.875rem; /* Smaller text */
+/* } */
+
+/* Full width buttons in cards */
+/* .course-actions .button,
+.module-actions .button {
+    width: 100%; */
+/* } */

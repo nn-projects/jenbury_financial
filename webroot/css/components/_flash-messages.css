@@ -1,0 +1,26 @@
+/* Flash Messages */
+.message {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius);
+}
+
+.message.success {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.message.error {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.message.warning {
+    background-color: var(--color-warning);
+    color: var(--color-text);
+}
+
+.message.info {
+    background-color: var(--color-info);
+    color: white;
+}

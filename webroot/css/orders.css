@@ -1,0 +1,110 @@
+/* Orders Confirmation Page Specific Styles */
+
+.order-confirmation-page .page-header-component {
+    border-bottom: 1px solid var(--color-light-gray, #e0e0e0);
+    padding-bottom: var(--spacing-lg, 2rem);
+}
+
+.order-confirmation-page .page-title {
+    color: var(--jenbury-primary, #148296); /* Jenbury primary color */
+    font-weight: 300; /* Lighter font weight for display titles */
+}
+
+.order-confirmation-page .page-description {
+    font-size: 1.25rem; /* Increased from 1.1rem */
+    color: var(--color-text-muted, #6c757d);
+    max-width: 700px; /* Constrain width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-summary-card .card-header,
+.order-items-container .card-header {
+    background-color: var(--color-background-alt, #f8f9fa); /* Light background for headers */
+    border-bottom: 1px solid var(--color-border, #dee2e6);
+}
+
+.order-summary-card .summary-label {
+    color: var(--color-text-secondary, #495057);
+}
+
+.order-summary-card .total-amount-item .summary-value {
+    color: var(--color-success, #28a745); /* Emphasize total amount */
+}
+
+.order-item-card {
+    padding: var(--spacing-md, 1.25rem);
+    border-bottom: 1px solid var(--color-border-light, #f1f1f1);
+}
+
+.order-item-card:last-child {
+    border-bottom: none;
+}
+
+.order-item-card .item-image-container .img-fluid {
+    border: 1px solid var(--color-border-light, #f1f1f1);
+}
+
+.order-item-card .item-title {
+    font-weight: 600;
+    color: var(--color-text-emphasis, #343a40);
+}
+
+.order-item-card .item-price {
+    font-size: 1.2rem; /* Increased from 1.1rem */
+}
+
+.order-actions .btn {
+    padding: var(--spacing-sm, 0.75rem) var(--spacing-lg, 2rem); /* Generous padding for buttons */
+    font-size: 1.1rem;
+}
+
+/* Ensure Jenbury button styles are applied if not already global */
+.button.button-primary.button-gold,
+.btn.btn-primary.button-gold { /* Added .btn for specificity if Bootstrap is also used */
+    background-color: var(--jenbury-primary-gold, #DAA520); /* Fallback gold */
+    border-color: var(--jenbury-primary-gold, #DAA520);
+    color: white;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.button.button-primary.button-gold:hover,
+.btn.btn-primary.button-gold:hover {
+    background-color: var(--jenbury-primary-gold-darker, #b8860b); /* Darker gold on hover */
+    border-color: var(--jenbury-primary-gold-darker, #b8860b);
+    color: white;
+}
+
+.button.button-secondary,
+.btn.btn-secondary {
+    background-color: var(--color-secondary, #6c757d);
+    border-color: var(--color-secondary, #6c757d);
+    color: white;
+}
+
+.button.button-secondary:hover,
+.btn.btn-secondary:hover {
+    background-color: var(--color-secondary-darker, #5a6268);
+    border-color: var(--color-secondary-darker, #545b62);
+    color: white;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 576px) {
+    .order-summary-card .summary-label,
+    .order-summary-card .summary-value {
+        text-align: left !important; /* Align left on small screens */
+    }
+    .order-item-card .item-price {
+        text-align: left !important; /* Align left on small screens */
+        margin-top: 0.5rem;
+    }
+    .order-actions .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: var(--spacing-xs, 0.5rem);
+    }
+    .order-actions .btn.me-2 {
+        margin-right: 0 !important;
+    }
+}

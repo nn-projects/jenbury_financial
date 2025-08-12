@@ -1,0 +1,408 @@
+/* Styles for Module Content Page (User Facing) - Revamped */
+
+/* General Page Setup */
+.container { /* Assuming a general container class from your layout */
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-secondary-bg); /* Light background for the page */
+}
+
+/* Content Header Section */
+.content-header {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    margin-bottom: var(--spacing-md);
+}
+
+.breadcrumb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+.breadcrumb-item {
+    margin-right: var(--spacing-xs);
+}
+
+.breadcrumb-item::after {
+    content: '>';
+    margin-left: var(--spacing-xs);
+    color: var(--color-text-muted);
+}
+
+.breadcrumb-item:last-child::after {
+    content: ''; /* No separator after the last item */
+}
+
+.breadcrumb-item a {
+    color: var(--jenbury-primary);
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* Page Title Section */
+.page-title-section {
+    margin-top: var(--spacing-md);
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    color: var(--jenbury-accent);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.module-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: var(--text-sm);
+}
+
+.module-badge {
+    background-color: var(--jenbury-secondary);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+}
+
+.course-name {
+    color: var(--color-text-muted);
+}
+
+/* Main Content Layout */
+/* Main Content Layout */
+.module-page-main-wrapper {
+    max-width: 1024px; /* Set max-width for the entire content area */
+    margin: 0 auto; /* Center the content area */
+    padding: var(--spacing-md); /* Add some padding around the content */
+}
+
+.module-content-flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow sidebar to wrap on smaller screens */
+    gap: var(--spacing-lg); /* Space between main content and sidebar */
+    align-items: flex-start; /* Align items to the top */
+    margin-top: var(--spacing-lg); /* Space above the content area */
+}
+
+.module-main-content-area {
+    flex: 3; /* Main content takes more space */
+    min-width: 0; /* Prevents flexbox overflow issues */
+}
+
+.module-sidebar-area {
+    flex: 1;
+    min-width: 280px; /* Minimum width for sidebar */
+    max-width: 350px; /* Maximum width for sidebar */
+}
+
+/* Content Card (Main Area) */
+.content-card {
+    background-color: var(--color-primary-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: var(--spacing-lg);
+}
+
+main.module-content-page .module-content-main .card .card-body { /* Increased specificity */
+    padding: var(--spacing-lg) !important; /* Added !important for testing */
+}
+
+/* Content Display (Rich Text Area) */
+.content-display {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    padding: var(--spacing-lg) !important; /* Increased padding for TinyMCE content */
+}
+.content-display h1, .content-display h2, .content-display h3,
+.content-display h4, .content-display h5, .content-display h6 {
+    font-family: var(--font-heading);
+    color: var(--jenbury-secondary);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+.content-display p {
+    margin-bottom: var(--spacing-md);
+}
+.content-display ul, .content-display ol {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+}
+.content-display img {
+    max-width: 100%;
+    height: auto;
+    border-radius: calc(var(--border-radius) / 2);
+    margin: var(--spacing-md) 0;
+}
+.content-display pre {
+    background-color: var(--color-secondary-bg);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    border-radius: calc(var(--border-radius) / 2);
+    overflow-x: auto;
+    font-family: monospace;
+}
+
+/* Content Navigation Buttons */
+.content-navigation {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.nav-buttons .button { /* General button styling from your theme */
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    font-size: var(--text-base);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+    border: 1px solid transparent;
+    display: inline-flex; /* For icon alignment */
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.nav-buttons .button .button-icon {
+    font-size: 1.2em; /* Make icon slightly larger */
+}
+
+.nav-buttons .button.button-primary {
+    background-color: var(--jenbury-accent);
+    color: var(--white);
+    border-color: var(--jenbury-accent);
+}
+.nav-buttons .button.button-primary:hover {
+    background-color: var(--jenbury-secondary);
+    border-color: var(--jenbury-secondary);
+}
+
+.nav-buttons .button.button-secondary {
+    background-color: var(--white);
+    color: var(--jenbury-primary);
+    border-color: var(--jenbury-primary);
+}
+.nav-buttons .button.button-secondary:hover {
+    background-color: var(--color-secondary-bg);
+    color: var(--jenbury-secondary);
+    border-color: var(--jenbury-secondary);
+}
+
+
+/* Sidebar Card */
+.sidebar-card {
+    background-color: var(--color-primary-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow-sm); /* Lighter shadow for sidebar */
+}
+
+.sidebar-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-secondary-bg);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--jenbury-secondary);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+/* Progress Indicator in Sidebar */
+.progress-indicator {
+    margin-top: var(--spacing-sm);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-border-light); /* Lighter background for progress bar */
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-success); /* Green for progress */
+    width: 0%; /* Controlled by inline style */
+    transition: width 0.5s ease-in-out;
+    border-radius: 4px;
+}
+
+.progress-text {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    display: block;
+    text-align: right;
+}
+
+/* Sidebar Content List */
+.sidebar-body {
+    padding: var(--spacing-md);
+}
+
+.content-list-sidebar { /* Target the specific ul for sidebar content */
+    list-style: none;
+    padding: 0 !important; /* Ensure no default ul padding */
+    margin: 0;
+}
+
+.content-list-sidebar li { /* Apply padding to each list item */
+    margin-bottom: var(--spacing-xs);
+    border-radius: calc(var(--border-radius) / 2);
+    transition: background-color var(--transition-speed);
+    padding: var(--spacing-sm) var(--spacing-md) !important; /* Consistent padding for all sidebar list items */
+}
+
+.content-item:hover {
+    background-color: var(--color-secondary-bg-hover);
+}
+
+.content-item.active {
+    background-color: var(--jenbury-accent-light); /* Light accent for active item */
+}
+.content-item.active .content-link {
+    color: var(--jenbury-accent-dark); /* Darker text for active item */
+    font-weight: 600;
+}
+.content-item.active .status-icon.current {
+    color: var(--jenbury-accent-dark);
+}
+
+
+.content-item-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.content-status {
+    margin-right: var(--spacing-sm);
+    font-size: var(--text-sm);
+    width: 20px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+.status-icon.completed {
+    color: var(--color-success);
+    font-weight: bold;
+}
+.status-icon.current {
+    color: var(--jenbury-accent);
+    font-weight: bold;
+}
+.status-icon.pending {
+    color: var(--color-text-muted);
+}
+
+.content-link-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.content-link {
+    color: var(--jenbury-primary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    display: block; /* Make link take full width of its wrapper part */
+}
+.content-item:hover .content-link {
+    color: var(--jenbury-primary-hover);
+}
+
+
+.lesson-number {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+
+/* Sticky Sidebar (Optional - if you want it to stick on scroll) */
+@media (min-width: 992px) {
+    .content-sidebar {
+        position: sticky;
+        top: var(--spacing-lg); /* Adjust based on header height and desired spacing */
+        align-self: flex-start;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .module-content-flex-container {
+        flex-direction: column;
+    }
+    .module-main-content-area, .module-sidebar-area {
+        flex: 1 1 100%; /* Full width on mobile */
+        max-width: 100%;
+    }
+    .page-title {
+        font-size: var(--text-2xl);
+    }
+    .nav-buttons {
+        flex-direction: column;
+        align-items: stretch; /* Make buttons full width */
+    }
+    .nav-buttons .button {
+        width: 100%;
+        text-align: center;
+        justify-content: center; /* Center icon and text */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+    .page-title {
+        font-size: var(--text-xl);
+    }
+    .content-body, .sidebar-header, .sidebar-body {
+        padding: var(--spacing-md);
+    }
+    .nav-buttons .button {
+        font-size: var(--text-sm);
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+    .breadcrumb-list {
+        font-size: var(--text-xs);
+    }
+}

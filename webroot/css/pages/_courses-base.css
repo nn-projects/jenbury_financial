@@ -1,0 +1,37 @@
+/* Jenbury Financial - Custom Course Base Style Overrides */
+/* These might override styles in base/_base.css */
+
+body {
+    font-family: var(--font-sans);
+    color: var(--jf-grey-text);
+    line-height: 1.6;
+    font-size: var(--text-base); /* Now 1.6rem (16px) */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--jf-purple-primary);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600; /* Semibold default */
+}
+
+h1 { font-weight: 700; /* Bold */ } /* font-size: var(--text-4xl) removed as it matches base.css default */
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); color: var(--jf-dark-grey-text); } /* Card titles etc. */
+
+/* Specific style for paragraph text within module items */
+.module-list .module-item p { /* Increased specificity */
+    font-size: var(--text-base); /* Adjusted from text-2xl to text-base */
+    line-height: 1.6; /* Ensure adequate line spacing */
+    color: var(--jf-grey-text); /* Use standard grey text color */
+    margin-bottom: 0; /* Adjusted from --space-2 */
+}
+
+a {
+    color: var(--jf-purple-primary);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

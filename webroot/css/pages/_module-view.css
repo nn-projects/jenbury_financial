@@ -1,0 +1,144 @@
+/* Module Card/List Styles */
+.module-card {
+    border-left: 4px solid var(--color-primary); /* Note: --color-primary might not be defined yet */
+    /* Inherits base .card styles */
+}
+
+.module-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.module-item {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-medium-gray); /* Note: --color-medium-gray might not be defined yet */
+    transition: background-color var(--transition-speed) ease;
+}
+
+.module-item:hover {
+    background-color: var(--color-light-gray); /* Note: --color-light-gray might not be defined yet */
+    padding-left: var(--spacing-sm);
+}
+
+.module-item:last-child {
+    border-bottom: none;
+}
+
+/* =================================== */
+/* Module View Page Specific Styles    */
+/* (From courses.css)                  */
+/* =================================== */
+
+/* --- Layout & Spacing --- */
+.module-view-container.row {
+    gap: var(--space-8); /* Gap between main and sidebar */
+}
+.module-view-main > .card > .card-body,
+.module-view-sidebar .card .card-body {
+    padding: var(--space-6);
+}
+.module-view-main .module-description {
+    margin-bottom: var(--space-8);
+}
+.module-view-main .module-contents {
+    margin-top: var(--space-8);
+}
+
+/* --- Module Header --- (Removed - Using .course-header styles) */
+
+/* --- Content List --- (Removed - Using .module-list styles) */
+/* --- Content Item --- (Removed - Using .module-item styles) */
+
+/* --- Locked Content --- */
+.module-contents.locked {
+    margin-top: var(--space-8);
+    padding: var(--space-8);
+    background-color: var(--color-secondary-bg);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--rounded-md);
+    text-align: center;
+}
+.locked-content .lock-icon {
+    font-size: var(--text-4xl);
+    color: var(--jf-grey-text);
+    margin-bottom: var(--space-4);
+}
+.locked-content h3 {
+    margin-top: 0;
+    color: var(--jf-dark-grey-text);
+}
+.locked-content p {
+    color: var(--jf-grey-text);
+    margin-bottom: var(--space-6);
+}
+.locked-content .purchase-button {
+    width: auto; /* Don't make full width */
+}
+
+/* --- Sidebar --- (Removed - Using .course-view-sidebar styles) */
+
+/* --- Module Navigation --- (Removed - Using .course-navigation styles) */
+/* --- Nav Content Item --- (Removed - Using .nav-module-item styles) */
+
+/* --- Related Modules --- (Removed - Section removed from template) */
+
+/* --- Module Navigation Horizontal Scroll --- */
+.course-navigation-modules-scrollable {
+    overflow-x: auto;   /* Enable horizontal scroll */
+    white-space: nowrap; /* Prevent items from wrapping */
+    padding-bottom: var(--space-4); /* Space for scrollbar */
+    margin-bottom: calc(-1 * var(--space-4)); /* Compensate padding */
+    /* Add scrollbar styling (optional, copied from course-view for consistency) */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--jf-grey-text) var(--color-secondary-bg); /* Firefox */
+}
+
+/* Optional: Webkit scrollbar styling */
+.course-navigation-modules-scrollable::-webkit-scrollbar {
+    height: 8px; /* Height for horizontal scrollbar */
+}
+
+.course-navigation-modules-scrollable::-webkit-scrollbar-track {
+    background: var(--color-secondary-bg);
+    border-radius: 4px;
+}
+
+.course-navigation-modules-scrollable::-webkit-scrollbar-thumb {
+    background-color: var(--jf-grey-text);
+    border-radius: 4px;
+    border: 2px solid var(--color-secondary-bg); /* Creates padding around thumb */
+}
+
+/* Ensure the row itself expands horizontally to fit all content */
+.course-navigation-modules-scrollable > .row {
+    width: max-content; /* Make row as wide as its content needs to be */
+    flex-wrap: nowrap; /* Explicitly prevent wrapping within the row */
+}
+
+/* Override column behavior within the scrollable area */
+.course-navigation-modules-scrollable > .row > .column {
+    display: inline-block; /* Treat columns as inline blocks to line up horizontally */
+    width: 250px; /* Give columns a fixed width instead of percentage */
+    /* min-width: 200px; /* Alternative: Use a minimum width */
+    vertical-align: top; /* Align items nicely if heights differ slightly */
+    white-space: normal; /* Allow text *within* the column/card to wrap normally */
+    margin-right: var(--space-4); /* Add spacing between columns */
+    float: none; /* Override any potential float from base styles */
+    /* Remove percentage width and left margin from Milligram */
+    margin-left: 0;
+}
+
+/* Remove margin from the last column to avoid extra space at the end */
+.course-navigation-modules-scrollable > .row > .column:last-child {
+    margin-right: 0;
+}
+
+/* Ensure the nav items inside the columns still behave correctly */
+.course-navigation-modules-scrollable .nav-module-item {
+     /* Styles should be inherited correctly from _course-view.css or base styles */
+     /* Ensure height: 100% works well with inline-block columns if needed */
+     height: 100%; /* Maintain equal height for items */
+     display: flex; /* Keep flex for internal layout (title grow, button bottom) */
+     flex-direction: column;
+}

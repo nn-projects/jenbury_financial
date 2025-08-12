@@ -1,0 +1,70 @@
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+html {
+    font-size: 62.5%; /* Set base font size for rem units (1rem = 10px) */
+}
+
+body {
+    font-size: var(--text-lg); /* Increased base font size (equiv. to 18px) */
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-background); /* Note: --color-background might not be defined yet, ensure it's in _variables.css or defined here */
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: var(--text-4xl);
+}
+
+h2 {
+    font-size: var(--text-3xl);
+}
+
+h3 {
+    font-size: var(--text-2xl);
+}
+
+h4 {
+    font-size: var(--text-xl);
+}
+
+h5 {
+    font-size: var(--text-lg);
+}
+
+h6 {
+    font-size: var(--text-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-primary); /* Note: --color-primary might not be defined yet, ensure it's in _variables.css */
+    margin-bottom: var(--spacing-md);
+}
+
+p {
+    font-size: var(--text-base);
+}
+
+a {
+    color: var(--color-primary); /* Note: --color-primary might not be defined yet */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--jenbury-accent); /* Note: --jenbury-accent might not be defined yet */
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents extra space below inline images */
+    vertical-align: middle; /* Improves alignment */
+}

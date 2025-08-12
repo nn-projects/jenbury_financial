@@ -1,0 +1,338 @@
+/* Course Cards (for index page) */
+.course-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Keep this for grid layout */
+    /* Inherits base .card styles (border, shadow, etc.) */
+}
+
+/* Styles for the new inner content wrapper */
+.course-card-content {
+    padding: var(--spacing-lg); /* Use new spacing */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow content to push footer down */
+    overflow-wrap: break-word; /* Prevent long words from breaking layout */
+}
+
+.course-image {
+    display: block; /* Ensure image behaves like a block */
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area */
+    transition: transform var(--transition-speed) ease;
+    border-bottom: 1px solid var(--color-border); /* Add separator */
+}
+
+.course-card:hover .course-image {
+    transform: scale(1.05);
+}
+
+/* Style Title within card */
+.course-card-content h3 {
+    font-size: var(--text-base); /* Was 1.6rem (16px) */
+    font-weight: 700;
+    color: var(--text-color); /* Note: --text-color might not be defined yet */
+    margin-bottom: var(--spacing-sm); /* Adjust spacing */
+    flex-shrink: 0; /* Prevent title from shrinking */
+}
+
+/* Style Description within card */
+.course-card-content p {
+    font-size: var(--text-base); /* Was 1.4rem (14px) */
+    color: var(--text-muted); /* Note: --text-muted might not be defined yet */
+    margin-bottom: var(--spacing-md); /* Adjust spacing */
+    flex-grow: 1; /* Allow description to take up space */
+    /* Add line clamping if desired (requires plugin or manual CSS) */
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden; */
+}
+
+/* Style Module Count within card */
+.course-card-content .course-modules {
+    margin-bottom: var(--spacing-md); /* Adjust spacing */
+}
+.course-card-content .course-modules p {
+    font-size: var(--text-base); /* Was 1.3rem (13px) */
+    color: var(--text-muted); /* Note: --text-muted might not be defined yet */
+    margin-bottom: 0; /* Reset paragraph margin */
+    flex-grow: 0; /* Don't let module count grow */
+    flex-shrink: 0; /* Prevent module count from shrinking */
+}
+
+/* Styles for the new footer wrapper */
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push to bottom */
+    padding-top: var(--spacing-md); /* Space above footer */
+    border-top: 1px solid var(--color-border); /* Separator line */
+}
+
+/* Updated Course Price styles */
+.course-price {
+    font-size: var(--text-base); /* Was 1.5rem (15px) */
+    font-weight: 700; /* From CoursesView */
+    color: var(--jenbury-primary); /* Use new variable */
+    margin-bottom: 0; /* Remove bottom margin */
+    padding: 0; /* Remove padding */
+    background-color: transparent; /* Remove background */
+    border-radius: 0; /* Remove border-radius */
+}
+
+/* Container for actions in footer
+.course-actions {
+     styles for button alignment if needed
+} */
+
+
+/* Courses Page Grid Layout */
+.courses-grid {
+    margin-bottom: var(--spacing-xl); /* Add some bottom margin */
+    display: grid; /* Apply grid directly to the container */
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); /* Increased min width again */
+    gap: var(--spacing-lg); /* Gap between columns (which contain cards) */
+}
+
+/* Remove grid styles from the inner row */
+.courses-grid .row {
+    display: contents; /* Make the row effectively disappear for grid layout */
+}
+
+/* Ensure framework column styles are reset within the courses grid */
+/* Target generic .column within the grid */
+.courses-grid .column {
+    width: auto; /* Let grid control width */
+    margin-bottom: 0; /* Reset framework margin */
+    flex-basis: auto; /* Override framework flex-basis */
+    max-width: none; /* Override framework max-width */
+    min-width: 0; /* Allow column to shrink below content size if needed */
+    padding: 0; /* Override framework padding */
+    /* Ensure the column itself doesn't constrain the card */
+}
+
+/* Ensure card fills the column */
+.courses-grid .course-card {
+    width: 100%; /* Make card fill the column */
+    /* margin-bottom is handled by grid gap */
+}
+
+/* --- Styles from courses.css --- */
+
+.courses-page-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+.courses-page-header .page-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--jf-purple-primary);
+    margin-bottom: var(--space-4);
+}
+.courses-page-header .page-description {
+    font-size: var(--text-lg);
+    color: var(--jf-grey-text);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-8);
+}
+.courses-page-header .button-view-modules {
+    margin-top: var(--space-4); /* Adjust as needed */
+}
+
+.course-section {
+    margin-bottom: var(--space-12); /* Space between course sections */
+}
+
+/* --- Course Header Component --- */
+.course-header-component {
+    background-color: var(--jf-light-purple-bg);
+    border-radius: var(--rounded-lg);
+    padding: var(--space-8);
+    border-left: 4px solid var(--jf-gold-accent);
+    margin-bottom: var(--space-8); /* Space before modules */
+    display: flex;
+    flex-direction: column; /* Mobile first */
+    gap: var(--space-8);
+}
+.course-header-component .course-title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--jf-purple-primary);
+    margin-top: 0;
+}
+.course-header-component .course-subtitle {
+    font-size: var(--text-xl);
+    font-weight: 500; /* Medium */
+    color: var(--jf-dark-grey-text);
+    margin-bottom: var(--space-4);
+}
+.course-header-component .course-description-main {
+    margin-bottom: var(--space-6);
+}
+.course-header-component .learning-outcomes-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--jf-dark-grey-text);
+    margin-bottom: var(--space-2);
+}
+.course-header-component .learning-outcomes-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.course-header-component .learning-outcomes-list li {
+    margin-bottom: var(--space-2);
+    display: flex;
+    align-items: center;
+}
+.course-header-component .learning-outcomes-list .checkmark-icon {
+    color: var(--jf-gold-accent);
+    font-weight: 700;
+    margin-right: var(--space-2);
+    /* Consider using an actual icon font/SVG here */
+}
+
+/* --- Course Bundle Card --- */
+.course-bundle-card {
+    background-color: var(--jf-very-light-purple-bg);
+    border: 1px solid var(--jf-light-purple-bg);
+    border-radius: var(--rounded-md);
+    padding: var(--space-6);
+}
+.course-bundle-card .bundle-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--jf-dark-grey-text);
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+}
+.course-bundle-card .bundle-savings {
+    margin-bottom: var(--space-4);
+}
+.course-bundle-card .bundle-individual-price {
+    color: var(--jf-grey-text);
+}
+/* .strikethrough definition removed, using utility class below */
+.course-bundle-card .bundle-price {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--jf-purple-primary);
+    margin: var(--space-2) 0;
+}
+.course-bundle-card .bundle-savings-amount {
+    color: var(--jf-gold-accent);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+}
+.course-bundle-card .button-buy-bundle {
+    width: 100%;
+    margin-bottom: var(--space-2);
+}
+.course-bundle-card .bundle-browse-modules-link {
+    text-align: center;
+    font-size: var(--text-base); /* Was 0.9em (assumed 14.4px from 16px base) */
+}
+.course-bundle-card .bundle-browse-modules-link a {
+    color: var(--jf-purple-primary);
+    text-decoration: underline;
+}
+
+/* --- Available Modules Section --- */
+/* Removed empty ruleset */
+
+.available-modules-title {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--jf-purple-primary);
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--jf-gold-accent);
+    display: inline-block; /* To make border only span text width */
+}
+
+/* --- Modules Grid --- */
+.modules-grid {
+    display: grid;
+    /* Responsive columns: start with 1, then adapt */
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+}
+
+/* --- Module Card --- */
+.module-card {
+    display: flex; /* Added for internal alignment */
+    flex-direction: column; /* Added for internal alignment */
+    height: 100%; /* Added for consistent height in grid rows */
+    background-color: var(--jf-white);
+    border-radius: var(--rounded-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden; /* To contain image and footer */
+    border-top: 4px solid var(--jf-blue-secondary);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+.module-card-image img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.module-card-content {
+    padding: var(--space-6);
+    flex-grow: 1; /* Added to push footer down */
+}
+.module-card-content .module-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--jf-dark-grey-text);
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+}
+.module-card-content .module-description {
+    margin-bottom: var(--space-4);
+    color: var(--jf-grey-text);
+    font-size: var(--text-base); /* Was 0.95em (assumed 15.2px from 16px base) */
+}
+.module-card-content .module-lesson-count {
+    font-size: var(--text-base); /* Was 0.9em (assumed 14.4px from 16px base) */
+    color: var(--jf-grey-text);
+    /* Add icon styling if using icon font/SVG */
+}
+.module-card-footer {
+    background-color: var(--jf-light-blue-bg);
+    padding: var(--space-4) var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Added to push to bottom */
+}
+.module-card-footer .module-price {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--jf-purple-primary);
+}
+.module-card-footer .button-enroll {
+    padding: var(--space-2) var(--space-4); /* Adjust if needed */
+}
+
+/* Responsive adjustments for modules-grid */
+@media (min-width: 640px) { /* Small devices (tablets, landscape phones) */
+    .modules-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (min-width: 1024px) { /* Medium devices (desktops) */
+    .modules-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}

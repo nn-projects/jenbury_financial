@@ -1,0 +1,172 @@
+/* Styles specific to Module Content page */
+
+.module-content-page .row {
+    /* Assuming a grid layout similar to dashboard */
+    display: grid;
+    gap: var(--space-8, 2rem); /* Use variable or fallback */
+    grid-template-columns: 1fr; /* Mobile first */
+}
+
+@media (min-width: 992px) { /* Match dashboard breakpoint */
+    .module-content-page .row {
+        grid-template-columns: 3fr 1fr; /* Main content and sidebar */
+    }
+}
+
+.module-content-page .module-content-main {
+    /* Grid item takes available space */
+    padding-top: var(--spacing-lg, 1rem);
+    padding-bottom: var(--spacing-lg, 1rem);
+    
+}
+/*
+.module-content-page .module-content-sidebar {
+    Grid item takes available space 
+}
+*/
+
+/* Scoped Button Styles to override cake.css */
+.module-content-page .button {
+    background-color: var(--jenbury-primary, #148296); /* Default to primary color */
+    color: var(--color-primary-bg, #fff);
+    border-color: var(--jenbury-primary, #148296);
+    padding: 0.75rem 1.5rem; /* Example padding */
+    border-radius: 0.375rem; /* Match base button */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+.module-content-page .button:hover {
+    background-color: var(--jenbury-secondary, #0f7082);
+    border-color: var(--jenbury-secondary, #0f7082);
+    color: var(--color-primary-bg, #fff);
+}
+/* 
+.module-content-page .button-primary {
+    Already covered by .button rule above, add specific overrides if needed 
+}*/
+
+.module-content-page .button-outline {
+    color: var(--jenbury-primary, #148296);
+    background-color: transparent;
+    border: 1px solid var(--jenbury-primary, #148296); /* Use 1px border for outline */
+}
+.module-content-page .button-outline:hover {
+    color: var(--color-primary-bg, #fff);
+    background-color: var(--jenbury-primary, #148296);
+    border-color: var(--jenbury-primary, #148296);
+}
+
+
+/* Other page-specific styles */
+.content-header {
+    margin-bottom: var(--spacing-lg, 1.5rem);
+    padding-bottom: var(--spacing-md, 1rem);
+    border-bottom: 1px solid var(--color-border, #e9ecef);
+}
+.content-header .breadcrumbs {
+    font-size: 1.4rem;
+    color: var(--color-text-muted, #6c757d);
+    margin-bottom: var(--spacing-sm, 0.5rem);
+}
+.content-header h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.content-display .video-container,
+.content-display .image-container,
+.content-display .file-container {
+    margin-bottom: var(--spacing-lg, 1.5rem);
+}
+.content-display .content-text {
+    line-height: 1.7;
+    font-size: 1.8rem; /* Match base body size */
+    padding-left: 1.5rem;
+}
+
+.content-navigation {
+    margin-top: var(--spacing-xl, 2rem);
+    padding-top: var(--spacing-lg, 1.5rem);
+    border-top: 1px solid var(--color-border, #e9ecef);
+}
+
+.content-list-sidebar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.content-list-sidebar li {
+    padding: var(--spacing-sm, 0.5rem) 0;
+    border-bottom: 1px solid var(--color-border, #e9ecef);
+    display: flex;
+    align-items: center;
+}
+.content-list-sidebar li:last-child {
+    border-bottom: none;
+}
+.content-list-sidebar li.active {
+    font-weight: bold;
+    background-color: var(--color-secondary-bg, #f8f9fa); /* Highlight active item */
+    margin-left: -var(--space-6); /* Adjust based on card padding */
+    margin-right: -var(--space-6); /* Adjust based on card padding */
+    padding-left: var(--space-6); /* Adjust based on card padding */
+    padding-right: var(--space-6); /* Adjust based on card padding */
+}
+.content-list-sidebar li.active a {
+    color: var(--jenbury-primary, #148296); /* Highlight active link */
+}
+.content-list-sidebar .content-icon {
+    margin-right: var(--spacing-sm, 0.5rem);
+    color: var(--color-text-muted, #6c757d);
+    width: 1.2em;
+    text-align: center;
+}
+.content-list-sidebar a {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+}
+
+/* Sidebar Progress */
+.module-content-sidebar .progress-container {
+    background-color: var(--color-border, #e9ecef);
+    border-radius: 50px;
+    height: 1rem;
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm, 0.5rem);
+}
+.module-content-sidebar .progress-bar {
+    background: linear-gradient(to right, var(--jf-gold-accent, #a37c27), hsl(43, 41%, 55%)); /* Use course variable */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    transition: width 0.5s ease;
+    color: var(--jf-white, #fff);
+}
+.module-content-sidebar .progress-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 0 var(--space-1, 0.25rem);
+}
+.module-content-sidebar .text-center {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .content-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .module-content-page .button {
+        width: auto;
+    }
+}

@@ -1,0 +1,43 @@
+/* Jenbury Financial - Custom Course Button Style Additions */
+/* Specific styles for buttons used on course pages */
+
+/* Specific Button Styles */
+/* .button-gold {
+    background-color: var(--jf-gold-accent);
+    color: var(--jf-white);
+}
+.button-gold:hover:not([disabled]) { /* Don't apply hover if disabled */
+/*    background-color: hsl(43, 41%, 40%); /* Slightly darker gold */
+/* } */
+
+/* .button-purple {
+    background-color: var(--jf-purple-primary);
+    color: var(--jf-white);
+}
+.button-purple:hover:not([disabled]) { /* Don't apply hover if disabled */
+/*    background-color: hsl(270, 50%, 35%); /* Slightly darker purple */
+/* } */
+
+/* Style for Completed Module Buttons */
+/* .button.button-completed {
+    background-color: var(--color-success); /* Use success color */
+/*    border-color: var(--color-success);
+    color: var(--jf-white);
+    cursor: default;
+    pointer-events: none; /* Make it non-clickable */
+/*    opacity: 0.8; /* Slightly faded */
+/* } */
+/* .button.button-completed:hover {
+    background-color: var(--color-success); /* Keep same color on hover */
+/*    border-color: var(--color-success);
+    transform: none; /* No scale effect */
+/*    box-shadow: none; /* No shadow effect */
+/* } */
+
+
+/* Large Button */
+/* .button-view-modules {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-lg);
+    border-radius: var(--rounded-lg);
+} */
