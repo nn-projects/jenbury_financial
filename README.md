@@ -4,7 +4,7 @@ A comprehensive web-based financial education platform developed by **BARTA Tech
 
 ## 🌐 Live System Access
 
-**Production URL**: https://github.com/nn-projects/jenbury_financial
+**Production URL**: https://review.jenburyfinancialcourses.u24s2109.iedev.org/
 
 ### Quick Access Accounts
 
@@ -58,7 +58,7 @@ Jenbury Financial's online learning platform helps people learn about finance th
 1. **Get the Code**
    ```bash
    git clone https://github.com/nn-projects/jenbury_financial
-   cd JenburyFina
+   cd JenburyFinance
    ```
 
 2. **Install Required Packages**
