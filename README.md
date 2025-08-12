@@ -226,7 +226,8 @@ This project demonstrates:
 **Created by BARTA Tech for Jenbury Financial**  
 *Empowering financial education through technology*
 
-📧 **Client**: Andrea Jenkins - Jenbury Financial  | URL: https://www.jenbury.com.au
+📧 **Client**: Andrea Jenkins - Jenbury Financial  | URL: https://www.jenbury.com.au  
+
 🏫 **Institution**: Monash University  
 📚 **Unit**: FIT3048 - Industry Experience Studio Project 2
 
