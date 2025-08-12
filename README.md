@@ -24,7 +24,7 @@ Jenbury Financial's online platform provides:
 
 1. Clone the repository:
    ```
-   git clone https://git.infotech.monash.edu/UGIE/ugie-2024/team109/team109-app_fit3048.git
+   git clone https://github.com/nn-projects/jenbury_financial
    cd JenburyFinancial
    ```
 
