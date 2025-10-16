@@ -1,225 +1,118 @@
-# 💼 Jenbury Financial - Financial Education Platform
+# Jenbury Financial  
+*A Business Analyst Portfolio Project integrating business insights, system thinking, and data-driven financial management.*
 
-A comprehensive web-based financial education platform developed by **BARTA Tech** for **Jenbury Financial**, led by Andrea Jenkins. This platform delivers modular financial courses with multimedia content, secure user management, and robust administrative capabilities.
+---
 
-## 🌐 Live System Access
+## Project Overview  
+**Jenbury Financial** is a conceptual fintech solution developed as part of a Business Analyst portfolio project.  
+It demonstrates how a Business Analyst can design, document, and validate a data-driven financial management system that supports **online course operations and profitability tracking**.  
 
-**Production URL**: https://review.jenburyfinancialcourses.u24s2109.iedev.org/
+The project simulates a digital platform for managing **course income, course payments, and profitability analysis**, while emphasizing BA documentation, data modeling, and stakeholder alignment.
 
-### Quick Access Accounts
+---
 
-**👑 Administrator Account**
-- **Email**: `admin@jenburyfinancial.com`
-- **Password**: `Admin123!@#`
+## Business Problem  
+Many online education businesses face challenges managing cash flow, tracking marketing ROI, and understanding which courses are most profitable.  
+Financial data often exists across multiple tools (payment gateways, ad platforms, and course systems), making it difficult to get a single, accurate picture of business performance.  
 
-**👤 Demo User Account**
-- **Email**: `user@example.com`
-- **Password**: `User123!@#`
+**Jenbury Financial** aims to consolidate this information into one structured system that improves financial visibility and decision-making.
 
-> ⚠️ **Important**: Change these passwords immediately in production environments.
+---
 
-## 🎯 What This Platform Does
+## Business Objectives
+- Provide a centralized view of all course-related revenue and expenses.  
+- Automate reporting on profitability per course.  
+- Identify high-performing modules and marketing channels using data insights.  
+- Enable consistent financial tracking to maximize profit margins.  
 
-Jenbury Financial's online learning platform helps people learn about finance through:
+---
 
-- **📚 Easy-to-Follow Courses**: Financial education broken into bite-sized modules
-- **🛒 Flexible Purchasing**: Buy entire courses or just the modules you need
-- **📱 Works Everywhere**: Use on your phone, tablet, or computer
-- **👥 Community Forum**: Ask questions and discuss topics with other learners
-- **📊 Track Your Progress**: See how much you've completed and what's next
-- **💳 Secure Payments**: Safe checkout powered by Stripe
+## Stakeholders
 
-## 🏗️ How It's Built
+| Role | Objective | Key Concern |
+|------|------------|--------------|
+| Business Owner | Understand business performance | Usability, accuracy |
+| Cybersecurity | Ensure the system is secured and free from threats |
+| Developer | Implement and maintain technical components | Clear, traceable requirements |
+| Business Analyst | Ensure alignment between business goals and system design | Scope definition and traceability |
 
-### Core Technology
-- **CakePHP 5.0.6**: Modern PHP framework for web applications
-- **MySQL**: Database to store all information securely
-- **Stripe Integration**: Secure payment processing
-- **Bootstrap**: Responsive design that works on all devices
+---
 
-### Key Features
-- **User Registration & Login**: Secure account creation and access
-- **Course Management**: Add, edit, and organize educational content
-- **Payment System**: Integrated with Stripe for safe transactions
-- **Forum System**: Community discussions with moderation tools
-- **Progress Tracking**: Monitor learning advancement
-- **Admin Dashboard**: Complete control over content and users
+## Key BA Deliverables
 
-## 🚀 Getting Started (For Developers)
+| Deliverable | Description |
+|--------------|-------------|
+| **Business Requirements Document (BRD)** | Defines business needs, objectives, and constraints. |
+| **Process Flow Diagram** | Visualizes the user journey from input to reporting. |
+| **Data Flow Diagram (DFD)** | Illustrates how data moves through the system. |
+| **User Stories & Acceptance Criteria** | Captures user needs and defines measurable outcomes. |
 
-### What You Need
-- PHP 8.1 or newer
-- MySQL 5.7 or newer
-- Composer (PHP package manager)
-- Web server (Apache or Nginx)
+---
 
-### Quick Setup
+## Tools & Technologies
 
-1. **Get the Code**
-   ```bash
-   git clone https://github.com/nn-projects/jenbury_financial
-   cd JenburyFinance
-   ```
+| Category | Tools |
+|-----------|-------|
+| Documentation & Modeling | Lucidchart, Miro, Balsamig |
+| Data Analysis | Excel, Power BI, SQL |
+| Collaboration | Trello |
+| Version Control | Git, GitHub |
 
-2. **Install Required Packages**
-   ```bash
-   composer install
-   ```
+---
 
-3. **Set Up Database**
-   ```bash
-   # Create database
-   mysql -u root -p -e "CREATE DATABASE jenbury_financial;"
-   
-   # Import sample data
-   mysql -u username -p jenbury_financial < config/sample_data.sql
-   ```
+## System Overview  
 
-4. **Configure Database Connection**
-   - Copy `config/app_local.example.php` to `config/app_local.php`
-   - Edit the database settings with your credentials
+**Core Components**
+- **Frontend (Conceptual):** User dashboard for financial visualization  
+- **Backend (Simulated):** Python scripts handling transaction data  
+- **Database (Sample):** CSV or SQLite storing income and expenses  
+- **Analytics Layer:** Power BI dashboard for trend analysis and KPIs  
 
-5. **Start the Application**
-   ```bash
-   bin/cake server
-   ```
+**Key Performance Indicators (KPIs)**
+- Monthly net income  
+- Expense distribution by category  
+- Average transaction value  
+- Registered user 
+---
 
-6. **Access Your Site**
-   - Frontend: http://localhost:8765/
-   - Admin Panel: http://localhost:8765/admin
+## Sample User Stories
+- As an admin, I want to create and manage course content in a modular format so that financial education is delivered in an engaging,
+  structured manner 
+- As a user, I want my dashboard to update automatically each week so I can monitor progress easily.
+- As a student, I want to purchase courses securely and gain access based on my purchase so that I can learn without interruption.
+  
+---
 
-## 👥 How to Use the Platform
+## Business Rules
+- Each transaction must belong to exactly one financial category.  
+- Total income minus total expenses equals monthly net balance.  
+- Users must authenticate before accessing financial data.  
+- Expense reports must reconcile with database totals.  
 
-### For Students
+---
 
-**Getting Started**
-1. Visit the website and click "Register"
-2. Fill in your details and create a secure password
-3. Check your email and log in
+## Project Roadmap
 
-**Learning Process**
-1. Browse available financial courses
-2. Add courses or individual modules to your cart
-3. Complete secure checkout with Stripe
-4. Access your purchased content immediately
-5. Track your progress as you learn
+| Phase | Focus | Deliverables |
+|-------|--------|--------------|
+| **Phase 1** | Data capture and validation | Mock dataset, Data Flow Diagram |
+| **Phase 2** | Visualization and reporting | Power BI dashboard |
+| **Phase 3** | System integration | Simulated API and system documentation |
+| **Phase 4** | BA refinement | Final BRD, stakeholder feedback, project review |
 
-**Community Features**
-- Join forum discussions about financial topics
-- Ask questions and get help from other users
-- Share your learning experiences
+---
 
-### For Administrators
+## Key Learnings
+- Translating business objectives into measurable functional requirements.  
+- Managing requirement traceability across documents and deliverables.  
+- Applying analytical and visualization tools to support business decision-making.  
+- Using structured documentation to enhance cross-functional collaboration.  
 
-**Managing Content**
-1. Log into the admin panel at `/admin`
-2. Create new courses with detailed descriptions
-3. Add modules and lessons with multimedia content
-4. Set pricing for courses and individual modules
-5. Monitor user progress and engagement
-
-**User Management**
-- View all registered users
-- Edit user information and permissions
-- Track user statistics and learning progress
-- Handle customer support inquiries
-
-**Forum Moderation**
-- Create discussion categories
-- Approve/disapprove posts and threads
-- Lock threads when necessary
-- Maintain community standards
-
-## 📁 How the Code is Organized
-
-```
-jenbury-financial/
-├── 📂 src/                    # Main application code
-│   ├── 📂 Controller/         # Handles user requests
-│   ├── 📂 Model/             # Database interactions
-│   └── 📂 View/              # Not used (see templates/)
-├── 📂 templates/             # Web pages users see
-│   ├── 📂 Admin/             # Admin panel pages
-│   └── 📂 Pages/             # Public website pages
-├── 📂 webroot/               # Images, CSS, and JavaScript
-│   ├── 📂 css/               # Styling files
-│   ├── 📂 js/                # Interactive features
-│   └── 📂 img/               # Pictures and icons
-├── 📂 config/                # Settings and database setup
-└── 📂 logs/                  # Error logs and debugging
-```
-
-## 🔧 Key System Features
-
-### Course Management
-- **Modular Structure**: Courses → Modules → Individual Lessons
-- **Multimedia Support**: Videos (MP4, WebM), documents (PDF, DOCX), images
-- **Rich Text Editor**: CKEditor for formatting lesson content
-- **Progress Tracking**: Automatic progress monitoring per user
-
-### Payment System
-- **Stripe Integration**: Secure credit card processing
-- **Flexible Pricing**: Course bundles or individual module purchases
-- **Discount Codes**: Promotional pricing with percentage discounts
-- **Purchase History**: Complete transaction records
-
-### User Management
-- **Secure Authentication**: Password hashing and session management
-- **Role-Based Access**: Different permissions for students and admins
-- **Profile Management**: Users can update their information
-- **Password Reset**: Secure password recovery via email
-
-### Forum System
-- **Category Organization**: Structured discussion topics
-- **Thread Management**: Create, edit, lock, and sticky threads
-- **Post Moderation**: Approve/disapprove posts for quality control
-- **User Permissions**: Users can edit their own posts and threads
-
-## 🛡️ Security Features
-
-- **Secure Passwords**: Minimum 8 characters with special characters required
-- **HTTPS Ready**: Secure data transmission
-- **SQL Injection Protection**: Safe database queries
-- **Payment Security**: PCI-compliant via Stripe
-- **Session Security**: Automatic logout and secure session handling
-
-## 📊 System Statistics
-
-The admin dashboard provides:
-- Total number of registered users
-- Course and module completion rates
-- Revenue tracking and purchase analytics
-- User engagement metrics
-- Forum activity monitoring
+---
 
 
-## 👨‍💻 Development Team
-
-**BARTA Tech - Team 109**
-*FIT3048 Industry Experience Studio Project 2, Monash University*
-
-This platform was developed as part of an educational project, showcasing modern web development practices and real-world application deployment.
-
-## 📄 License
-
-This project is **proprietary and confidential** to Jenbury Financial.
-
-- Educational use within FIT3048 is permitted
-- Commercial distribution requires explicit permission
-- Code review by authorized academic staff is allowed
-- All rights reserved to the development team and client
-
-## 🎓 Learning Outcomes
-
-This project demonstrates:
-- Modern PHP web development with CakePHP
-- Database design and management
-- Payment system integration
-- User authentication and authorization
-- Content management systems
-- Forum and community features
-- Responsive web design
-- Security best practices
+## Outcome  
+This project demonstrates the **end-to-end workflow of a Business Analyst** — from understanding a business problem, gathering and modeling requirements, to conceptualizing a data-driven solution and communicating it effectively to both business and technical stakeholders.
 
 ---
 
@@ -230,4 +123,7 @@ This project demonstrates:
 🏫 **Institution**: Monash University  
 📚 **Unit**: FIT3048 - Industry Experience Studio Project 2
 
-*Last Updated: Aug 2025 | Version 1.1*
+*Last Updated: Aug 2025 | Version 1.2*
+---
+
+
