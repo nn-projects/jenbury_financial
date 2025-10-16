@@ -32,7 +32,7 @@ Financial data often exists across multiple tools (payment gateways, ad platform
 | Role | Objective | Key Concern |
 |------|------------|--------------|
 | Business Owner | Understand business performance | Usability, accuracy |
-| Cybersecurity | Ensure the system is secured and free from threats |
+| Cybersecurity | Ensure the system is secured and free from threats | System security
 | Developer | Implement and maintain technical components | Clear, traceable requirements |
 | Business Analyst | Ensure alignment between business goals and system design | Scope definition and traceability |
 
